@@ -18,5 +18,379 @@
     "crumbs": [
       "SHAP 문서에 오신 것을 환영합니다"
     ]
+  },
+  {
+    "objectID": "overviews.html",
+    "href": "overviews.html",
+    "title": "1  주제별 개요",
+    "section": "",
+    "text": "이 개요는 Jupyter 노트북에서 생성되었으며, GitHub에서 확인할 수 있습니다.\n\n참고: 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.\n\n\n예제 노트북 (GitHub)",
+    "crumbs": [
+      "소개 (Introduction)",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>주제별 개요</span>"
+    ]
+  },
+  {
+    "objectID": "tabular_examples.html",
+    "href": "tabular_examples.html",
+    "title": "2  표 형식 데이터 예제",
+    "section": "",
+    "text": "2.1 트리 기반 모델 (Tree-based models)\n이 예제들은 표 형식 데이터에 적용된 머신러닝 모델을 설명합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 GitHub에서 확인할 수 있습니다.\n트리 기반 머신러닝 모델을 설명하는 방법을 보여주는 예제입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>표 형식 데이터 예제</span>"
+    ]
+  },
+  {
+    "objectID": "tabular_examples.html#선형-모델-linear-models",
+    "href": "tabular_examples.html#선형-모델-linear-models",
+    "title": "2  표 형식 데이터 예제",
+    "section": "2.2 선형 모델 (Linear models)",
+    "text": "2.2 선형 모델 (Linear models)\n선형 머신러닝 모델을 설명하는 방법을 보여주는 예제입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>표 형식 데이터 예제</span>"
+    ]
+  },
+  {
+    "objectID": "tabular_examples.html#신경망-neural-networks",
+    "href": "tabular_examples.html#신경망-neural-networks",
+    "title": "2  표 형식 데이터 예제",
+    "section": "2.3 신경망 (Neural networks)",
+    "text": "2.3 신경망 (Neural networks)\n신경망 기반 머신러닝 모델을 설명하는 방법을 보여주는 예제입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>표 형식 데이터 예제</span>"
+    ]
+  },
+  {
+    "objectID": "tabular_examples.html#모델-불가지론적-model-agnostic",
+    "href": "tabular_examples.html#모델-불가지론적-model-agnostic",
+    "title": "2  표 형식 데이터 예제",
+    "section": "2.4 모델 불가지론적 (Model agnostic)",
+    "text": "2.4 모델 불가지론적 (Model agnostic)\n임의의 머신러닝 파이프라인을 설명하는 방법을 보여주는 예제입니다.\n\n참고: 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>표 형식 데이터 예제</span>"
+    ]
+  },
+  {
+    "objectID": "text_examples.html",
+    "href": "text_examples.html",
+    "title": "3  텍스트 예제",
+    "section": "",
+    "text": "3.1 감성 분석 (Sentiment analysis)\n이 예제들은 텍스트 데이터에 적용된 머신러닝 모델을 설명합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 GitHub에서 확인할 수 있습니다.\n감성 분석 모델의 예측을 설명하는 방법입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>텍스트 예제</span>"
+    ]
+  },
+  {
+    "objectID": "text_examples.html#번역-translation",
+    "href": "text_examples.html#번역-translation",
+    "title": "3  텍스트 예제",
+    "section": "3.2 번역 (Translation)",
+    "text": "3.2 번역 (Translation)\n번역 모델의 예측을 설명하는 방법입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>텍스트 예제</span>"
+    ]
+  },
+  {
+    "objectID": "text_examples.html#텍스트-생성-text-generation",
+    "href": "text_examples.html#텍스트-생성-text-generation",
+    "title": "3  텍스트 예제",
+    "section": "3.3 텍스트 생성 (Text generation)",
+    "text": "3.3 텍스트 생성 (Text generation)\n텍스트 생성 모델의 예측을 설명하는 방법입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>텍스트 예제</span>"
+    ]
+  },
+  {
+    "objectID": "text_examples.html#요약-summarization",
+    "href": "text_examples.html#요약-summarization",
+    "title": "3  텍스트 예제",
+    "section": "3.4 요약 (Summarization)",
+    "text": "3.4 요약 (Summarization)\n요약 모델의 예측을 설명하는 방법입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>텍스트 예제</span>"
+    ]
+  },
+  {
+    "objectID": "text_examples.html#질의응답-question-answering",
+    "href": "text_examples.html#질의응답-question-answering",
+    "title": "3  텍스트 예제",
+    "section": "3.5 질의응답 (Question Answering)",
+    "text": "3.5 질의응답 (Question Answering)\n질의응답 모델의 예측을 설명하는 방법입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>텍스트 예제</span>"
+    ]
+  },
+  {
+    "objectID": "text_examples.html#언어-모델링-language-modelling",
+    "href": "text_examples.html#언어-모델링-language-modelling",
+    "title": "3  텍스트 예제",
+    "section": "3.6 언어 모델링 (Language modelling)",
+    "text": "3.6 언어 모델링 (Language modelling)\n언어 모델의 예측을 설명하는 방법입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>텍스트 예제</span>"
+    ]
+  },
+  {
+    "objectID": "text_examples.html#텍스트-함의-text-entailment",
+    "href": "text_examples.html#텍스트-함의-text-entailment",
+    "title": "3  텍스트 예제",
+    "section": "3.7 텍스트 함의 (Text entailment)",
+    "text": "3.7 텍스트 함의 (Text entailment)\n텍스트 함의 모델의 예측을 설명하는 방법입니다.\n\n참고: 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>텍스트 예제</span>"
+    ]
+  },
+  {
+    "objectID": "image_examples.html",
+    "href": "image_examples.html",
+    "title": "4  이미지 예제",
+    "section": "",
+    "text": "4.1 이미지 분류 (Image classification)\n이 예제들은 이미지 데이터에 적용된 머신러닝 모델을 설명합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 GitHub에서 확인할 수 있습니다.\nshap.explainers.Partition을 사용하여 이미지 분류기를 설명하는 예제입니다.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>이미지 예제</span>"
+    ]
+  },
+  {
+    "objectID": "image_examples.html#이미지-캡셔닝-image-captioning",
+    "href": "image_examples.html#이미지-캡셔닝-image-captioning",
+    "title": "4  이미지 예제",
+    "section": "4.2 이미지 캡셔닝 (Image captioning)",
+    "text": "4.2 이미지 캡셔닝 (Image captioning)\nshap.explainers.Permutation을 사용하여 모델 불가지론적 방식으로 설명을 생성하는 예제입니다.\n\n참고: 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>이미지 예제</span>"
+    ]
+  },
+  {
+    "objectID": "genomic_examples.html",
+    "href": "genomic_examples.html",
+    "title": "5  유전체학 예제 (Genomic examples)",
+    "section": "",
+    "text": "이 예제들은 유전체 데이터에 적용된 머신러닝 모델을 설명합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 GitHub에서 확인할 수 있습니다.\n\n참고: 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.",
+    "crumbs": [
+      "예제 (Examples)",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>유전체학 예제 (Genomic examples)</span>"
+    ]
+  },
+  {
+    "objectID": "api.html",
+    "href": "api.html",
+    "title": "6  API 참조",
+    "section": "",
+    "text": "6.1 설명 (Explanation)\n이 페이지는 SHAP의 공개 객체 및 함수에 대한 API 참조를 포함합니다. 각 객체/함수의 API 사용법을 보여주는 예제 노트북 (API 예제)도 제공됩니다.\nshap.Explanation 및 shap.Cohorts와 같은 설명 객체입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>API 참조</span>"
+    ]
+  },
+  {
+    "objectID": "api.html#설명자-explainers",
+    "href": "api.html#설명자-explainers",
+    "title": "6  API 참조",
+    "section": "6.2 설명자 (Explainers)",
+    "text": "6.2 설명자 (Explainers)\nshap.Explainer, shap.TreeExplainer, shap.LinearExplainer 등 다양한 설명자 클래스입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>API 참조</span>"
+    ]
+  },
+  {
+    "objectID": "api.html#플롯-plots",
+    "href": "api.html#플롯-plots",
+    "title": "6  API 참조",
+    "section": "6.3 플롯 (Plots)",
+    "text": "6.3 플롯 (Plots)\nshap.plots.bar, shap.plots.waterfall 등 시각화 함수입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>API 참조</span>"
+    ]
+  },
+  {
+    "objectID": "api.html#마스커-maskers",
+    "href": "api.html#마스커-maskers",
+    "title": "6  API 참조",
+    "section": "6.4 마스커 (Maskers)",
+    "text": "6.4 마스커 (Maskers)\n입력 데이터를 마스킹하는 데 사용되는 클래스입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>API 참조</span>"
+    ]
+  },
+  {
+    "objectID": "api.html#모델-models",
+    "href": "api.html#모델-models",
+    "title": "6  API 참조",
+    "section": "6.5 모델 (Models)",
+    "text": "6.5 모델 (Models)\nshap.models.Model 등 모델 래퍼 클래스입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>API 참조</span>"
+    ]
+  },
+  {
+    "objectID": "api.html#유틸리티-utils",
+    "href": "api.html#유틸리티-utils",
+    "title": "6  API 참조",
+    "section": "6.6 유틸리티 (Utils)",
+    "text": "6.6 유틸리티 (Utils)\n다양한 유틸리티 함수입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>API 참조</span>"
+    ]
+  },
+  {
+    "objectID": "api.html#데이터셋-datasets",
+    "href": "api.html#데이터셋-datasets",
+    "title": "6  API 참조",
+    "section": "6.7 데이터셋 (Datasets)",
+    "text": "6.7 데이터셋 (Datasets)\nshap.datasets 모듈에서 제공하는 예제 데이터셋입니다.\n\n참고: 자동 생성된 API 문서는 현재 포함되지 않았습니다. 원본 문서를 참조해 주세요.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>API 참조</span>"
+    ]
+  },
+  {
+    "objectID": "api_examples.html",
+    "href": "api_examples.html",
+    "title": "7  API 예제",
+    "section": "",
+    "text": "7.1 설명자 (Explainers)\n이 예제들은 SHAP의 네임스페이스 구조를 따릅니다. SHAP의 각 객체 또는 함수에는 API 사용법을 보여주는 해당 예제 노트북이 있습니다. 원본 노트북은 GitHub에서 확인할 수 있습니다.\nshap.explainers 멤버에 대한 예제입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>API 예제</span>"
+    ]
+  },
+  {
+    "objectID": "api_examples.html#마스커-maskers",
+    "href": "api_examples.html#마스커-maskers",
+    "title": "7  API 예제",
+    "section": "7.2 마스커 (Maskers)",
+    "text": "7.2 마스커 (Maskers)\nshap.maskers 멤버에 대한 예제입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>API 예제</span>"
+    ]
+  },
+  {
+    "objectID": "api_examples.html#모델-models",
+    "href": "api_examples.html#모델-models",
+    "title": "7  API 예제",
+    "section": "7.3 모델 (Models)",
+    "text": "7.3 모델 (Models)\nshap.models 멤버에 대한 예제입니다. (작업 중)",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>API 예제</span>"
+    ]
+  },
+  {
+    "objectID": "api_examples.html#플롯-plots",
+    "href": "api_examples.html#플롯-plots",
+    "title": "7  API 예제",
+    "section": "7.4 플롯 (Plots)",
+    "text": "7.4 플롯 (Plots)\nshap.plots 멤버에 대한 예제입니다.\n\n참고: 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>API 예제</span>"
+    ]
+  },
+  {
+    "objectID": "benchmarks.html",
+    "href": "benchmarks.html",
+    "title": "8  벤치마크 (Benchmarks)",
+    "section": "",
+    "text": "8.1 이미지 (Image)\n이 벤치마크 노트북들은 다양한 지표를 통해 여러 유형의 설명자(explainer)를 비교합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 GitHub에서 확인할 수 있습니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>벤치마크 (Benchmarks)</span>"
+    ]
+  },
+  {
+    "objectID": "benchmarks.html#표-형식-데이터-tabular",
+    "href": "benchmarks.html#표-형식-데이터-tabular",
+    "title": "8  벤치마크 (Benchmarks)",
+    "section": "8.2 표 형식 데이터 (Tabular)",
+    "text": "8.2 표 형식 데이터 (Tabular)\n표 형식 데이터셋에서 설명자를 비교하는 벤치마크입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>벤치마크 (Benchmarks)</span>"
+    ]
+  },
+  {
+    "objectID": "benchmarks.html#텍스트-text",
+    "href": "benchmarks.html#텍스트-text",
+    "title": "8  벤치마크 (Benchmarks)",
+    "section": "8.3 텍스트 (Text)",
+    "text": "8.3 텍스트 (Text)\n텍스트 데이터셋에서 설명자를 비교하는 벤치마크입니다.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>벤치마크 (Benchmarks)</span>"
+    ]
+  },
+  {
+    "objectID": "benchmarks.html#기타-others",
+    "href": "benchmarks.html#기타-others",
+    "title": "8  벤치마크 (Benchmarks)",
+    "section": "8.4 기타 (Others)",
+    "text": "8.4 기타 (Others)\n\n참고: 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.",
+    "crumbs": [
+      "참조 (Reference)",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>벤치마크 (Benchmarks)</span>"
+    ]
+  },
+  {
+    "objectID": "release_notes.html",
+    "href": "release_notes.html",
+    "title": "9  릴리스 노트",
+    "section": "",
+    "text": "다음 릴리스에 예정된 최신 변경 사항은 GitHub에서 확인할 수 있습니다.\n\nGitHub 릴리스\nPyPI\n\n\n참고: 자동 생성된 변경 로그는 현재 포함되지 않았습니다. 원본 문서를 참조해 주세요.",
+    "crumbs": [
+      "개발 (Development)",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>릴리스 노트</span>"
+    ]
+  },
+  {
+    "objectID": "contributing.html",
+    "href": "contributing.html",
+    "title": "10  기여 가이드라인",
+    "section": "",
+    "text": "10.1 소개\nSHAP에 기여해 주셔서 감사합니다. SHAP은 오픈 소스 집단 노력의 산물이며, 모든 형태의 기여를 환영합니다!\n다음과 같은 방법으로 기여할 수 있습니다:\n시작하기 좋은 곳을 찾고 있다면 good first issue 레이블이 붙은 이슈를 찾아보세요.",
+    "crumbs": [
+      "개발 (Development)",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>기여 가이드라인</span>"
+    ]
+  },
+  {
+    "objectID": "contributing.html#소개",
+    "href": "contributing.html#소개",
+    "title": "10  기여 가이드라인",
+    "section": "",
+    "text": "GitHub 이슈 트래커에 버그 리포트 및 기능 요청 제출\n풀 리퀘스트를 통해 수정 사항 및 개선 사항 기여\n토론 포럼에서 아이디어 및 질문 논의",
+    "crumbs": [
+      "개발 (Development)",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>기여 가이드라인</span>"
+    ]
+  },
+  {
+    "objectID": "contributing.html#도움이-되는-버그-리포트-작성하기",
+    "href": "contributing.html#도움이-되는-버그-리포트-작성하기",
+    "title": "10  기여 가이드라인",
+    "section": "10.2 도움이 되는 버그 리포트 작성하기",
+    "text": "10.2 도움이 되는 버그 리포트 작성하기\n이슈 트래커에 버그 리포트를 제출할 때, 메인테이너를 위해 좋은 최소 재현 가능 예제 (Minimal Reproducible Example, MRE)를 포함하는 것이 매우 도움이 됩니다.\nMRE는 다음과 같아야 합니다:\n\n최소한 (Minimal): 동일한 문제를 발생시키는 가능한 적은 코드를 사용하세요.\n자급자족 (Self-contained): import문과 입력 데이터를 포함하여 문제를 재현하는 데 필요한 모든 것을 포함하세요.\n재현 가능 (Reproducible): 제공하려는 코드가 문제를 재현하는지 테스트하세요.\n\n자세한 내용은 최소 버그 리포트 작성법을 참조하세요.\n\n참고: 이 문서는 CONTRIBUTING.md의 내용을 기반으로 번역되었습니다. 자세한 내용은 원본 문서를 참조해 주세요.",
+    "crumbs": [
+      "개발 (Development)",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>기여 가이드라인</span>"
+    ]
   }
 ]

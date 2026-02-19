@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Scott Lundberg (Translated)">
-<meta name="dcterms.date" content="2026-02-19">
 
-<title>SHAP 문서 (한국어)</title>
+<title>1&nbsp; 주제별 개요 – SHAP 문서 (한국어)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -67,7 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./overviews.html" rel="next">
+<link href="./tabular_examples.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -119,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">SHAP 문서에 오신 것을 환영합니다</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./overviews.html">소개 (Introduction)</a></li><li class="breadcrumb-item"><a href="./overviews.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">주제별 개요</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SHAP 문서에 오신 것을 환영합니다</span></a>
   </div>
 </li>
@@ -161,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overviews.html" class="sidebar-item-text sidebar-link">
+  <a href="./overviews.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">주제별 개요</span></span></a>
   </div>
 </li>
@@ -259,43 +223,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#shap-문서에-오신-것을-환영합니다" id="toc-shap-문서에-오신-것을-환영합니다" class="nav-link active" data-scroll-target="#shap-문서에-오신-것을-환영합니다">SHAP 문서에 오신 것을 환영합니다</a>
-  <ul class="collapse">
-  <li><a href="#설치" id="toc-설치" class="nav-link" data-scroll-target="#설치">설치</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./overviews.html">소개 (Introduction)</a></li><li class="breadcrumb-item"><a href="./overviews.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">주제별 개요</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">SHAP 문서 (한국어)</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">주제별 개요</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Scott Lundberg (Translated) </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 19, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -305,24 +248,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="shap-문서에-오신-것을-환영합니다" class="level1 unnumbered">
-<h1 class="unnumbered">SHAP 문서에 오신 것을 환영합니다</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../docs/artwork/shap_header.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
-</figure>
-</div>
-<p><strong>SHAP (SHapley Additive exPlanations)</strong>는 머신러닝 모델의 출력을 설명하기 위한 게임 이론적 접근 방식입니다. 이는 게임 이론의 고전적인 Shapley 값과 관련 확장 기능을 사용하여 최적의 크레딧 할당을 로컬 설명과 연결합니다(자세한 내용과 인용은 <a href="https://github.com/shap/shap#citations">논문</a> 참조).</p>
-<section id="설치" class="level2">
-<h2 class="anchored" data-anchor-id="설치">설치</h2>
-<p>SHAP은 <a href="https://pypi.org/project/shap">PyPI</a> 또는 <a href="https://anaconda.org/conda-forge/shap">conda-forge</a>에서 설치할 수 있습니다.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install shap</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 또는</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge shap</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>이 개요는 Jupyter 노트북에서 생성되었으며, GitHub에서 <a href="https://github.com/shap/shap/tree/master/notebooks/overviews">확인할 수 있습니다</a>.</p>
+<blockquote class="blockquote">
+<p><strong>참고:</strong> 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/shap/shap/tree/master/notebooks/overviews">예제 노트북 (GitHub)</a></li>
+</ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -727,10 +661,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="SHAP 문서에 오신 것을 환영합니다">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SHAP 문서에 오신 것을 환영합니다</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./overviews.html" class="pagination-link" aria-label="주제별 개요">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">주제별 개요</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tabular_examples.html" class="pagination-link" aria-label="표 형식 데이터 예제">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">표 형식 데이터 예제</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
