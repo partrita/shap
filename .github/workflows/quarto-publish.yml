@@ -3,7 +3,8 @@ name: Quarto Publish
 on:
   push:
     branches:
-      - quarto-book
+      - quarto-book*
+  workflow_dispatch:
 
 jobs:
   build-deploy:
