@@ -1,0 +1,21 @@
+# API 예제
+
+이 예제들은 SHAP의 네임스페이스 구조를 따릅니다. SHAP의 각 객체 또는 함수에는 API 사용법을 보여주는 해당 예제 노트북이 있습니다. 원본 노트북은 [GitHub에서 확인](https://github.com/shap/shap/tree/master/notebooks/api_examples)할 수 있습니다.
+
+## 설명자 (Explainers)
+
+`shap.explainers` 멤버에 대한 예제입니다.
+
+## 마스커 (Maskers)
+
+`shap.maskers` 멤버에 대한 예제입니다.
+
+## 모델 (Models)
+
+`shap.models` 멤버에 대한 예제입니다. (작업 중)
+
+## 플롯 (Plots)
+
+`shap.plots` 멤버에 대한 예제입니다.
+
+> **참고:** 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.
