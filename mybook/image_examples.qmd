@@ -1,0 +1,13 @@
+# 이미지 예제
+
+이 예제들은 이미지 데이터에 적용된 머신러닝 모델을 설명합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 [GitHub에서 확인](https://github.com/shap/shap/tree/master/notebooks/image_examples)할 수 있습니다.
+
+## 이미지 분류 (Image classification)
+
+`shap.explainers.Partition`을 사용하여 이미지 분류기를 설명하는 예제입니다.
+
+## 이미지 캡셔닝 (Image captioning)
+
+`shap.explainers.Permutation`을 사용하여 모델 불가지론적 방식으로 설명을 생성하는 예제입니다.
+
+> **참고:** 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.

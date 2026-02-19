@@ -1,0 +1,5 @@
+# 유전체학 예제 (Genomic examples)
+
+이 예제들은 유전체 데이터에 적용된 머신러닝 모델을 설명합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 [GitHub에서 확인](https://github.com/shap/shap/tree/master/notebooks/genomic_examples)할 수 있습니다.
+
+> **참고:** 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.

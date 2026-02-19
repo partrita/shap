@@ -1,0 +1,34 @@
+# API 참조
+
+이 페이지는 SHAP의 공개 객체 및 함수에 대한 API 참조를 포함합니다.
+각 객체/함수의 API 사용법을 보여주는 [예제 노트북 (API 예제)](api_examples.qmd)도 제공됩니다.
+
+## 설명 (Explanation)
+
+`shap.Explanation` 및 `shap.Cohorts`와 같은 설명 객체입니다.
+
+## 설명자 (Explainers)
+
+`shap.Explainer`, `shap.TreeExplainer`, `shap.LinearExplainer` 등 다양한 설명자 클래스입니다.
+
+## 플롯 (Plots)
+
+`shap.plots.bar`, `shap.plots.waterfall` 등 시각화 함수입니다.
+
+## 마스커 (Maskers)
+
+입력 데이터를 마스킹하는 데 사용되는 클래스입니다.
+
+## 모델 (Models)
+
+`shap.models.Model` 등 모델 래퍼 클래스입니다.
+
+## 유틸리티 (Utils)
+
+다양한 유틸리티 함수입니다.
+
+## 데이터셋 (Datasets)
+
+`shap.datasets` 모듈에서 제공하는 예제 데이터셋입니다.
+
+> **참고:** 자동 생성된 API 문서는 현재 포함되지 않았습니다. 원본 문서를 참조해 주세요.

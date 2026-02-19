@@ -1,0 +1,17 @@
+# 벤치마크 (Benchmarks)
+
+이 벤치마크 노트북들은 다양한 지표를 통해 여러 유형의 설명자(explainer)를 비교합니다. 모든 예제는 Jupyter 노트북으로 생성되었으며 [GitHub에서 확인](https://github.com/shap/shap/tree/master/notebooks/benchmarks)할 수 있습니다.
+
+## 이미지 (Image)
+
+## 표 형식 데이터 (Tabular)
+
+표 형식 데이터셋에서 설명자를 비교하는 벤치마크입니다.
+
+## 텍스트 (Text)
+
+텍스트 데이터셋에서 설명자를 비교하는 벤치마크입니다.
+
+## 기타 (Others)
+
+> **참고:** 세부 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.

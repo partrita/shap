@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "SHAP 문서 (한국어)"
+  author: "Scott Lundberg (Translated)"
+  date: "last-modified"
+  chapters:
+    - index.qmd
+    - part: "소개 (Introduction)"
+      chapters:
+        - overviews.qmd
+    - part: "예제 (Examples)"
+      chapters:
+        - tabular_examples.qmd
+        - text_examples.qmd
+        - image_examples.qmd
+        - genomic_examples.qmd
+    - part: "참조 (Reference)"
+      chapters:
+        - api.qmd
+        - api_examples.qmd
+        - benchmarks.qmd
+    - part: "개발 (Development)"
+      chapters:
+        - release_notes.qmd
+        - contributing.qmd
+
+format:
+  html:
+    theme: cosmo

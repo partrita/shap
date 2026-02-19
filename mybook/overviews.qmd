@@ -1,0 +1,7 @@
+# 주제별 개요
+
+이 개요는 Jupyter 노트북에서 생성되었으며, GitHub에서 [확인할 수 있습니다](https://github.com/shap/shap/tree/master/notebooks/overviews).
+
+> **참고:** 노트북 예제는 아직 번역되지 않았습니다. 원본 노트북을 참조해 주세요.
+
+- [예제 노트북 (GitHub)](https://github.com/shap/shap/tree/master/notebooks/overviews)
