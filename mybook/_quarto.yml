@@ -1,0 +1,14 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "SHAP 문서 (한국어)"
+  author: "Scott Lundberg (Translated)"
+  date: "last-modified"
+  chapters:
+    - index.qmd
+
+format:
+  html:
+    theme: cosmo
