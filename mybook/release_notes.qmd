@@ -3,5 +3,5 @@
 다음 릴리스에 예정된 최신 변경 사항을 보려면 다음을 참조하세요.
 [[\|unreleasedchanges\|](##SUBST##|unreleasedchanges|)]().
 
-::: {.changelogchangelog-url="https://shap.readthedocs.io/en/latest/release_notes.html" github="https://github.com/shap/shap/releases/" pypi="https://pypi.org/project/shap/"}
+::: {.changelog changelog-url="https://shap.readthedocs.io/en/latest/release_notes.html" github="https://github.com/shap/shap/releases/" pypi="https://pypi.org/project/shap/"}
 :::
