@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - quarto-book
-    paths:
-      - 'mybook/**'
-      - '.github/workflows/deploy_mybook.yml'
   workflow_dispatch:
 
 permissions:
