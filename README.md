@@ -6,7 +6,7 @@
 
 ---
 [![PyPI](https://img.shields.io/pypi/v/shap)](https://pypi.org/project/shap/)
-[![Conda](https://img.shields.io/conda/vn/conda-forge/shap)](https://anaconda.org/conda-forge/shap)
+[![Conda](https://img.shields.io/conda/v/conda-forge/shap)](https://anaconda.org/conda-forge/shap)
 ![License](https://img.shields.io/github/license/shap/shap)
 ![Tests](https://github.com/shap/shap/actions/workflows/run_tests.yml/badge.svg)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/shap/shap/master)
