@@ -111,4 +111,5 @@ format:
   html:
     theme:
       - cosmo
+    html-table-processing: none
 
