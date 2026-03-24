@@ -976,121 +976,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">boosting</th>
-<th data-quarto-table-cell-role="th">catboost</th>
-<th data-quarto-table-cell-role="th">lightgbm</th>
-<th data-quarto-table-cell-role="th">xgboost</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">test_size</th>
-<th data-quarto-table-cell-role="th">depth</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th rowspan="5" data-quarto-table-cell-role="th" data-valign="top">1000</th>
-<th data-quarto-table-cell-role="th">2</th>
-<td>0.311027</td>
-<td>0.090156</td>
-<td>0.112515</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">4</th>
-<td>0.281931</td>
-<td>0.578531</td>
-<td>0.300671</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">6</th>
-<td>0.464603</td>
-<td>4.159926</td>
-<td>1.468442</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">8</th>
-<td>4.918599</td>
-<td>23.844245</td>
-<td>7.847191</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">10</th>
-<td>93.152000</td>
-<td>119.527824</td>
-<td>30.872254</td>
-</tr>
-<tr class="even">
-<th rowspan="5" data-quarto-table-cell-role="th" data-valign="top">5000</th>
-<th data-quarto-table-cell-role="th">2</th>
-<td>1.171963</td>
-<td>0.284673</td>
-<td>0.241316</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>1.081119</td>
-<td>2.094985</td>
-<td>0.931881</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">6</th>
-<td>1.319114</td>
-<td>20.624486</td>
-<td>6.498283</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">8</th>
-<td>5.807985</td>
-<td>118.552238</td>
-<td>38.992395</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">10</th>
-<td>95.049909</td>
-<td>601.251603</td>
-<td>153.408904</td>
-</tr>
-<tr class="odd">
-<th rowspan="5" data-quarto-table-cell-role="th" data-valign="top">10000</th>
-<th data-quarto-table-cell-role="th">2</th>
-<td>2.048301</td>
-<td>0.621454</td>
-<td>0.509722</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">4</th>
-<td>2.263058</td>
-<td>4.291201</td>
-<td>1.935541</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">6</th>
-<td>2.396371</td>
-<td>42.788038</td>
-<td>12.981580</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">8</th>
-<td>7.078056</td>
-<td>240.614644</td>
-<td>77.883250</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">10</th>
-<td>95.680684</td>
-<td>1189.685032</td>
-<td>306.529277</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped small">
+  <thead>
+    <tr>
+      <th></th>
+      <th>boosting</th>
+      <th>catboost</th>
+      <th>lightgbm</th>
+      <th>xgboost</th>
+    </tr>
+    <tr>
+      <th>test_size</th>
+      <th>depth</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1000</th>
+      <th>2</th>
+      <td>0.311027</td>
+      <td>0.090156</td>
+      <td>0.112515</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.281931</td>
+      <td>0.578531</td>
+      <td>0.300671</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.464603</td>
+      <td>4.159926</td>
+      <td>1.468442</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4.918599</td>
+      <td>23.844245</td>
+      <td>7.847191</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>93.152000</td>
+      <td>119.527824</td>
+      <td>30.872254</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">5000</th>
+      <th>2</th>
+      <td>1.171963</td>
+      <td>0.284673</td>
+      <td>0.241316</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.081119</td>
+      <td>2.094985</td>
+      <td>0.931881</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.319114</td>
+      <td>20.624486</td>
+      <td>6.498283</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>5.807985</td>
+      <td>118.552238</td>
+      <td>38.992395</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>95.049909</td>
+      <td>601.251603</td>
+      <td>153.408904</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">10000</th>
+      <th>2</th>
+      <td>2.048301</td>
+      <td>0.621454</td>
+      <td>0.509722</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.263058</td>
+      <td>4.291201</td>
+      <td>1.935541</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2.396371</td>
+      <td>42.788038</td>
+      <td>12.981580</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>7.078056</td>
+      <td>240.614644</td>
+      <td>77.883250</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>95.680684</td>
+      <td>1189.685032</td>
+      <td>306.529277</td>
+    </tr>
+  </tbody>
 </table>
-
 </div>
 </div>
 </div>
@@ -1099,44 +1097,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">boosting</th>
-<th data-quarto-table-cell-role="th">catboost</th>
-<th data-quarto-table-cell-role="th">lightgbm</th>
-<th data-quarto-table-cell-role="th">xgboost</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">test_size</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">1000</th>
-<td>0.069569</td>
-<td>0.002816</td>
-<td>0.011025</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">5000</th>
-<td>0.349831</td>
-<td>0.000006</td>
-<td>0.047836</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">10000</th>
-<td>0.770179</td>
-<td>0.000006</td>
-<td>0.089032</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped small">
+  <thead>
+    <tr>
+      <th>boosting</th>
+      <th>catboost</th>
+      <th>lightgbm</th>
+      <th>xgboost</th>
+    </tr>
+    <tr>
+      <th>test_size</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1000</th>
+      <td>0.069569</td>
+      <td>0.002816</td>
+      <td>0.011025</td>
+    </tr>
+    <tr>
+      <th>5000</th>
+      <td>0.349831</td>
+      <td>0.000006</td>
+      <td>0.047836</td>
+    </tr>
+    <tr>
+      <th>10000</th>
+      <td>0.770179</td>
+      <td>0.000006</td>
+      <td>0.089032</td>
+    </tr>
+  </tbody>
 </table>
-
 </div>
 </div>
 </div>
