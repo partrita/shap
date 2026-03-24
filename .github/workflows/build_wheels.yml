@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Install dependencies for dataset download
@@ -31,7 +31,7 @@ jobs:
           cp -r shap/cached_data /tmp/test_data_cache/ || true
           ls -la /tmp/test_data_cache/
       - name: Upload cached datasets
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-data-cache
           path: /tmp/test_data_cache
@@ -46,10 +46,10 @@ jobs:
     outputs:
       include: ${{ steps.set-matrix.outputs.include }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install cibuildwheel
       # Nb. keep cibuildwheel version pin consistent with job below
-        run: pipx install cibuildwheel==3.2.1
+        run: pipx install cibuildwheel==3.4.0
       - name: Print all build identifiers
         run: cibuildwheel --print-build-identifiers
       - id: set-matrix
@@ -81,26 +81,26 @@ jobs:
       # when the workflow is triggered by a tag!
       # https://github.com/actions/checkout/issues/1467
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Fetch all tags
         run: git fetch --tags
 
       - name: Download pre-cached datasets
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: test-data-cache
           path: ${{ runner.temp }}/test_data_cache
 
       - name: Set up QEMU
         if: runner.os == 'Linux'
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
         with:
           platforms: all
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v3.2.1
+        uses: pypa/cibuildwheel@v3.4.0
         with:
           only: ${{ matrix.only }}
         env:
@@ -114,7 +114,7 @@ jobs:
           CIBW_TEST_COMMAND_WINDOWS: |
             python -c "import shap, os, shutil; cache_path = r'${{ runner.temp }}\test_data_cache'; shap_cache = os.path.join(os.path.dirname(shap.__file__), 'cached_data'); os.makedirs(shap_cache, exist_ok=True); shutil.copytree(os.path.join(cache_path, 'cached_data'), shap_cache, dirs_exist_ok=True) if os.path.exists(os.path.join(cache_path, 'cached_data')) else None" && pytest -v {project}/tests --import-mode=append
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           path: ./wheelhouse/*.whl
           name: bdist_files_${{ matrix.only }}
@@ -129,14 +129,14 @@ jobs:
       # when the workflow is triggered by a tag!
       # https://github.com/actions/checkout/issues/1467
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Fetch all tags
         run: git fetch --tags
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -145,7 +145,7 @@ jobs:
           python -m pip install build setuptools>=70.1
           python -m build --sdist
       - name: Upload sdist
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: sdist_files
           path: dist/*.tar.gz
@@ -160,13 +160,13 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           path: dist
           pattern: bdist_files_*
           merge-multiple: true
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: sdist_files
           path: dist
@@ -189,13 +189,13 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           path: dist
           pattern: bdist_files_*
           merge-multiple: true
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: sdist_files
           path: dist
