@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "shap-book"
+  title: "shap 문서"
   author: "이주인"
   date: "2026-03-24."
   chapters:
@@ -111,7 +111,4 @@ format:
   html:
     theme:
       - cosmo
-      - brand
-
-
 
