@@ -1,0 +1,47 @@
+---
+title: "API 사용 예제"
+listing:
+  - id: core-api
+    contents: "api_examples/migrating-to-new-api.ipynb"
+    type: table
+  - id: explainers
+    contents: "api_examples/explainers/*.ipynb"
+    type: table
+  - id: maskers
+    contents: "api_examples/maskers/*.ipynb"
+    type: table
+  - id: plots
+    contents: "api_examples/plots/*.ipynb"
+    type: table
+---
+
+::: {#api_examples}
+:::
+
+이 문서들은 SHAP 패키지의 네임스페이스와 구조가 동일하게 구성되어 있습니다.
+SHAP 내의 각 객체(Object)나 함수들은 이곳에 위치한 예제 노트북을 통해 API 사용법을 자세히 설명하고 있습니다.
+원본 노트북들은 [GitHub](https://github.com/shap/shap/tree/master/notebooks/api_examples)에서 확인하실 수 있습니다.
+
+## 핵심 API 가이드
+
+::: {#core-api}
+:::
+
+## Explainers (설명자) {#explainers_examples}
+
+::: {#explainers}
+:::
+
+## Maskers (마스커) {#masks_examples}
+
+::: {#maskers}
+:::
+
+## Models (모델) {#models_examples}
+
+작업이 진행 중입니다.
+
+## Plots (시각화) {#plots_examples}
+
+::: {#plots}
+:::

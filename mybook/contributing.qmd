@@ -1,0 +1,230 @@
+# 기여 지침 (Contributing)
+
+- [소개](#소개)
+- [도움이 되는 버그 보고서 작성하기](#writing-helpful-bug-reports)
+- [최신 버전 설치하기](#installing-the-latest-version)
+- [로컬 개발 환경 설정](#setting-up-a-local-development-environment)
+  - [저장소 포크](#fork-the-repository)
+  - [Python 환경 만들기](#creating-a-python-environment)
+  - [소스에서 설치](#installing-from-source)
+  - [pre-commit을 통한 코드 검사](#code-checks-with-precommit)
+  - [pytest를 사용한 단위 테스트](#unit-tests-with-pytest)
+- [풀 리퀘스트(PR)](#pull-requests-prs)
+  - [PR 작성 에티켓](#etiquette-for-creating-prs)
+  - [PR 게시를 위한 체크리스트](#checklist-for-publishing-prs)
+  - [AI 사용 정책](#ai-usage-policy)
+- [문서 (Documentation)](#documentation)
+  - [PR에서 변경 사항 미리보기](#previewing-changes-on-pull-requests)
+  - [로컬에서 문서 빌드하기](#building-the-docs-locally)
+- [Jupyter Notebook 스타일 가이드](#jupyter-notebook-style-guide)
+  - [Jupyter 일반 지침](#general-jupyter-guidelines)
+  - [링크 및 상호 참조](#links-상호-참조)
+  - [노트북 린팅 및 포매팅](#notebook-linting-and-formatting)
+- [메인테이너 가이드](#maintainer-guide)
+  - [이슈 분류(Triage)](#issue-triage)
+  - [PR 분류](#pr-triage)
+  - [버전 관리](#버전-관리)
+  - [최소 지원 종속성](#최소-지원-종속성)
+  - [릴리스 만들기](#making-releases)
+  - [PR 레이블을 통한 릴리스 노트](#release-notes-from-pr-labels)
+
+## 소개
+
+SHAP에 기여해 주셔서 감사합니다. SHAP은 오픈 소스 프로젝트이며, 모든 형태의 기여를 환영합니다!
+
+다음과 같은 방법으로 기여할 수 있습니다:
+- GitHub [이슈 트래커](https://github.com/shap/shap/issues)에 버그 보고서 및 기능 요청 제출
+- [Pull Requests (PR)](https://github.com/shap/shap/pulls)를 통해 버그 수정 및 기능 개선 기여
+- [토론 포럼 (Discussions)](https://github.com/shap/shap/discussions)에서 아이디어와 질문 나누기
+
+어디서부터 시작해야 할지 모르겠다면, [good first issue](https://github.com/shap/shap/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) 라벨이 붙은 이슈들을 찾아보세요.
+
+## 도움이 되는 버그 보고서 작성하기
+
+이슈 트래커에 버그 보고서를 제출할 때, **최소한의 재현 가능한 예제(Minimal Reproducible Example, MRE)**를 포함해 주시면 유지보수 담당자에게 큰 도움이 됩니다.
+
+MRE는 다음 조건을 갖추어야 합니다:
+- **최소성(Minimal)**: 버그를 재현할 수 있는 가능한 한 가장 적은 양의 코드만 포함합니다.
+- **자주성(Self-contained)**: 임포트(import)문과 입력 데이터를 포함하여 문제를 재현하는 데 필요한 모든 것을 포함합니다.
+- **재현성(Reproducible)**: 제공된 코드를 붙여넣고 실행했을 때 확실히 문제가 재현되어야 합니다.
+
+자세한 내용은 [최소 버그 보고서 작성법](https://matthewrocklin.com/minimal-bug-reports)을 참조하세요.
+
+## 최신 버전 설치하기
+
+최신 버전의 SHAP를 얻으려면 `master` 브랜치에서 직접 라이브러리를 설치할 수 있습니다:
+
+```bash
+pip install git+https://github.com/shap/shap.git@master
+```
+
+이는 특정 문제나 버그가 최근 커밋에서 이미 수정되었는지 테스트할 때 유용합니다.
+또는 코드 기여를 고려하고 계신다면, 아래 설명에 따라 저장소를 포크하고 로컬 복사본을 설치하는 것이 좋습니다.
+
+## 로컬 개발 환경 설정
+
+### 저장소 포크
+
+[이 링크를 클릭](https://github.com/shap/shap/fork)하여 GitHub의 저장소를 본인의 계정으로 포크(fork)하세요.
+그 후, 제공된 URL을 사용하여 리포지토리를 로컬 환경으로 클론합니다.
+
+### Python 환경 만들기
+
+프로젝트를 위해 새롭고 격리된 환경을 만듭니다. `conda`를 사용하는 경우:
+
+```bash
+conda create -n shap python=3.11
+conda activate shap
+```
+
+### 소스에서 설치
+
+소스에서 빌드하려면 C 확장을 빌드할 컴파일러가 필요합니다.
+
+- Linux에서는 다음을 사용하여 gcc를 설치할 수 있습니다:
+```bash
+sudo apt install build-essential
+```
+- Windows에서 컴파일러를 얻는 한 가지 방법은 [mingw-w64](https://www.mingw-w64.org/downloads/)를 설치하는 것입니다.
+
+소스 코드에 대한 모든 변경 사항이 로컬 환경에 즉시 반영되도록 `--editable` 플래그를 사용하여 프로젝트를 설치합니다:
+
+```bash
+pip install --editable '.[test,plots,docs]'
+```
+
+`pyproject.toml`에 정의된 다양한 의존성 옵션은 다음과 같습니다:
+- `test-core`: pytest를 실행하기 위한 최소한의 종속성
+- `test`: 텐서플로우, 파이테스트, xgboost 등을 포함한 전체 테스트 모음
+- `plots`: matplotlib를 포함한 시각화 종속성
+- `docs`: Sphinx 및 Quarto 등 문서 작성을 위한 종속성
+
+> **참고**: 소스에서 설치할 때 SHAP은 C 확장 및 CUDA 확장의 빌드를 시도합니다. CUDA를 사용할 수 없는 경우 CUDA 지원 없이 빌드를 자동으로 다시 시도하므로 출력되는 경고 메시지는 무시하셔도 무방합니다.
+
+### pre-commit을 통한 코드 검사
+
+코드베이스의 일관성을 위해 [pre-commit hook](https://pre-commit.com/#install)을 사용합니다. 로컬 환경에서 활성화하려면:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+모든 파일에 대해 수동으로 검사를 실행하려면 다음 명령을 사용합니다:
+
+```bash
+pre-commit run --all-files
+```
+
+코드 린터 및 포매터로는 [Ruff](https://beta.ruff.rs/docs/)를 사용하며, 로컬에서도 직접 실행할 수 있습니다:
+
+```bash
+pip install ruff
+ruff check .
+```
+
+### pytest를 사용한 단위 테스트
+
+단위 테스트 모음은 다음을 사용하여 로컬로 실행할 수 있습니다:
+
+```bash
+pytest
+```
+
+## 풀 리퀘스트(PR)
+
+### PR 작성 에티켓
+
+PR을 작성하기 전에 **이슈를 먼저 열어서** 제안을 설명하고, 중복 작업이 없는지 확인해 주세요. (오타 수정 등 사소한 작업은 제외)
+
+**변경 범위를 작게 유지하세요.** 기능 추가(또는 버그 수정)와 코드 리팩토링(스타일 개선 등)을 하나의 PR에 섞지 말고 분리하세요. 둘 중 하나만 포함되어야 리뷰하기 훨씬 수월합니다.
+
+기능이 완전하지 않더라도 **가능한 한 빨리 Draft PR을 여세요.** `fix/lightgbm-warnings` 또는 `doc/contributing`과 같이 설명적인 브랜치 이름을 사용하세요.
+
+PR 제목 또한 명확해야 합니다:
+- `FIX: Update parameters to remove DeprecationWarning in TreeExplainer`
+- `ENH: Add support for Python 3.11`
+- `DOCS: Fix docstring formatting in ExactExplainer`
+
+### PR 게시를 위한 체크리스트
+
+PR을 "검토 준비 완료(Ready for review)" 상태로 변경하기 전에 다음을 확인하세요:
+- 기능 브랜치가 `master` 브랜치의 최신 내용과 동기화되었는지
+- 모든 [pre-commit 로컬 검사](#code-checks-with-precommit)가 통과되었는지
+- 새로운 기능이나 버그 수정에 대응하는 단위 테스트가 추가되었는지
+
+### AI 사용 정책
+
+이 저장소는 LLM이 작성한 PR을 환영합니다. 단, 제출 시 다음 사항을 유의해 주세요:
+- **AI 사용 여부를 공개하세요.** 에이전트가 어떤 작업을 수행했는지, 어디서 자율적으로 작동했는지, 어떤 도움을 받았는지 설명하는 것이 좋습니다.
+- PR의 모든 코드를 **직접 작성한 것처럼 완벽히 이해**하고 책임을 져야 합니다. 
+- 이 저장소는 사람이 꼼꼼하게 관리하므로, AI로 인해 불필요하게 비대해진 코드가 없도록 **깔끔하고 최소화된 방식**으로 작성해 주세요.
+- 향후 코드를 직접 관리할 메인테이너들이 코드를 확신을 가지고 유지보수할 수 있도록 충분한 지원과 설명을 제공하는 것은 코드 기여자의 책임입니다.
+- LLM은 저작권이 있는 코드를 복제할 가능성이 있습니다. 기여자는 제출물이 오픈소스 저작권을 위반하지 않도록 확인할 책임이 있습니다.
+- 위 사항이 충족되지 않으면 PR이 종료될 수 있습니다.
+
+## 문서 (Documentation)
+
+문서는 [shap.readthedocs.io](https://shap.readthedocs.io/en/latest/)에 호스팅됩니다. Docstring이나 Notebook 문서를 수정한 경우 변경 사항이 제대로 렌더링되는지 확인해야 합니다.
+
+### PR에서 변경 사항 미리보기
+
+문서는 각 PR마다 자동으로 빌드되어 미리보기를 제공합니다:
+1. PR 페이지 하단의 "Show all checks"를 클릭합니다.
+2. `docs/readthedocs.org` 검사 항목을 찾습니다.
+3. `Details` 링크를 클릭하여 문서 미리보기 웹사이트를 엽니다.
+
+### 로컬에서 문서 빌드하기
+
+로컬에서 문서를 빌드하려면:
+1. `docs` 디렉토리로 이동합니다.
+2. `make html` (또는 Quarto의 경우 `pixi run quarto render`)를 실행합니다.
+3. 브라우저에서 생성된 HTML 파일(`_build/html/index.html` 또는 `_book/index.html`)을 엽니다.
+
+문서 빌드 의존성은 `docs/requirements-docs.txt` 등에 고정되어 있습니다.
+
+## Jupyter Notebook 스타일 가이드
+
+Jupyter Notebook 파일을 문서에 추가하거나 변경할 때 다음 지침을 준수해 주세요.
+
+### Jupyter 일반 지침
+- 커밋하기 전에 반드시 **"Kernel > Restart & Run All"**을 수행하여 모든 셀이 순서대로 정상적으로 실행되며 숨겨진 상태 에러가 없는지 확인하세요.
+- 출력 결과에 문법 경고나 불필요한 에러 스택이 포함되지 않도록 정리해 주세요. 이는 문서 렌더링 시 로그를 혼잡하게 만듭니다.
+
+### 링크 및 상호 참조
+문서를 읽는 사람들에게 충분한 배경 맥락을 제공할 수 있도록, 관련된 내용이 있다면 가능한 한 링크를 사용하세요.
+절대 경로보다 상대 경로(Relative Path)를 우선적으로 사용하는 것이 좋습니다.
+
+### 노트북 린팅 및 포매팅
+`pre-commit` 및 `Ruff`를 이용해 노트북 파일도 자동으로 린팅과 포매팅 검사가 진행됩니다. 특정 노트북만 수동으로 점검하고 싶다면 아래와 같이 실행할 수 있습니다:
+
+```bash
+pre-commit run --files notebook1.ipynb notebook2.ipynb
+```
+
+## 메인테이너 가이드
+
+### 이슈 분류 (Triage)
+버그 보고 및 기능 요청은 GitHub 이슈 트래커에서 관리되며 자동화를 활용해 정리합니다.
+- 새로운 기여자에게 적합한 이슈에는 `good first issue` 라벨을 붙입니다.
+- 추가 정보가 필요한 경우 `awaiting feedback` 라벨을 부여합니다.
+- `stale` 봇이 오랫동안 활동이 없는 이슈 및 PR을 관리합니다. 장기 추적이 필요한 이슈에는 `todo` 라벨을 붙여 `stale` 봇을 방지합니다.
+
+### PR 분류
+Pull Request에는 `bug`, `enhancement`, `breaking` 등의 카테고리 라벨이 할당되어야 합니다. 이는 릴리스 노트를 자동으로 분류하는 데 사용됩니다.
+모든 PR은 병합되기 전 최소 1명 이상의 리뷰 및 승인을 받아야 하며, 선형적인 깃 히스토리를 위해 가급적 **"Squash and merge"**로 병합합니다.
+
+### 버전 관리
+SHAP는 PEP 440 및 Semantic Versioning을 부분적으로 따르며 `MAJOR.MINOR.PATCH` 형태를 가집니다. 일반적으로 메이저 변경보다는 `minor` 단위로 하나둘 달에 한 번씩 릴리스되며, 치명적인 버그가 있는 경우 `patch` 릴리스를 수행합니다.
+하위 호환성을 깨뜨리는 주요 변경(Breaking changes)이 있을 경우 충분한 지원 중단(Deprecation) 주기를 가져 사용자들의 피해를 최소화합니다.
+
+### 최소 지원 종속성
+- Python 버전에 대한 지원은 해당 버전이 최초 릴리스된 후 3년이 지나면 중단할 수 있습니다.
+- 핵심 패키지 종속성은 최초 릴리스 후 2년이 지나면 지원을 중단할 수 있습니다.
+
+### 릴리스 만들기
+릴리스는 GitHub Releases를 통해 새로운 태그와 함께 발행됩니다. 패키지가 GitHub에 배포되면 `build_wheels` GitHub Action이 PyPI 휠 버전을 자동으로 빌드하여 배포합니다.
+Conda 패키지의 경우 [conda-forge feedstock](https://github.com/conda-forge/shap-feedstock) 저장소의 봇이 PyPI 업데이트를 감지하여 자동으로 풀 리퀘스트를 생성합니다.
+
+### PR 레이블을 통한 릴리스 노트
+GitHub의 릴리스 노트 자동 생성 기능을 바탕으로 각 PR에 부착된 라벨(enhancement, bug 등)에 따라 카테고리가 분류되어 문서화됩니다. 따라서 각 PR에는 구체적이고 명확한 라벨링과 설명적인 제목이 필수적입니다.

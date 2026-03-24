@@ -27,7 +27,7 @@ dependencies = [
   'llvmlite<0.46; sys_platform == "darwin" and platform_machine == "x86_64"',  # llvmlite 0.46+ dropped macOS x86_64 wheels, see numba/numba#10187
   'llvmlite; sys_platform != "darwin" or platform_machine != "x86_64"',
   'cloudpickle',
-  'typing-extensions',
+  'typing-extensions', "deep-translator>=1.11.4,<2",
 ]
 classifiers = [
   "Operating System :: Microsoft :: Windows",
@@ -326,3 +326,26 @@ archs = ["AMD64"]
 
 [tool.cibuildwheel.macos]
 archs = ["x86_64", "arm64"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+shap = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+docs = { features = ["docs"], solve-group = "default" }
+download-datasets = { features = ["download_datasets"], solve-group = "default" }
+nbtest = { features = ["nbtest"], solve-group = "default" }
+others = { features = ["others"], solve-group = "default" }
+plots = { features = ["plots"], solve-group = "default" }
+test = { features = ["test"], solve-group = "default" }
+test-core = { features = ["test-core"], solve-group = "default" }
+test-notebooks = { features = ["test_notebooks"], solve-group = "default" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+quarto = ">=1.8.27,<2"

@@ -1,0 +1,117 @@
+project:
+  type: book
+
+book:
+  title: "shap-book"
+  author: "이주인"
+  date: "2026-03-24."
+  chapters:
+    - index.qmd
+    - references.qmd
+    - api.qmd
+    - api_examples.qmd
+    - benchmarks.qmd
+    - contributing.qmd
+    - genomic_examples.qmd
+    - image_examples.qmd
+    - overviews.qmd
+    - release_notes.qmd
+    - tabular_examples.qmd
+    - text_examples.qmd
+    - api_examples/explainers/Exact.ipynb
+    - api_examples/explainers/GPUTree.ipynb
+    - api_examples/explainers/Permutation.ipynb
+    - api_examples/maskers/custom.ipynb
+    - api_examples/migrating-to-new-api.ipynb
+    - api_examples/plots/bar.ipynb
+    - api_examples/plots/beeswarm.ipynb
+    - api_examples/plots/decision_plot.ipynb
+    - api_examples/plots/heatmap.ipynb
+    - api_examples/plots/image.ipynb
+    - api_examples/plots/scatter.ipynb
+    - api_examples/plots/text.ipynb
+    - api_examples/plots/violin.ipynb
+    - api_examples/plots/waterfall.ipynb
+    - benchmarks/image/Image Multiclass Classification Benchmark Demo.ipynb
+    - benchmarks/others/Benchmark Debug Mode.ipynb
+    - benchmarks/tabular/Benchmark XGBoost explanations.ipynb
+    - benchmarks/tabular/Tabular Prediction Benchmark Demo.ipynb
+    - benchmarks/text/Abstractive Summarization Benchmark Demo.ipynb
+    - benchmarks/text/Machine Translation Benchmark Demo.ipynb
+    - benchmarks/text/Text Emotion Multiclass Classification Benchmark Demo.ipynb
+    - genomic_examples/DeepExplainer Genomics Example.ipynb
+    - image_examples/image_captioning/Image Captioning using Azure Cognitive Services.ipynb
+    - image_examples/image_captioning/Image Captioning using Open Source.ipynb
+    - image_examples/image_classification/Explain MobilenetV2 using the Partition explainer (PyTorch).ipynb
+    - image_examples/image_classification/Explain ResNet50 using the Partition explainer.ipynb
+    - image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet (PyTorch).ipynb
+    - image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet.ipynb
+    - image_examples/image_classification/Front Page DeepExplainer MNIST Example.ipynb
+    - image_examples/image_classification/Image Multi Class.ipynb
+    - image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow)-checkpoint.ipynb
+    - image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow).ipynb
+    - image_examples/image_classification/Multi-input Gradient Explainer MNIST Example.ipynb
+    - image_examples/image_classification/PyTorch Deep Explainer MNIST example.ipynb
+    - overviews/An introduction to explainable AI with Shapley values.ipynb
+    - overviews/Be careful when interpreting predictive models in search of causal insights.ipynb
+    - overviews/Explaining quantitative measures of fairness.ipynb
+    - tabular_examples/linear_models/Explaining a model that uses standardized features.ipynb
+    - tabular_examples/linear_models/Math behind LinearExplainer with correlation feature perturbation.ipynb
+    - tabular_examples/linear_models/Sentiment Analysis with Logistic Regression.ipynb
+    - tabular_examples/model_agnostic/Census income classification with scikit-learn.ipynb
+    - tabular_examples/model_agnostic/Diabetes regression.ipynb
+    - tabular_examples/model_agnostic/Iris classification with scikit-learn.ipynb
+    - tabular_examples/model_agnostic/Multioutput Regression SHAP.ipynb
+    - tabular_examples/model_agnostic/Simple California Demo.ipynb
+    - tabular_examples/model_agnostic/Simple Kernel SHAP.ipynb
+    - tabular_examples/model_agnostic/Squashing Effect.ipynb
+    - tabular_examples/neural_networks/Census income classification with Keras.ipynb
+    - tabular_examples/tree_based_models/Basic SHAP Interaction Value Example in XGBoost.ipynb
+    - tabular_examples/tree_based_models/Catboost tutorial.ipynb
+    - tabular_examples/tree_based_models/Census income classification with LightGBM.ipynb
+    - tabular_examples/tree_based_models/Census income classification with XGBoost.ipynb
+    - tabular_examples/tree_based_models/Example of loading a custom tree model into SHAP.ipynb
+    - tabular_examples/tree_based_models/Explaining a simple OR function.ipynb
+    - tabular_examples/tree_based_models/Explaining the Loss of a Model.ipynb
+    - tabular_examples/tree_based_models/Fitting a Linear Simulation with XGBoost.ipynb
+    - tabular_examples/tree_based_models/Force Plot Colors.ipynb
+    - tabular_examples/tree_based_models/Front page example (XGBoost).ipynb
+    - tabular_examples/tree_based_models/League of Legends Win Prediction with XGBoost.ipynb
+    - tabular_examples/tree_based_models/NHANES I Survival Model.ipynb
+    - tabular_examples/tree_based_models/Perfomance Comparison.ipynb
+    - tabular_examples/tree_based_models/Python Version of Tree SHAP.ipynb
+    - tabular_examples/tree_based_models/Scatter Density vs. Violin Plot Comparison.ipynb
+    - tabular_examples/tree_based_models/Understanding Tree SHAP for Simple Models.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figure 1 - Simple Inconsistency Example.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figure 3 - User Study.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figure 4 - Supervised Clustering Adult Census Data.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figure 5 - Runtime.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figure 6 - Supervised Clustering R-squared.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figure 7 - Airline Tweet Sentiment Analysis.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model-Copy1.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Performance comparison copy.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Performance comparison.ipynb
+    - tabular_examples/tree_based_models/tree_shap_paper/Tree SHAP in Python.ipynb
+    - text_examples/language_modelling/Language Modeling Explanation Demo.ipynb
+    - text_examples/question_answering/Explaining a Question Answering Transformers Model.ipynb
+    - text_examples/sentiment_analysis/Emotion classification multiclass example.ipynb
+    - text_examples/sentiment_analysis/Keras LSTM for IMDB Sentiment Classification.ipynb
+    - text_examples/sentiment_analysis/Positive vs. Negative Sentiment Classification.ipynb
+    - text_examples/sentiment_analysis/Using custom functions and tokenizers.ipynb
+    - text_examples/summarization/Abstractive Summarization Explanation Demo.ipynb
+    - text_examples/text_entailment/Textual Entailment Explanation Demo.ipynb
+    - text_examples/text_generation/Open Ended GPT2 Text Generation Explanations.ipynb
+    - text_examples/translation/Machine Translation Explanations.ipynb
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+
+
+

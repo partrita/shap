@@ -1,0 +1,47 @@
+---
+title: "성능 벤치마크 (Benchmarks)"
+listing:
+  - id: image-benchmarks
+    contents: "benchmarks/image/*.ipynb"
+    type: table
+  - id: tabular-benchmarks
+    contents: "benchmarks/tabular/*.ipynb"
+    type: table
+  - id: text-benchmarks
+    contents: "benchmarks/text/*.ipynb"
+    type: table
+  - id: other-benchmarks
+    contents: "benchmarks/others/*.ipynb"
+    type: table
+---
+
+이 벤치마크 문서들에서는 다양한 모델 및 평가지표에 따른 설명자(Explainer)들의 속도와 성능을 비교합니다.
+모든 문서들은 Jupyter 노트북 형식이며, 관련 코드는 [GitHub 저장소](https://github.com/shap/shap/tree/master/notebooks/benchmarks)에서 확인하실 수 있습니다.
+
+## 이미지 벤치마크 (Image)
+
+이미지 데이터 전용 분석에 사용되는 설명 모델을 비교 평가합니다.
+
+::: {#image-benchmarks}
+:::
+
+## 정형 데이터 벤치마크 (Tabular)
+
+표(tabular)로 이루어진 정형 데이터 세트 전용 분석에 사용되는 여러 설명 모델의 특성을 비교 평가합니다.
+
+::: {#tabular-benchmarks}
+:::
+
+## 텍스트 벤치마크 (Text)
+
+텍스트로 이루어진 자연어 처리(NLP) 분석 세트에 대한 설명 모델을 평가합니다.
+
+::: {#text-benchmarks}
+:::
+
+## 기타 상황 (Others)
+
+기타 모드에서의 파라미터나 디버깅 벤치마크를 나타냅니다.
+
+::: {#other-benchmarks}
+:::

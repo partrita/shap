@@ -1,0 +1,117 @@
+# API 참조 (API Reference)
+
+이 페이지는 SHAP 패키지의 모든 공개(Public) 객체 및 함수에 대한 종합적인 API 레퍼런스를 제공합니다.
+각 클래스와 함수에 관한 자세한 활용법은 [API 예제 노트북](api_examples.qmd) 페이지에서도 확인하실 수 있습니다.
+
+## 설명 객체 (Explanation) {#explanation_api}
+
+::: {.autosummary toctree="generated/"}
+shap.Explanation
+shap.Cohort
+:::
+
+## 설명자 (Explainers) {#explainers_api}
+
+::: {.autosummary toctree="generated/"}
+shap.Explainer
+shap.TreeExplainer
+shap.GPUTreeExplainer
+shap.LinearExplainer
+shap.PermutationExplainer
+shap.PartitionExplainer
+shap.SamplingExplainer
+shap.AdditiveExplainer
+shap.DeepExplainer
+shap.KernelExplainer
+shap.GradientExplainer
+shap.ExactExplainer
+shap.explainers.other.Coefficient
+shap.explainers.other.Random
+shap.explainers.other.LimeTabular
+shap.explainers.other.Maple
+shap.explainers.other.TreeMaple
+shap.explainers.other.TreeGain
+:::
+
+## 시각화 플롯 (Plots) {#plots_api}
+
+::: {.autosummary toctree="generated/"}
+shap.plots.bar
+shap.plots.waterfall
+shap.plots.scatter
+shap.plots.heatmap
+shap.plots.force
+shap.plots.text
+shap.plots.image
+shap.plots.partial_dependence
+shap.plots.decision
+shap.plots.embedding
+shap.plots.initjs
+shap.plots.group_difference
+shap.plots.image_to_text
+shap.plots.monitoring
+shap.plots.beeswarm
+shap.plots.violin
+:::
+
+## 마스커 (Maskers) {#masks_api}
+
+::: {.autosummary toctree="generated/"}
+shap.maskers.Masker
+shap.maskers.Independent
+shap.maskers.Partition
+shap.maskers.Impute
+shap.maskers.Fixed
+shap.maskers.Composite
+shap.maskers.FixedComposite
+shap.maskers.OutputComposite
+shap.maskers.Text
+shap.maskers.Image
+:::
+
+## 모델 (Models) {#models_api}
+
+::: {.autosummary toctree="generated/"}
+shap.models.Model
+shap.models.TeacherForcing
+shap.models.TextGeneration
+shap.models.TopKLM
+shap.models.TransformersPipeline
+:::
+
+## 유틸리티 (Utilities) {#utils_api}
+
+::: {.autosummary toctree="generated/"}
+shap.utils.hclust
+shap.utils.hclust_ordering
+shap.utils.partition_tree
+shap.utils.partition_tree_shuffle
+shap.utils.delta_minimization_order
+shap.utils.approximate_interactions
+shap.utils.potential_interactions
+shap.utils.sample
+shap.utils.shapley_coefficients
+shap.utils.convert_name
+shap.utils.OpChain
+shap.utils.show_progress
+shap.utils.MaskedModel
+shap.utils.make_masks
+:::
+
+## 데이터세트 (Datasets) {#datasets_api}
+
+::: {.autosummary toctree="generated/"}
+shap.datasets.a1a
+shap.datasets.adult
+shap.datasets.california
+shap.datasets.communitiesandcrime
+shap.datasets.corrgroups60
+shap.datasets.diabetes
+shap.datasets.imagenet50
+shap.datasets.imdb
+shap.datasets.independentlinear60
+shap.datasets.iris
+shap.datasets.linnerud
+shap.datasets.nhanesi
+shap.datasets.rank
+:::

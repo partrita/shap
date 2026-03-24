@@ -1,0 +1,47 @@
+---
+title: "정형 데이터 (Tabular) 예제"
+listing:
+  - id: tree-based
+    contents: "tabular_examples/tree_based_models/*.ipynb"
+    type: table
+  - id: linear-models
+    contents: "tabular_examples/linear_models/*.ipynb"
+    type: table
+  - id: neural-networks
+    contents: "tabular_examples/neural_networks/*.ipynb"
+    type: table
+  - id: model-agnostic
+    contents: "tabular_examples/model_agnostic/*.ipynb"
+    type: table
+---
+
+이 문서에서는 정형 데이터(Tabular data)에 적용되는 머신러닝 모델의 예측 결과를 해석하는 예제들을 다룹니다.
+모든 예제 문서는 Jupyter Notebook으로 작성되어 있으며, 원본은 [GitHub](https://github.com/shap/shap/tree/master/notebooks/tabular_examples)에서 확인하실 수 있습니다.
+
+## 트리 기반 모델 (Tree-based Models)
+
+트리 기반 머신러닝 모델(XGBoost, LightGBM, CatBoost 등)에 대한 SHAP 해석 방법을 살펴봅니다.
+
+::: {#tree-based}
+:::
+
+## 선형 모델 (Linear Models)
+
+선형 머신러닝 모델(Logistic Regression 등)을 설명하는 방법을 보여주는 예제입니다.
+
+::: {#linear-models}
+:::
+
+## 신경망 모델 (Neural Networks)
+
+딥러닝 및 신경망 기반 모델의 예측 결과를 설명하는 방법을 살펴봅니다.
+
+::: {#neural-networks}
+:::
+
+## 모델에 구애받지 않는 해석 (Model Agnostic)
+
+모델의 내부 구조에 관계없이 임의의 기계 학습 파이프라인이나 블랙박스 모델에 SHAP를 적용하여 설명하는 예제입니다.
+
+::: {#model-agnostic}
+:::
