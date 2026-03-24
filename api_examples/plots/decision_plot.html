@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>20&nbsp; 결정 플롯 – shap 문서</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../api_examples/plots/heatmap.html" rel="next">
+<link href="../../api_examples/plots/beeswarm.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-7972bfc284a0c28c204eaf97426b43e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../api_examples/plots/decision_plot.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">shap 문서</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">SHAP 공식 문서</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">참조</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">API 참조 (API Reference)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">API 사용 예제</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">성능 벤치마크 (Benchmarks)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contributing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">기여 지침 (Contributing)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../genomic_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">유전체 데이터 (Genomic) 예제</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">이미지 예시</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../overviews.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">주제별 개요 (Overviews)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../release_notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">릴리스 노트</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">정형 데이터 (Tabular) 예제</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">텍스트 데이터 (Text) 예제</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/explainers/Exact.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>정확한</code> 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/explainers/GPUTree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><code>GPUTree</code> 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/explainers/Permutation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><code>순열</code> 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/maskers/custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">커스텀 마스커 사용하기</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/migrating-to-new-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">새로운 “설명” API로 마이그레이션</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/bar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><code>bar</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/beeswarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/decision_plot.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/heatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/image.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><code>이미지</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/scatter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><code>scatter</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><code>텍스트</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/violin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><code>바이올린</code> 요약 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api_examples/plots/waterfall.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><code>폭포</code> 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks/image/Image Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">이미지 데이터 설명 벤치마킹: 이미지 다중 클래스 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks/others/Benchmark Debug Mode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">일반 벤치마킹 디버깅 도구</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks/tabular/Benchmark XGBoost explanations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">벤치마크 XGBoost 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks/tabular/Tabular Prediction Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">테이블 형식 데이터 설명 벤치마킹: Xgboost 회귀</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks/text/Abstractive Summarization Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 추상적인 요약</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks/text/Machine Translation Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 기계 번역</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../benchmarks/text/Text Emotion Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 감정 다중 클래스 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../genomic_examples/DeepExplainer Genomics Example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">DeepExplainer 유전체학 예</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_captioning/Image Captioning using Azure Cognitive Services.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Azure Cognitive Services 및 파티션 설명을 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_captioning/Image Captioning using Open Source.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">오픈 소스 이미지 캡션 모델과 파티션 설명자를 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Explain MobilenetV2 using the Partition explainer (PyTorch).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 PyTorch MobileNetV2를 설명합니다.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Explain ResNet50 using the Partition explainer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50을 설명합니다.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet (PyTorch).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ImageNet(PyTorch)에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">ImageNet에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Front Page DeepExplainer MNIST Example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">첫 페이지 DeepExplainer MNIST 예</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Image Multi Class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50 ImageNet 분류를 설명합니다.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow)-checkpoint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/Multi-input Gradient Explainer MNIST Example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">다중 입력 그라디언트 설명 MNIST 예제</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../image_examples/image_classification/PyTorch Deep Explainer MNIST example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">PyTorch 심층 설명 MNIST 예</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../overviews/An introduction to explainable AI with Shapley values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Shapley 가치를 지닌 설명 가능한 AI 소개</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../overviews/Be careful when interpreting predictive models in search of causal insights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">인과관계 통찰력을 찾기 위해 예측 모델을 해석할 때는 주의하세요.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../overviews/Explaining quantitative measures of fairness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">공정성의 정량적 척도를 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/linear_models/Explaining a model that uses standardized features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">표준화된 특성을 사용하는 모델 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/linear_models/Math behind LinearExplainer with correlation feature perturbation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">상관 특성 섭동을 포함한 LinearExplainer의 수학</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/linear_models/Sentiment Analysis with Logistic Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">로지스틱 회귀를 이용한 감성 분석</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/model_agnostic/Census income classification with scikit-learn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 인구 조사 소득 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/model_agnostic/Diabetes regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">scikit-learn을 이용한 당뇨병 퇴행</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/model_agnostic/Iris classification with scikit-learn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 붓꽃 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/model_agnostic/Multioutput Regression SHAP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">다중 출력 회귀 모델의 SHAP 값</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/model_agnostic/Simple California Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">심플 캘리포니아 데모 2.0</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/model_agnostic/Simple Kernel SHAP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">간단한 커널 SHAP</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/model_agnostic/Squashing Effect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">스쿼싱 함수가 특성 중요도에 어떻게 영향을 미칠 수 있나요?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/neural_networks/Census income classification with Keras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Keras를 이용한 인구조사 소득 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Basic SHAP Interaction Value Example in XGBoost.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">XGBoost의 기본 SHAP 상호 작용 값 예</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Catboost tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Catboost 튜토리얼</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Census income classification with LightGBM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">LightGBM을 이용한 인구조사 소득 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Census income classification with XGBoost.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">XGBoost를 이용한 인구 조사 소득 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Example of loading a custom tree model into SHAP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">사용자 정의 트리 모델을 SHAP에 로드하는 예</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Explaining a simple OR function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">간단한 OR 함수 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Explaining the Loss of a Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">트리 모델의 손실 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Fitting a Linear Simulation with XGBoost.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">XGBoost로 선형 시뮬레이션 피팅</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Force Plot Colors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">강제 플롯 색상</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Front page example (XGBoost).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">첫 페이지 예시(XGBoost)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/League of Legends Win Prediction with XGBoost.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">리그 오브 레전드, XGBoost로 승리 예측</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/NHANES I Survival Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">NHANES I 생존모델</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Perfomance Comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">Shap 값 계산을 위한 그래디언트 부스팅 라이브러리의 속도 비교</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Python Version of Tree SHAP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">Tree SHAP의 Python 버전</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Scatter Density vs. Violin Plot Comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">분산 밀도 대 바이올린 플롯</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/Understanding Tree SHAP for Simple Models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">단순 모델에 대한 트리 SHAP 이해</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 1 - Simple Inconsistency Example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">그림 1 - 단순한 불일치 예</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 3 - User Study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">그림 3 - 사용자 연구</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 4 - Supervised Clustering Adult Census Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">그림 4 - 감독 클러스터링 성인 인구 조사 데이터</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 5 - Runtime.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">그림 5 - 런타임</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 6 - Supervised Clustering R-squared.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">그림 6 - 감독 클러스터링 R-제곱</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 7 - Airline Tweet Sentiment Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">그림 7 - 항공사 트윗 감정 분석</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model-Copy1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Performance comparison copy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">성능 비교 카피</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Performance comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">성능 비교</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Tree SHAP in Python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">보스턴 데이터세트 로드</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/language_modelling/Language Modeling Explanation Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">Text to Multiclass 설명: 언어 모델링 예제</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/question_answering/Explaining a Question Answering Transformers Model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">질문 답변 트랜스포머 모델 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/sentiment_analysis/Emotion classification multiclass example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">감정 분류 멀티클래스 예시</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/sentiment_analysis/Keras LSTM for IMDB Sentiment Classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">IMDB 감정 분류를 위한 Keras LSTM</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/sentiment_analysis/Positive vs. Negative Sentiment Classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">긍정적인 감정과 부정적인 감정 분류</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/sentiment_analysis/Using custom functions and tokenizers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">사용자 정의 함수 및 토크나이저 사용</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/summarization/Abstractive Summarization Explanation Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">텍스트 대 텍스트 설명: 추상적인 요약 예</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/text_entailment/Textual Entailment Explanation Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">다중 입력 텍스트 설명: Facebook BART를 사용한 텍스트 포함</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/text_generation/Open Ended GPT2 Text Generation Explanations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">개방형 GPT2 텍스트 생성 설명</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../text_examples/translation/Machine Translation Explanations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title">기계번역 설명</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#shap-결정-플롯" id="toc-shap-결정-플롯" class="nav-link active" data-scroll-target="#shap-결정-플롯"><span class="header-section-number">20.1</span> SHAP 결정 플롯</a>
+  <ul class="collapse">
+  <li><a href="#데이터세트-로드-및-모델-학습" id="toc-데이터세트-로드-및-모델-학습" class="nav-link" data-scroll-target="#데이터세트-로드-및-모델-학습"><span class="header-section-number">20.1.1</span> 데이터세트 로드 및 모델 학습</a></li>
+  <li><a href="#shap-값-계산" id="toc-shap-값-계산" class="nav-link" data-scroll-target="#shap-값-계산"><span class="header-section-number">20.1.2</span> SHAP 값 계산</a></li>
+  </ul></li>
+  <li><a href="#기본-의사결정-플롯-기능" id="toc-기본-의사결정-플롯-기능" class="nav-link" data-scroll-target="#기본-의사결정-플롯-기능"><span class="header-section-number">20.2</span> 기본 의사결정 플롯 기능</a></li>
+  <li><a href="#의사결정-플롯은-언제-도움이-되나요" id="toc-의사결정-플롯은-언제-도움이-되나요" class="nav-link" data-scroll-target="#의사결정-플롯은-언제-도움이-되나요"><span class="header-section-number">20.3</span> 의사결정 플롯은 언제 도움이 되나요?</a>
+  <ul class="collapse">
+  <li><a href="#수많은-기능-효과를-명확하게-보여줍니다." id="toc-수많은-기능-효과를-명확하게-보여줍니다." class="nav-link" data-scroll-target="#수많은-기능-효과를-명확하게-보여줍니다."><span class="header-section-number">20.3.1</span> 수많은 기능 효과를 명확하게 보여줍니다.</a></li>
+  <li><a href="#다중-출력-예측-시각화" id="toc-다중-출력-예측-시각화" class="nav-link" data-scroll-target="#다중-출력-예측-시각화"><span class="header-section-number">20.3.2</span> 다중 출력 예측 시각화</a></li>
+  <li><a href="#상호작용의-누적-효과-표시" id="toc-상호작용의-누적-효과-표시" class="nav-link" data-scroll-target="#상호작용의-누적-효과-표시"><span class="header-section-number">20.3.3</span> 상호작용의 누적 효과 표시</a></li>
+  <li><a href="#다양한-특성-값에-대한-특성-효과-탐색" id="toc-다양한-특성-값에-대한-특성-효과-탐색" class="nav-link" data-scroll-target="#다양한-특성-값에-대한-특성-효과-탐색"><span class="header-section-number">20.3.4</span> 다양한 특성 값에 대한 특성 효과 탐색</a></li>
+  <li><a href="#이상값-식별" id="toc-이상값-식별" class="nav-link" data-scroll-target="#이상값-식별"><span class="header-section-number">20.3.5</span> 이상값 식별</a></li>
+  <li><a href="#일반적인-예측-경로-식별" id="toc-일반적인-예측-경로-식별" class="nav-link" data-scroll-target="#일반적인-예측-경로-식별"><span class="header-section-number">20.3.6</span> 일반적인 예측 경로 식별</a></li>
+  </ul></li>
+  <li><a href="#여러-모델에-대한-비교-및-대조-예측" id="toc-여러-모델에-대한-비교-및-대조-예측" class="nav-link" data-scroll-target="#여러-모델에-대한-비교-및-대조-예측"><span class="header-section-number">20.4</span> 여러 모델에 대한 비교 및 대조 예측</a></li>
+  <li><a href="#shap-상호작용-값" id="toc-shap-상호작용-값" class="nav-link" data-scroll-target="#shap-상호작용-값"><span class="header-section-number">20.5</span> SHAP 상호작용 값</a></li>
+  <li><a href="#플롯-간-순서와-규모-유지" id="toc-플롯-간-순서와-규모-유지" class="nav-link" data-scroll-target="#플롯-간-순서와-규모-유지"><span class="header-section-number">20.6</span> 플롯 간 순서와 규모 유지</a></li>
+  <li><a href="#표시할-기능-선택" id="toc-표시할-기능-선택" class="nav-link" data-scroll-target="#표시할-기능-선택"><span class="header-section-number">20.7</span> 표시할 기능 선택</a></li>
+  <li><a href="#shap-기본-값-변경" id="toc-shap-기본-값-변경" class="nav-link" data-scroll-target="#shap-기본-값-변경"><span class="header-section-number">20.8</span> SHAP 기본 값 변경</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<h2 class="anchored">
+Table of Contents<span class="tocSkip"></span>
+</h2>
+<div class="toc">
+<ul class="toc-item">
+<li>
+<span><a href="#SHAP-Decision-Plots" data-toc-modified-id="SHAP-Decision-Plots-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>SHAP Decision Plots</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#Load-the-dataset-and-train-the-model" data-toc-modified-id="Load-the-dataset-and-train-the-model-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Load the dataset and train the model</a></span>
+</li>
+<li>
+<span><a href="#Calculate-SHAP-values" data-toc-modified-id="Calculate-SHAP-values-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Calculate SHAP values</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Basic-decision-plot-features" data-toc-modified-id="Basic-decision-plot-features-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Basic decision plot features</a></span>
+</li>
+<li>
+<span><a href="#When-is-a-decision-plot-helpful?" data-toc-modified-id="When-is-a-decision-plot-helpful?-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>When is a decision plot helpful?</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#Show-a-large-number-of-feature-effects-clearly" data-toc-modified-id="Show-a-large-number-of-feature-effects-clearly-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Show a large number of feature effects clearly</a></span>
+</li>
+<li>
+<span><a href="#Visualize-multioutput-predictions" data-toc-modified-id="Visualize-multioutput-predictions-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Visualize multioutput predictions</a></span>
+</li>
+<li>
+<span><a href="#Display-the-cumulative-effect-of-interactions" data-toc-modified-id="Display-the-cumulative-effect-of-interactions-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Display the cumulative effect of interactions</a></span>
+</li>
+<li>
+<span><a href="#Explore-feature-effects-for-a-range-of-feature-values" data-toc-modified-id="Explore-feature-effects-for-a-range-of-feature-values-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Explore feature effects for a range of feature values</a></span>
+</li>
+<li>
+<span><a href="#Identify-outliers" data-toc-modified-id="Identify-outliers-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Identify outliers</a></span>
+</li>
+<li>
+<span><a href="#Identify-typical-prediction-paths" data-toc-modified-id="Identify-typical-prediction-paths-3.6"><span class="toc-item-num">3.6&nbsp;&nbsp;</span>Identify typical prediction paths</a></span>
+</li>
+<li>
+<span><a href="#Compare-and-contrast-predictions-for-several-models" data-toc-modified-id="Compare-and-contrast-predictions-for-several-models-3.7"><span class="toc-item-num">3.7&nbsp;&nbsp;</span>Compare and contrast predictions for several models</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#SHAP-interaction-values" data-toc-modified-id="SHAP-interaction-values-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>SHAP interaction values</a></span>
+</li>
+<li>
+<span><a href="#Preserving-order-and-scale-between-plots" data-toc-modified-id="Preserving-order-and-scale-between-plots-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Preserving order and scale between plots</a></span>
+</li>
+<li>
+<span><a href="#Selecting-features-for-display" data-toc-modified-id="Selecting-features-for-display-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Selecting features for display</a></span>
+</li>
+<li>
+<span><a href="#Changing-the-SHAP-base-value" data-toc-modified-id="Changing-the-SHAP-base-value-7"><span class="toc-item-num">7&nbsp;&nbsp;</span>Changing the SHAP base value</a></span>
+</li>
+</ul>
+</div>
+<section id="shap-결정-플롯" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="shap-결정-플롯"><span class="header-section-number">20.1</span> SHAP 결정 플롯</h2>
+<p>SHAP 결정 플롯은 복잡한 모델이 예측에 도달하는 방식(예: 모델이 결정을 내리는 방법)을 보여줍니다. 이 노트북은 간단한 예를 통해 의사결정 플롯 기능과 사용 사례를 보여줍니다. 더 자세한 설명을 보려면 <a href="https://medium.com/@floidgilbert/introducing-shap-decision-plots-52ed3b4a1cba">여기를 클릭</a>하세요.</p>
+<section id="데이터세트-로드-및-모델-학습" class="level3" data-number="20.1.1">
+<h3 data-number="20.1.1" class="anchored" data-anchor-id="데이터세트-로드-및-모델-학습"><span class="header-section-number">20.1.1</span> 데이터세트 로드 및 모델 학습</h3>
+<p>대부분의 예에서는 <a href="https://archive.ics.uci.edu/ml/datasets/adult">UCI 성인 소득</a> 데이터 세트에 대해 교육된 <a href="https://github.com/microsoft/LightGBM">LightGBM</a> 모델을 사용합니다. 목표: 개인이 연간 $50,000를 초과하는지 예측합니다.</p>
+<div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;is_executing&quot;:false}}" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> lightgbm <span class="im">as</span> lgb</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> StratifiedKFold, train_test_split</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shap</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> shap.datasets.adult()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>X_display, y_display <span class="op">=</span> shap.datasets.adult(display<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># create a train/test split</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>random_state <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span>random_state)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>d_train <span class="op">=</span> lgb.Dataset(X_train, label<span class="op">=</span>y_train)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>d_test <span class="op">=</span> lgb.Dataset(X_test, label<span class="op">=</span>y_test)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"max_bin"</span>: <span class="dv">512</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"learning_rate"</span>: <span class="fl">0.05</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"boosting_type"</span>: <span class="st">"gbdt"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"objective"</span>: <span class="st">"binary"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"metric"</span>: <span class="st">"binary_logloss"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"num_leaves"</span>: <span class="dv">10</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"verbose"</span>: <span class="op">-</span><span class="dv">1</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"min_data"</span>: <span class="dv">100</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"boost_from_average"</span>: <span class="va">True</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"random_state"</span>: random_state,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> lgb.train(</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    params,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    d_train,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="dv">10000</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    valid_sets<span class="op">=</span>[d_test],</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    early_stopping_rounds<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    verbose_eval<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Training until validation scores don't improve for 50 rounds.
+Early stopping, best iteration is:
+[683]   valid_0's binary_logloss: 0.277144</code></pre>
+</div>
+</div>
+</section>
+<section id="shap-값-계산" class="level3" data-number="20.1.2">
+<h3 data-number="20.1.2" class="anchored" data-anchor-id="shap-값-계산"><span class="header-section-number">20.1.2</span> SHAP 값 계산</h3>
+<p>처음 20개의 테스트 관찰에 대한 SHAP 값과 SHAP 상호 작용 값을 계산합니다.</p>
+<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;is_executing&quot;:false,&quot;name&quot;:&quot;#%%\n&quot;}}" data-scrolled="true" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>explainer <span class="op">=</span> shap.TreeExplainer(model)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>expected_value <span class="op">=</span> explainer.expected_value</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">isinstance</span>(expected_value, <span class="bu">list</span>):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    expected_value <span class="op">=</span> expected_value[<span class="dv">1</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Explainer expected value: </span><span class="sc">{</span>expected_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>select <span class="op">=</span> <span class="bu">range</span>(<span class="dv">20</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> X_test.iloc[select]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>features_display <span class="op">=</span> X_display.loc[features.index]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> warnings.catch_warnings():</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    warnings.simplefilter(<span class="st">"ignore"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    shap_values <span class="op">=</span> explainer.shap_values(features)[<span class="dv">1</span>]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values <span class="op">=</span> explainer.shap_interaction_values(features)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">isinstance</span>(shap_interaction_values, <span class="bu">list</span>):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values <span class="op">=</span> shap_interaction_values[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Explainer expected value: -2.4296968952292404</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="기본-의사결정-플롯-기능" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="기본-의사결정-플롯-기능"><span class="header-section-number">20.2</span> 기본 의사결정 플롯 기능</h2>
+<p>아래 20개 테스트 관찰의 결정 플롯을 참조하세요. <em>참고: 이 플롯 자체는 유익하지 않습니다. 기본 개념을 설명하기 위해서만 사용합니다.</em> * x축은 모델의 출력을 나타냅니다. 이 경우 단위는 로그 확률입니다. * 플롯은 <code>explainer.expected_value</code>의 x축 중심에 있습니다. 모든 SHAP 값은 선형 모델의 효과가 절편에 상대적인 것처럼 모델의 예상 값에 상대적입니다. * y축은 모델의 특징을 나열합니다. 기본적으로 기능은 중요도를 내림차순으로 정렬됩니다. 중요도는 표시된 관측값에 대해 계산됩니다. <em>이는 일반적으로 전체 데이터 세트의 중요도 순서와 다릅니다.</em> 특성 중요도 순서 외에도 결정 플롯은 계층적 클러스터 특성 순서 및 사용자 정의 특성 순서도 지원합니다. * 각 관찰의 예측은 컬러 선으로 표시됩니다. 플롯 상단에서 각 선은 해당 관측치의 예측 값에서 x축에 닿습니다. 이 값은 스펙트럼의 선 색상을 결정합니다. * 플롯의 아래쪽에서 위쪽으로 이동하면 각 기능의 SHAP 값이 모델의 기본 값에 추가됩니다. 이는 각 기능이 전체 예측에 어떻게 기여하는지 보여줍니다. * 플롯 하단에서 관측값은 <code>explainer.expected_value</code>에 수렴됩니다.</p>
+<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;name&quot;:&quot;#%%\n&quot;}}" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, shap_values, features_display)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>힘 플롯과 마찬가지로 결정 플롯은 로그 확률을 확률로 변환하는 <code>link='logit'</code>를 지원합니다.</p>
+<div id="cell-10" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, shap_values, features_display, link<span class="op">=</span><span class="st">"logit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>관찰 내용은 점선 스타일을 사용하여 강조 표시할 수 있습니다. 여기서는 잘못 분류된 관찰을 강조합니다.</p>
+<div id="cell-12" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our naive cutoff point is zero log odds (probability 0.5).</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> (shap_values.<span class="bu">sum</span>(<span class="dv">1</span>) <span class="op">+</span> expected_value) <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>misclassified <span class="op">=</span> y_pred <span class="op">!=</span> y_test[select]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, shap_values, features_display, link<span class="op">=</span><span class="st">"logit"</span>, highlight<span class="op">=</span>misclassified)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>잘못 분류된 관측값을 단독으로 플로팅하여 검사해 보겠습니다. 단일 관측치가 플롯되면 해당 기능 값이 표시됩니다. 선의 모양이 변경된 것을 확인하세요. 왜? 이 단일 관찰에 대한 기능 중요도에 따라 y축의 기능 순서가 변경되었습니다. “플롯 간 순서 및 스케일 유지” 섹션에서는 여러 플롯에 동일한 기능 순서를 사용하는 방법을 보여줍니다.</p>
+<div id="cell-14" class="cell" data-scrolled="false" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    shap_values[misclassified],</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    features_display[misclassified],</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    highlight<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>잘못 분류된 관측값에 대한 힘 플롯은 아래와 같습니다. 이 경우 결정 플롯과 힘 플롯은 모두 모델이 결정에 어떻게 도달했는지 보여주는 데 효과적입니다.</p>
+<div id="cell-16" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>shap.force_plot(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    shap_values[misclassified],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    features_display[misclassified],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    matplotlib<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="의사결정-플롯은-언제-도움이-되나요" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="의사결정-플롯은-언제-도움이-되나요"><span class="header-section-number">20.3</span> 의사결정 플롯은 언제 도움이 되나요?</h2>
+<p>의사결정 플롯에는 여러 가지 사용 사례가 있습니다. 여기서는 몇 가지 사례를 제시합니다. 1. 다양한 기능 효과를 명확하게 보여줍니다. 2. 다중 출력 예측을 시각화합니다. 3. 상호작용의 누적 효과를 표시합니다. 4. 다양한 특성 값에 대한 특성 효과를 탐색합니다. 5. 이상치를 식별합니다. 6. 일반적인 예측 경로를 식별합니다. 7. 여러 모델에 대한 예측을 비교하고 대조합니다.</p>
+<section id="수많은-기능-효과를-명확하게-보여줍니다." class="level3" data-number="20.3.1">
+<h3 data-number="20.3.1" class="anchored" data-anchor-id="수많은-기능-효과를-명확하게-보여줍니다."><span class="header-section-number">20.3.1</span> 수많은 기능 효과를 명확하게 보여줍니다.</h3>
+<p>힘 플롯과 마찬가지로 결정 플롯은 모델의 출력과 관련된 중요한 기능을 보여줍니다. 그러나 중요한 특징이 많이 포함되어 있는 경우 결정 플롯이 힘 플롯보다 더 유용할 수 있습니다. 이를 입증하기 위해 <a href="https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime+Unnormalized">UCI 커뮤니티 및 범죄</a> 데이터 세트에 대해 훈련된 모델을 사용합니다. 이 모델은 101개의 특징을 사용합니다. 아래 두 플롯은 동일한 예측을 설명합니다. 힘 플롯의 수평 형식으로 인해 모든 중요한 특징이 명확하게 표시되지 않습니다. 이와 대조적으로 결정 플롯의 수직 형식은 다양한 기능의 효과를 표시할 수 있습니다.</p>
+<div id="cell-18" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the prediction from disk to keep the example short.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"./data/crime.pickle"</span>, <span class="st">"rb"</span>) <span class="im">as</span> fl:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    a, b, c <span class="op">=</span> pickle.load(fl)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>shap.force_plot(a, b, c, matplotlib<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(a, b, c, feature_display_range<span class="op">=</span><span class="bu">slice</span>(<span class="va">None</span>, <span class="op">-</span><span class="dv">31</span>, <span class="op">-</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="다중-출력-예측-시각화" class="level3" data-number="20.3.2">
+<h3 data-number="20.3.2" class="anchored" data-anchor-id="다중-출력-예측-시각화"><span class="header-section-number">20.3.2</span> 다중 출력 예측 시각화</h3>
+<p>결정 플롯은 다중 출력 모델이 어떻게 예측에 도달하는지 보여줄 수 있습니다. 이 예에서는 <a href="https://archive.ics.uci.edu/ml/datasets/heart+Disease">UCI 심장병</a> 데이터 세트에 대해 훈련된 Catboost 모델의 SHAP 값을 사용합니다. 질병의 정도를 나타내는 5가지 클래스가 있습니다. 클래스 1은 질병이 없음을 나타냅니다. 클래스 5는 진행된 질병을 나타냅니다.</p>
+<p>예제를 짧게 유지하기 위해 SHAP 값은 디스크에서 로드됩니다. <code>heart_base_values</code> 변수는 각 클래스의 SHAP 예상 값 목록입니다. 마찬가지로 <code>heart_shap_values</code> 변수는 SHAP 행렬 목록입니다. 클래스당 하나의 행렬. 이것은 <code>shap.TreeExplainer</code>가 반환하는 다중 출력 형식입니다.</p>
+<div id="cell-21" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load all from disk to keep the example short.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"./data/heart.pickle"</span>, <span class="st">"rb"</span>) <span class="im">as</span> fl:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    (</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        heart_feature_names,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        heart_base_values,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        heart_shap_values,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        heart_predictions,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">=</span> pickle.load(fl)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>class_count <span class="op">=</span> <span class="bu">len</span>(heart_base_values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>플롯 범례에 대한 레이블을 생성하는 함수를 만듭니다. <em>팁: 클래스를 구별하는 데 도움이 되도록 범례 라벨에 예측 값을 포함하세요.</em></p>
+<div id="cell-23" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> class_labels(row_index):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="ss">f"Class </span><span class="sc">{</span>i <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>heart_predictions[row_index, i]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">:.2f}</span><span class="ss">)"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(class_count)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>shap.multioutput_decision_plot</code>을 사용하여 관찰 #2에 대한 SHAP 값을 플롯합니다. 플롯의 기본 기준 값은 다중 출력 기본 값의 평균입니다. 정확한 예측을 생성하기 위해 SHAP 값이 그에 따라 조정됩니다. 점선(강조 표시된) 선은 모델의 예측 클래스를 나타냅니다. 이 관찰을 위해 모델은 질병이 존재한다고 확신하지만 클래스 3, 4, 5를 쉽게 구분할 수는 없습니다.</p>
+<div id="cell-25" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>row_index <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>shap.multioutput_decision_plot(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    heart_base_values,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    heart_shap_values,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    row_index<span class="op">=</span>row_index,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    feature_names<span class="op">=</span>heart_feature_names,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    highlight<span class="op">=</span>[np.argmax(heart_predictions[row_index])],</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    legend_labels<span class="op">=</span>class_labels(row_index),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    legend_location<span class="op">=</span><span class="st">"lower right"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>관찰을 위해 모델은 질병이 존재하지 않는다고 자신있게 예측합니다.</p>
+<div id="cell-27" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>row_index <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>shap.multioutput_decision_plot(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    heart_base_values,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    heart_shap_values,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    row_index<span class="op">=</span>row_index,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    feature_names<span class="op">=</span>heart_feature_names,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    highlight<span class="op">=</span>[np.argmax(heart_predictions[row_index])],</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    legend_labels<span class="op">=</span>class_labels(row_index),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    legend_location<span class="op">=</span><span class="st">"lower right"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="상호작용의-누적-효과-표시" class="level3" data-number="20.3.3">
+<h3 data-number="20.3.3" class="anchored" data-anchor-id="상호작용의-누적-효과-표시"><span class="header-section-number">20.3.3</span> 상호작용의 누적 효과 표시</h3>
+<p>결정 플롯은 SHAP 상호 작용 값, 즉 트리 기반 모델에서 추정된 1차 상호 작용을 지원합니다. SHAP 의존성 도표는 개별 상호작용을 시각화하는 가장 좋은 방법인 반면, 결정 도표는 하나 이상의 관측치에 대한 주효과 및 상호작용의 누적 효과를 표시할 수 있습니다.</p>
+<p>여기의 결정 플롯은 주효과와 상호 작용을 모두 사용하여 <a href="https://archive.ics.uci.edu/ml/datasets/Adult">UCI Adult Income</a> 데이터 세트의 단일 예측을 설명합니다. 가장 중요한 20가지 기능이 표시됩니다. 상호 작용 지원과 관련된 자세한 내용은 “SHAP 상호 작용 값” 섹션을 참조하세요.</p>
+<div id="cell-29" class="cell" data-scrolled="false" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values[misclassified],</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    features_display[misclassified],</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="다양한-특성-값에-대한-특성-효과-탐색" class="level3" data-number="20.3.4">
+<h3 data-number="20.3.4" class="anchored" data-anchor-id="다양한-특성-값에-대한-특성-효과-탐색"><span class="header-section-number">20.3.4</span> 다양한 특성 값에 대한 특성 효과 탐색</h3>
+<p>결정 플롯을 통해 일련의 특성 값에 걸쳐 예측이 어떻게 변경되는지 확인할 수 있습니다. 이 방법은 가상 시나리오를 제시하고 모델 동작을 노출하는 데 유용합니다. 이 예에서는 자본 이득만 다른 가상 관찰을 만듭니다.</p>
+<p><a href="https://archive.ics.uci.edu/ml/datasets/adult">UCI 성인 소득</a> 데이터 세트의 다음 참조 관찰부터 시작하세요.</p>
+<div id="cell-31" class="cell" data-scrolled="true" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>X_display.loc[idx]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>Age                                56
+Workclass                   Local-gov
+Education-Num                      13
+Marital Status     Married-civ-spouse
+Occupation               Tech-support
+Relationship                  Husband
+Race                            White
+Sex                              Male
+Capital Gain                        0
+Capital Loss                        0
+Hours per week                     40
+Country                 United-States
+Name: 25, dtype: object</code></pre>
+</div>
+</div>
+<p>참조 관찰의 여러 복사본을 사용하여 합성 데이터 세트를 만듭니다. ‘자본 이득’ 값을 \$0-\$10,000에서 \$100만큼 변경합니다. 해당 SHAP 값을 검색합니다. 이 접근 방식을 사용하면 모델을 평가하고 디버그할 수 있습니다. 분석가는 이 방법이 가상 시나리오를 제시하는 데 유용할 수도 있습니다. 이 예에 표시된 자본 이득에 대한 효과는 참조 레코드에 따라 다르므로 일반화할 수 없다는 점을 명심하십시오.</p>
+<div id="cell-33" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>rg <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10100</span>, <span class="dv">100</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> X.iloc[np.repeat(idx, <span class="bu">len</span>(rg))].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>R[<span class="st">"Capital Gain"</span>] <span class="op">=</span> rg</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> warnings.catch_warnings():</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    warnings.simplefilter(<span class="st">"ignore"</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    hypothetical_shap_values <span class="op">=</span> explainer.shap_values(R)[<span class="dv">1</span>]</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>hypothetical_predictions <span class="op">=</span> expected_value <span class="op">+</span> hypothetical_shap_values.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>hypothetical_predictions <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>hypothetical_predictions))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>이 의존성 플롯은 기능 값 범위 전체에 걸쳐 SHAP 값의 변화를 보여줍니다. 이 모델의 SHAP 값은 로그 확률의 변화를 나타냅니다. 이 플롯은 \$5,000 부근에서 SHAP 값에 상당한 변화가 있음을 보여줍니다. 또한 \$0 및 대략 \$3,000에서 몇 가지 중요한 이상값을 보여줍니다.</p>
+<div id="cell-35" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>shap.dependence_plot(<span class="st">"Capital Gain"</span>, hypothetical_shap_values, R, interaction_index<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>의존성 플롯은 도움이 되지만 상황에 따라 SHAP 값의 실제 효과를 식별하기는 어렵습니다. 이를 위해 확률 척도에 대한 결정 플롯을 사용하여 합성 데이터 세트를 플롯할 수 있습니다. 먼저, 맥락을 확립하기 위해 참조 관찰을 플롯합니다. 예측 확률은 0.76입니다. 자본 이득은 0이며 모델은 이에 대해 작은 부정적 효과를 할당합니다. 기능은 다음 두 플롯과 일치하도록 수동으로 주문되었습니다.</p>
+<div id="cell-37" class="cell" data-scrolled="false" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The feature ordering was determined via 'hclust' on the synthetic data set. We specify the order here manually so</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the following two plots match up.</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>feature_idx <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">1</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    hypothetical_shap_values[<span class="dv">0</span>],</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    X_display.iloc[idx],</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span>feature_idx,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>이제 합성 데이터를 플로팅합니다. 참조 레코드는 점선으로 표시됩니다. 특징은 유사한 예측 경로를 그룹화하기 위해 계층적 클러스터링을 통해 정렬됩니다. 우리는 실제적인 측면에서 자본 이득의 효과가 크게 양극화되어 있음을 알 수 있습니다. 소수의 예측만이 0.2에서 0.8 사이에 있습니다.</p>
+<div id="cell-39" class="cell" data-scrolled="false" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    hypothetical_shap_values,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    R,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span><span class="st">"hclust"</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    highlight<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>예측을 자세히 조사한 결과 약 \$4,300의 임계값을 찾았지만 예외가 있습니다. \$0, \$3,000 및 \$3,100의 자본 이득은 예상치 못한 높은 예측에 기여합니다. \$5,000의 자본 이득은 예기치 않게 낮은 예측에 기여합니다. 이러한 이상 현상은 각 예측을 식별하는 데 도움이 되는 범례와 함께 여기에 표시됩니다. \$3,000과 \$3,100에 대한 예측 경로는 동일합니다.</p>
+<div id="cell-41" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> legend_labels(idx):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="vs">rf"</span><span class="ch">\$</span><span class="sc">{</span>i <span class="op">*</span> <span class="dv">100</span><span class="sc">:,}</span><span class="vs"> </span><span class="kw">(</span><span class="sc">{</span>hypothetical_predictions[i]<span class="sc">:.2f}</span><span class="kw">)</span><span class="vs">"</span> <span class="cf">for</span> i <span class="kw">in</span> idx]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>show_idx <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">50</span>]</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    hypothetical_shap_values[show_idx],</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    X,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span>feature_idx,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    legend_labels<span class="op">=</span>legend_labels(show_idx),</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    legend_location<span class="op">=</span><span class="st">"upper center"</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="이상값-식별" class="level3" data-number="20.3.5">
+<h3 data-number="20.3.5" class="anchored" data-anchor-id="이상값-식별"><span class="header-section-number">20.3.5</span> 이상값 식별</h3>
+<p>의사결정 도표는 이상값을 식별하는 데 도움이 될 수 있습니다. 비슷한 예측 경로를 가진 관측치를 그룹화하려면 <code>feature_order='hclust'</code>를 지정하세요. 이로 인해 이상값을 더 쉽게 발견할 수 있는 경우가 많습니다. 진폭 예측은 시그모이드 함수에 의해 왜곡되므로 이상치를 그릴 때 ‘link=’logit’’을 사용하지 마세요.</p>
+<p>아래 플롯은 확률 범위 [0.03, 0.1]의 모든 예측을 보여줍니다. (0.03보다 작은 예측은 많은 수의 관찰을 나타내기 때문에 이 예에서는 제외됩니다.) 두 가지 예측이 즉시 눈에 띕니다. ‘연령’, ‘자본 손실’, ’자본 이득’의 효과가 가장 두드러집니다.</p>
+<div id="cell-43" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)  <span class="co"># Get predictions on the probability scale.</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> X_test[(y_pred <span class="op">&gt;=</span> <span class="fl">0.03</span>) <span class="op">&amp;</span> (y_pred <span class="op">&lt;=</span> <span class="fl">0.1</span>)]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> warnings.catch_warnings():</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    warnings.simplefilter(<span class="st">"ignore"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    sh <span class="op">=</span> explainer.shap_values(T)[<span class="dv">1</span>]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> shap.decision_plot(expected_value, sh, T, feature_order<span class="op">=</span><span class="st">"hclust"</span>, return_objects<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>SHAP 값을 기준으로 이상값을 찾아 특성 값으로 표시합니다. 이상값은 원본 플롯과 동일한 기능 차수 및 척도를 사용하여 플롯됩니다. 자세한 내용은 “플롯 간 순서 및 척도 유지”를 참조하십시오.</p>
+<div id="cell-45" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the two observations with the most negative 'Age' SHAP values.</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argpartition(sh[:, T.columns.get_loc(<span class="st">"Age"</span>)], <span class="dv">2</span>)[<span class="dv">0</span>:<span class="dv">2</span>]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the observations individually with their corresponding feature values. The plots use the same feature order</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># as the original plot.</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> idx:</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    shap.decision_plot(</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        expected_value,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>        sh[i],</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        X_display.loc[T.index[i]],</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        feature_order<span class="op">=</span>r.feature_idx,</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        xlim<span class="op">=</span>r.xlim,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-23-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="일반적인-예측-경로-식별" class="level3" data-number="20.3.6">
+<h3 data-number="20.3.6" class="anchored" data-anchor-id="일반적인-예측-경로-식별"><span class="header-section-number">20.3.6</span> 일반적인 예측 경로 식별</h3>
+<p>결정 플롯은 모델의 일반적인 예측 경로를 노출할 수 있습니다. 여기서는 높은 점수를 받은 예측의 공통점을 확인하기 위해 확률 간격 [0.98, 1.0]의 모든 예측을 플로팅합니다. 유사한 예측 경로를 그룹화하기 위해 `hclust’ 기능 순서를 사용합니다. 플롯은 두 가지 별개의 경로를 보여줍니다. 하나는 ‘자본 이득’에 의해 지배되고 다른 하나는 ’자본 손실’에 의해 지배됩니다. ’관계’, ‘연령’, ’학력’의 효과도 주목할 만합니다.</p>
+<div id="cell-47" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)  <span class="co"># Get predictions on the probability scale.</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> X_test[y_pred <span class="op">&gt;=</span> <span class="fl">0.98</span>]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> warnings.catch_warnings():</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    warnings.simplefilter(<span class="st">"ignore"</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    sh <span class="op">=</span> explainer.shap_values(T)[<span class="dv">1</span>]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, sh, T, feature_order<span class="op">=</span><span class="st">"hclust"</span>, link<span class="op">=</span><span class="st">"logit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="여러-모델에-대한-비교-및-대조-예측" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="여러-모델에-대한-비교-및-대조-예측"><span class="header-section-number">20.4</span> 여러 모델에 대한 비교 및 대조 예측</h2>
+<p>결정 도표는 다양한 모델의 예측을 비교하거나 모델 앙상블의 예측을 해석하는 데 유용합니다. 이 예에서는 <a href="https://archive.ics.uci.edu/ml/datasets/adult">UCI Adult Income</a> 데이터 세트에 대해 훈련된 5개의 LightGBM 모델 앙상블의 예측을 플롯합니다. 이 예에서는 5개 모델의 앙상블을 생성하고 ’shap.multioutput_decision_plot’을 사용하여 모델의 예측을 그립니다.</p>
+<p>5겹 CV를 사용하여 5개의 LightGBM 모델 앙상블을 훈련합니다.</p>
+<div id="cell-49" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>model_count <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>skf <span class="op">=</span> StratifiedKFold(model_count, <span class="va">True</span>, random_state<span class="op">=</span>random_state)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> []</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t, v <span class="kw">in</span> skf.split(X, y):</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> lgb.LGBMClassifier(<span class="op">**</span>params, n_estimators<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    m.fit(</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        X.iloc[t],</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>        y[t],</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        eval_set<span class="op">=</span>(X.iloc[v], y[v]),</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>        early_stopping_rounds<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>        verbose<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    score <span class="op">=</span> m.best_score_[<span class="st">"valid_0"</span>][<span class="st">"binary_logloss"</span>]</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Best score: </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    models.append(m)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best score: 0.28279460948508833
+Best score: 0.2743920496745268
+Best score: 0.2706647518976772
+Best score: 0.2809048231217079
+Best score: 0.2785044277595166</code></pre>
+</div>
+</div>
+<p>모델의 기본 값과 SHAP 값을 목록으로 조합합니다. 이는 다중 출력 모델에 대한 <code>shap</code> 패키지의 출력을 모방합니다.</p>
+<div id="cell-51" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_ensemble_shap_values(models, X):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    base_values <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> model_count</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    shap_values <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> model_count</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> model_count</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>(models):</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> m.predict(X, pred_contrib<span class="op">=</span><span class="va">True</span>)  <span class="co"># `pred_contrib=True` returns SHAP values for LightGBM</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>        base_values[i] <span class="op">=</span> a[<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]  <span class="co"># The last column in the matrix is the base value.</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        shap_values[i] <span class="op">=</span> a[:, <span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>        predictions[i] <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>a.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>]))  <span class="co"># Predictions as probabilities</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> base_values, shap_values, predictions</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>단일 관측값에 대해 앙상블에서 SHAP 값을 검색합니다.</p>
+<div id="cell-53" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    ensemble_base_values,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    ensemble_shap_values,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    ensemble_predictions,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">=</span> get_ensemble_shap_values(models, X.iloc[[<span class="dv">27</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>SHAP 값을 플롯합니다. 범례는 각 모델의 예측을 식별합니다. <em>팁: 모델을 구별하는 데 도움이 되도록 범례 라벨에 예측 값을 포함하세요.</em></p>
+<p>확률 0.5가 이 이진 분류 작업에 대한 컷오프 값인 경우 이 관찰은 분류하기 어렵다는 것을 알 수 있습니다. 그러나 Model 2는 개인의 연간 소득이 \$50,000 미만이라고 확신합니다. 이것이 예시적인 관찰이라면 이 모델의 예측이 왜 다른지 조사해 볼 가치가 있을 것입니다.</p>
+<div id="cell-55" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create labels for legend</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="ss">f"Model </span><span class="sc">{</span>i <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>ensemble_predictions[i]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">:.2f}</span><span class="ss">)"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(model_count)]</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>shap.multioutput_decision_plot(</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    ensemble_base_values,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    ensemble_shap_values,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    feature_names<span class="op">=</span>X.columns.to_list(),</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    legend_labels<span class="op">=</span>labels,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    legend_location<span class="op">=</span><span class="st">"lower right"</span>,</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="shap-상호작용-값" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="shap-상호작용-값"><span class="header-section-number">20.5</span> SHAP 상호작용 값</h2>
+<p>결정 플롯은 여기에 표시된 것처럼 SHAP 상호 작용 값을 지원합니다. 플롯 하단의 ’explainer.expected_value’에 선이 완전히 수렴되지는 않습니다. 이는 교호작용과 주효과를 포함하여 N(N + 1)/2 = 12(13)/2 = 78개의 특징이 있지만 결정 플롯에는 기본적으로 가장 중요한 20개의 특징만 표시되기 때문입니다. 더 많은 기능을 표시하는 방법을 알아보려면 “표시할 기능 선택” 섹션을 참조하세요.</p>
+<div id="cell-57" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;name&quot;:&quot;#%%\n&quot;}}" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, shap_interaction_values, features, link<span class="op">=</span><span class="st">"logit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>결정 플롯은 3차원 SHAP 상호 작용 구조를 표준 2차원 SHAP 매트릭스로 변환합니다. 또한 해당 기능 레이블을 생성합니다. 이러한 구조는 <code>return_objects=True</code>를 설정하여 결정 플롯에서 검색할 수 있습니다. 이 예에서는 <code>show=False</code>를 설정하여 플롯을 생략합니다.</p>
+<div id="cell-59" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;name&quot;:&quot;#%%\n&quot;}}" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> shap.decision_plot(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    features,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    show<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    return_objects<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"SHAP dimensions: </span><span class="sc">{</span>r<span class="sc">.</span>shap_values<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>pprint(r.feature_names[:<span class="op">-</span><span class="dv">11</span>:<span class="op">-</span><span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>SHAP dimensions: (20, 78) 
+
+['Age',
+ 'Relationship',
+ 'Capital Gain',
+ 'Hours per week',
+ 'Education-Num',
+ 'Occupation',
+ 'Marital Status',
+ 'Sex',
+ 'Age *\nOccupation',
+ 'Marital Status *\nRelationship']</code></pre>
+</div>
+</div>
+</section>
+<section id="플롯-간-순서와-규모-유지" class="level2" data-number="20.6">
+<h2 data-number="20.6" class="anchored" data-anchor-id="플롯-간-순서와-규모-유지"><span class="header-section-number">20.6</span> 플롯 간 순서와 규모 유지</h2>
+<p>직접 비교를 용이하게 하기 위해 동일한 기능 순서와 x축 배율을 사용하여 여러 결정 플롯을 만드는 것이 도움이 되는 경우가 많습니다. ’return_objects=True’인 경우 결정 플롯은 후속 플롯에서 사용할 수 있는 플롯 구조를 반환합니다.</p>
+<div id="cell-62" class="cell" data-scrolled="false" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the first plot, returning the plot structures.</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> shap.decision_plot(expected_value, shap_values, features_display, return_objects<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-63" class="cell" data-scrolled="false" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create another plot using the same feature order and x-axis extents.</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    shap_values[idx],</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    features_display.iloc[idx],</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span>r.feature_idx,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    xlim<span class="op">=</span>r.xlim,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-32-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="표시할-기능-선택" class="level2" data-number="20.7">
+<h2 data-number="20.7" class="anchored" data-anchor-id="표시할-기능-선택"><span class="header-section-number">20.7</span> 표시할 기능 선택</h2>
+<p>결정 플롯에 표시되는 특징은 ‘feature_order’와 ’feature_display_range’라는 두 가지 매개변수로 제어됩니다. <code>feature_order</code> 매개변수는 표시 전에 기능의 순서를 결정합니다. ’feature_display_range’ 매개변수는 정렬된 기능 중 표시할 기능을 결정합니다. ‘slice’ 또는 ‘range’ 개체를 인수로 사용합니다. ‘feature_display_range’ 매개변수는 지형지물이 오름차순으로 표시되는지 내림차순으로 표시되는지 여부도 제어합니다.</p>
+<p>예를 들어, <code>feature_order='importance'</code>(기본값)인 경우 결정 플롯은 표시하기 전에 중요도에 따라 <em>오름차순</em>으로 기능을 정렬합니다. <code>feature_display_range=slice(-1, -21, -1)</code>(기본값)인 경우 플롯에는 마지막(즉, 가장 중요한) 20개의 기능이 내림차순으로 표시됩니다. ‘slice(-1, -21, -1)’ 객체는 “마지막 기능에서 시작하여 끝부터 21번째 기능까지 -1단계로 반복”하는 것으로 해석됩니다. 끝점 -21은 포함되지 않습니다.</p>
+<p><code>feature_display_range</code> 매개변수는 `hclust’ 순서가 적용될 때 특히 중요합니다. 이 경우 중요한 기능 중 상당수가 기능 범위의 시작 부분에 배치됩니다. 그러나 결정 플롯에는 기본적으로 특성 범위의 끝이 표시됩니다.</p>
+<p>다음 플롯은 ‘hclust’ 순서를 사용하는 78개의 SHAP 상호 작용 기능 중 처음 10개를 보여줍니다. <em>참고: 처음 10개의 특징만 표시하기 때문에 관측치는 최종 예측 값에서 x축에 도달하지 않습니다.</em> 스니펫 <code>feature_display_range=range(10, -1, -1)</code>은 특징 10에서 시작하여 -1만큼 -1까지 계산한다는 것을 나타냅니다. 끝점은 범위에 포함되지 않습니다. 따라서 우리는 특성이 10에서 0으로 표시됩니다.</p>
+<div id="cell-65" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    features,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span><span class="st">"hclust"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    feature_display_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">10</span>, <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-33-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>오름차순 범위(‘range(0, 11, 1)’)를 지정하여 동일한 플롯을 오름차순으로 생성할 수 있습니다.</p>
+<div id="cell-67" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    features,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span><span class="st">"hclust"</span>,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    feature_display_range<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">11</span>, <span class="dv">1</span>),</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-34-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>범위의 마지막 기능을 선택할 때 슬라이스는 음수 인덱스를 지원하므로 슬라이스를 사용하는 것이 더 편리합니다. 예를 들어, 인덱스 -20은 끝에서 20번째 항목을 나타냅니다. 다음 플롯은 ‘hclust’ 내림차순으로 마지막 10개 기능을 보여줍니다.</p>
+<div id="cell-69" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    features,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span><span class="st">"hclust"</span>,</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    feature_display_range<span class="op">=</span><span class="bu">slice</span>(<span class="va">None</span>, <span class="op">-</span><span class="dv">11</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-35-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>다양한 방법으로 사용 가능한 모든 기능을 표시할 수 있습니다. 가장 간단한 것은 <code>feature_display_range=slice(None, None, -1)</code>입니다. <em>참고: 데이터 세트에 많은 기능이 포함된 경우 매우 큰 플롯이 생성됩니다.</em></p>
+<div id="cell-71" class="cell" data-scrolled="false" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    shap_interaction_values,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    features,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    feature_order<span class="op">=</span><span class="st">"hclust"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    feature_display_range<span class="op">=</span><span class="bu">slice</span>(<span class="va">None</span>, <span class="va">None</span>, <span class="op">-</span><span class="dv">1</span>),</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-36-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="shap-기본-값-변경" class="level2" data-number="20.8">
+<h2 data-number="20.8" class="anchored" data-anchor-id="shap-기본-값-변경"><span class="header-section-number">20.8</span> SHAP 기본 값 변경</h2>
+<p>SHAP 값은 모두 일부 기본 값에 상대적입니다. 기본적으로 기본 값은 훈련 데이터에 대한 원시 모델 예측의 평균인 <code>explainer.expected_value</code>입니다.</p>
+<div id="cell-73" class="cell" data-scrolled="true" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The model's training mean</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.predict(X_train, raw_score<span class="op">=</span><span class="va">True</span>).mean().<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The explainer expected value</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(expected_value.<span class="bu">round</span>(<span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-2.4297
+-2.4297</code></pre>
+</div>
+</div>
+<p>원시 예측 값을 얻으려면 ’explainer.expected_value’가 각 관측값의 SHAP 값 합계에 추가됩니다.</p>
+<div id="cell-75" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The model's raw prediction for the first observation.</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.predict(features.iloc[[<span class="dv">0</span>]].values, raw_score<span class="op">=</span><span class="va">True</span>)[<span class="dv">0</span>].<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The corresponding sum of the mean + shap values</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((expected_value <span class="op">+</span> shap_values[<span class="dv">0</span>].<span class="bu">sum</span>()).<span class="bu">round</span>(<span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-3.1866
+-3.1866</code></pre>
+</div>
+</div>
+<p>따라서 올바른 예측을 생성하려면 <code>explainer.expected_value</code>를 결정 플롯에 제공해야 합니다.</p>
+<p>결정 도표에서 기본 값은 도표 하단에 있는 각 예측의 시작 값입니다. <code>explainer.expected_value</code>를 기본 값으로 사용하는 것이 항상 시각적으로 직관적인 것은 아닙니다. 로지스틱 분류 문제를 고려해보세요. 컷오프 값으로 확률 0.4를 선택하면 <code>explainer.expected_value</code> 대신 컷오프 지점에서 예측이 수렴하는 것이 더 합리적일 수 있습니다. 이를 위해 결정 플롯은 <code>new_base_value</code> 인수를 제공합니다. 예측값을 변경하지 않고 SHAP 기본 값을 임의의 지점으로 이동합니다.</p>
+<p>이 예에서는 확률 0.4를 새 기본 값으로 지정합니다. 모델의 SHAP 값은 로그 확률이므로 확률을 결정 플롯에 전달하기 전에 로그 확률로 변환합니다. <code>link='logit'</code> 인수는 기본 값과 SHAP 값을 확률로 변환합니다.</p>
+<div id="cell-77" class="cell" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.4</span>  <span class="co"># Probability 0.4</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>new_base_value <span class="op">=</span> np.log(p <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> p))  <span class="co"># the logit function</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    expected_value,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    shap_values,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    features_display,</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    link<span class="op">=</span><span class="st">"logit"</span>,</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    new_base_value<span class="op">=</span>new_base_value,</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-39-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>비교를 위해 원래 기본 값을 사용한 결정 플롯이 있습니다.</p>
+<div id="cell-79" class="cell" data-execution_count="41">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, shap_values, features_display, link<span class="op">=</span><span class="st">"logit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="decision_plot_files/figure-html/cell-40-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../api_examples/plots/beeswarm.html" class="pagination-link" aria-label="`beeswarm` 플롯">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../api_examples/plots/heatmap.html" class="pagination-link" aria-label="`히트맵` 플롯">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

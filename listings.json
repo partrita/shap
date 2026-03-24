@@ -1,0 +1,111 @@
+[
+  {
+    "listing": "/api_examples.html",
+    "items": [
+      "/api_examples/migrating-to-new-api.html",
+      "/api_examples/explainers/GPUTree.html",
+      "/api_examples/explainers/Permutation.html",
+      "/api_examples/explainers/Exact.html",
+      "/api_examples/maskers/custom.html",
+      "/api_examples/plots/bar.html",
+      "/api_examples/plots/beeswarm.html",
+      "/api_examples/plots/scatter.html",
+      "/api_examples/plots/decision_plot.html",
+      "/api_examples/plots/violin.html",
+      "/api_examples/plots/image.html",
+      "/api_examples/plots/text.html",
+      "/api_examples/plots/waterfall.html",
+      "/api_examples/plots/heatmap.html"
+    ]
+  },
+  {
+    "listing": "/benchmarks.html",
+    "items": [
+      "/benchmarks/image/Image Multiclass Classification Benchmark Demo.html",
+      "/benchmarks/tabular/Benchmark XGBoost explanations.html",
+      "/benchmarks/tabular/Tabular Prediction Benchmark Demo.html",
+      "/benchmarks/text/Text Emotion Multiclass Classification Benchmark Demo.html",
+      "/benchmarks/text/Machine Translation Benchmark Demo.html",
+      "/benchmarks/text/Abstractive Summarization Benchmark Demo.html",
+      "/benchmarks/others/Benchmark Debug Mode.html"
+    ]
+  },
+  {
+    "listing": "/genomic_examples.html",
+    "items": [
+      "/genomic_examples/DeepExplainer Genomics Example.html"
+    ]
+  },
+  {
+    "listing": "/image_examples.html",
+    "items": [
+      "/image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet (PyTorch).html",
+      "/image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow)-checkpoint.html",
+      "/image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow).html",
+      "/image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet.html",
+      "/image_examples/image_classification/PyTorch Deep Explainer MNIST example.html",
+      "/image_examples/image_classification/Explain MobilenetV2 using the Partition explainer (PyTorch).html",
+      "/image_examples/image_classification/Image Multi Class.html",
+      "/image_examples/image_classification/Explain ResNet50 using the Partition explainer.html",
+      "/image_examples/image_classification/Multi-input Gradient Explainer MNIST Example.html",
+      "/image_examples/image_classification/Front Page DeepExplainer MNIST Example.html",
+      "/image_examples/image_captioning/Image Captioning using Azure Cognitive Services.html",
+      "/image_examples/image_captioning/Image Captioning using Open Source.html"
+    ]
+  },
+  {
+    "listing": "/overviews.html",
+    "items": [
+      "/overviews/An introduction to explainable AI with Shapley values.html",
+      "/overviews/Explaining quantitative measures of fairness.html",
+      "/overviews/Be careful when interpreting predictive models in search of causal insights.html"
+    ]
+  },
+  {
+    "listing": "/tabular_examples.html",
+    "items": [
+      "/tabular_examples/tree_based_models/Catboost tutorial.html",
+      "/tabular_examples/tree_based_models/Census income classification with LightGBM.html",
+      "/tabular_examples/tree_based_models/NHANES I Survival Model.html",
+      "/tabular_examples/tree_based_models/Perfomance Comparison.html",
+      "/tabular_examples/tree_based_models/Python Version of Tree SHAP.html",
+      "/tabular_examples/tree_based_models/Fitting a Linear Simulation with XGBoost.html",
+      "/tabular_examples/tree_based_models/Census income classification with XGBoost.html",
+      "/tabular_examples/tree_based_models/Basic SHAP Interaction Value Example in XGBoost.html",
+      "/tabular_examples/tree_based_models/Explaining a simple OR function.html",
+      "/tabular_examples/tree_based_models/Force Plot Colors.html",
+      "/tabular_examples/tree_based_models/Understanding Tree SHAP for Simple Models.html",
+      "/tabular_examples/tree_based_models/League of Legends Win Prediction with XGBoost.html",
+      "/tabular_examples/tree_based_models/Scatter Density vs. Violin Plot Comparison.html",
+      "/tabular_examples/tree_based_models/Example of loading a custom tree model into SHAP.html",
+      "/tabular_examples/tree_based_models/Front page example (XGBoost).html",
+      "/tabular_examples/tree_based_models/Explaining the Loss of a Model.html",
+      "/tabular_examples/linear_models/Sentiment Analysis with Logistic Regression.html",
+      "/tabular_examples/linear_models/Math behind LinearExplainer with correlation feature perturbation.html",
+      "/tabular_examples/linear_models/Explaining a model that uses standardized features.html",
+      "/tabular_examples/neural_networks/Census income classification with Keras.html",
+      "/tabular_examples/model_agnostic/Iris classification with scikit-learn.html",
+      "/tabular_examples/model_agnostic/Census income classification with scikit-learn.html",
+      "/tabular_examples/model_agnostic/Diabetes regression.html",
+      "/tabular_examples/model_agnostic/Simple Kernel SHAP.html",
+      "/tabular_examples/model_agnostic/Multioutput Regression SHAP.html",
+      "/tabular_examples/model_agnostic/Squashing Effect.html",
+      "/tabular_examples/model_agnostic/Simple California Demo.html"
+    ]
+  },
+  {
+    "listing": "/text_examples.html",
+    "items": [
+      "/text_examples/sentiment_analysis/Keras LSTM for IMDB Sentiment Classification.html",
+      "/text_examples/sentiment_analysis/Emotion classification multiclass example.html",
+      "/text_examples/sentiment_analysis/Positive vs. Negative Sentiment Classification.html",
+      "/text_examples/sentiment_analysis/Using custom functions and tokenizers.html",
+      "/text_examples/translation/Machine Translation Explanations.html",
+      "/text_examples/text_generation/Open Ended GPT2 Text Generation Explanations.html",
+      "/text_examples/summarization/Abstractive Summarization Explanation Demo.html",
+      "/text_examples/question_answering/Explaining a Question Answering Transformers Model.html",
+      "/text_examples/language_modelling/Language Modeling Explanation Demo.html",
+      "/text_examples/text_entailment/Textual Entailment Explanation Demo.html"
+    ]
+  }
+]
