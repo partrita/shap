@@ -7,7 +7,6 @@ book:
   date: "2026-03-24."
   chapters:
     - index.qmd
-    - references.qmd
     - api.qmd
     - api_examples.qmd
     - benchmarks.qmd
