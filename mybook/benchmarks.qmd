@@ -15,33 +15,33 @@ listing:
     type: table
 ---
 
-이 벤치마크 문서들에서는 다양한 모델 및 평가지표에 따른 설명자(Explainer)들의 속도와 성능을 비교합니다.
-모든 문서들은 Jupyter 노트북 형식이며, 관련 코드는 [GitHub 저장소](https://github.com/shap/shap/tree/master/notebooks/benchmarks)에서 확인하실 수 있습니다.
+이 섹션에서는 다양한 데이터 유형과 모델 구조에 따른 SHAP 설명자(Explainer)들의 계산 속도 및 성능을 비교한 벤치마크 결과를 다룹니다.
+모든 예제 문서는 Jupyter Notebook으로 작성되었으며, 원본은 [GitHub 저장소](https://github.com/shap/shap/tree/master/notebooks/benchmarks)에서 확인하실 수 있습니다.
 
-## 이미지 벤치마크 (Image)
+## 이미지 데이터 벤치마크 (Image)
 
-이미지 데이터 전용 분석에 사용되는 설명 모델을 비교 평가합니다.
+이미지 관찰 데이터셋에서 여러 설명 모델의 성능을 비교 평가합니다.
 
 ::: {#image-benchmarks}
 :::
 
 ## 정형 데이터 벤치마크 (Tabular)
 
-표(tabular)로 이루어진 정형 데이터 세트 전용 분석에 사용되는 여러 설명 모델의 특성을 비교 평가합니다.
+정형 데이터(Tabular data) 환경에서 사용되는 다양한 설명 모델의 특성을 비교 평가합니다.
 
 ::: {#tabular-benchmarks}
 :::
 
-## 텍스트 벤치마크 (Text)
+## 텍스트 데이터 벤치마크 (Text)
 
-텍스트로 이루어진 자연어 처리(NLP) 분석 세트에 대한 설명 모델을 평가합니다.
+자연어 처리(NLP) 분야의 텍스트 데이터셋에 대한 설명 모델들의 성능을 평가합니다.
 
 ::: {#text-benchmarks}
 :::
 
-## 기타 상황 (Others)
+## 기타 벤치마크 (Others)
 
-기타 모드에서의 파라미터나 디버깅 벤치마크를 나타냅니다.
+매개변수 설정에 따른 영향이나 디버깅 모드 등 기타 상황에서의 벤치마크 사례입니다.
 
 ::: {#other-benchmarks}
 :::

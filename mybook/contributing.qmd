@@ -1,15 +1,15 @@
-# 기여 지침 (Contributing)
+# 기여 가이드 (Contributing Guide)
 
 - [소개](#소개)
-- [도움이 되는 버그 보고서 작성하기](#writing-helpful-bug-reports)
+- [효과적인 버그 리포트 작성 가이드](#writing-helpful-bug-reports)
 - [최신 버전 설치하기](#installing-the-latest-version)
 - [로컬 개발 환경 설정](#setting-up-a-local-development-environment)
-  - [저장소 포크](#fork-the-repository)
-  - [Python 환경 만들기](#creating-a-python-environment)
+  - [저장소 포크(Fork)](#fork-the-repository)
+  - [Python 가상 환경 구축](#creating-a-python-environment)
   - [소스에서 설치](#installing-from-source)
   - [pre-commit을 통한 코드 검사](#code-checks-with-precommit)
   - [pytest를 사용한 단위 테스트](#unit-tests-with-pytest)
-- [풀 리퀘스트(PR)](#pull-requests-prs)
+- [풀 리퀘스트 (Pull Request, PR)](#pull-requests-prs)
   - [PR 작성 에티켓](#etiquette-for-creating-prs)
   - [PR 게시를 위한 체크리스트](#checklist-for-publishing-prs)
   - [AI 사용 정책](#ai-usage-policy)
@@ -30,43 +30,43 @@
 
 ## 소개
 
-SHAP에 기여해 주셔서 감사합니다. SHAP은 오픈 소스 프로젝트이며, 모든 형태의 기여를 환영합니다!
+SHAP 프로젝트에 참여해 주셔서 감사합니다! SHAP은 오픈 소스 프로젝트이며, 여러분의 소중한 기여를 언제나 환영합니다.
 
-다음과 같은 방법으로 기여할 수 있습니다:
-- GitHub [이슈 트래커](https://github.com/shap/shap/issues)에 버그 보고서 및 기능 요청 제출
-- [Pull Requests (PR)](https://github.com/shap/shap/pulls)를 통해 버그 수정 및 기능 개선 기여
-- [토론 포럼 (Discussions)](https://github.com/shap/shap/discussions)에서 아이디어와 질문 나누기
+ 다음과 같은 다양한 방법으로 프로젝트에 기여하실 수 있습니다:
+- GitHub [이슈 트래커](https://github.com/shap/shap/issues)에서 버그 제보 또는 새로운 기능 제안
+- [Pull Request (PR)](https://github.com/shap/shap/pulls)를 통한 코드 개선 및 버그 수정
+- [토론 포럼 (Discussions)](https://github.com/shap/shap/discussions)에서 커뮤니티와 의견 공유
 
-어디서부터 시작해야 할지 모르겠다면, [good first issue](https://github.com/shap/shap/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) 라벨이 붙은 이슈들을 찾아보세요.
+어디서부터 시작해야 할지 고민되신다면, [good first issue](https://github.com/shap/shap/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) 라벨이 붙은 이슈부터 살펴보시기를 추천합니다.
 
-## 도움이 되는 버그 보고서 작성하기
+## 효과적인 버그 리포트 작성 가이드
 
-이슈 트래커에 버그 보고서를 제출할 때, **최소한의 재현 가능한 예제(Minimal Reproducible Example, MRE)**를 포함해 주시면 유지보수 담당자에게 큰 도움이 됩니다.
+이슈 트래커를 통해 버그를 제보할 때, **최소한의 재현 가능한 예제(Minimal Reproducible Example, MRE)**를 함께 제공해 주시면 프로젝트 메인테이너들에게 큰 도움이 됩니다.
 
-MRE는 다음 조건을 갖추어야 합니다:
-- **최소성(Minimal)**: 버그를 재현할 수 있는 가능한 한 가장 적은 양의 코드만 포함합니다.
-- **자주성(Self-contained)**: 임포트(import)문과 입력 데이터를 포함하여 문제를 재현하는 데 필요한 모든 것을 포함합니다.
-- **재현성(Reproducible)**: 제공된 코드를 붙여넣고 실행했을 때 확실히 문제가 재현되어야 합니다.
+이상적인 MRE는 다음 조건들을 갖추어야 합니다:
+- **최소성(Minimal)**: 버그 재현에 꼭 필요한 코드만을 포함합니다.
+- **독립성(Self-contained)**: 추가적인 작업 없이도 즉시 실행될 수 있도록 모든 라이브러리 임포트(import)문과 데이터를 포함합니다.
+- **재현성(Reproducible)**: 제공된 코드를 그대로 실행했을 때 동일한 문제가 확실히 발생해야 합니다.
 
 자세한 내용은 [최소 버그 보고서 작성법](https://matthewrocklin.com/minimal-bug-reports)을 참조하세요.
 
 ## 최신 버전 설치하기
 
-최신 버전의 SHAP를 얻으려면 `master` 브랜치에서 직접 라이브러리를 설치할 수 있습니다:
+최신 상태의 SHAP 기능을 빠르게 사용해 보려면, `master` 브랜치에서 직접 라이브러리를 설치할 수 있습니다:
 
 ```bash
 pip install git+https://github.com/shap/shap.git@master
 ```
 
-이는 특정 문제나 버그가 최근 커밋에서 이미 수정되었는지 테스트할 때 유용합니다.
-또는 코드 기여를 고려하고 계신다면, 아래 설명에 따라 저장소를 포크하고 로컬 복사본을 설치하는 것이 좋습니다.
+이는 특정 이슈나 버그가 최근의 커밋에서 수정되었는지 확인하려 할 때 매우 유용합니다.
+프로젝트 기여를 계획하고 계신다면, 아래 가이드에 따라 저장소를 포크하고 로컬 개발 환경을 구축하는 것을 권장합니다.
 
 ## 로컬 개발 환경 설정
 
-### 저장소 포크
+### 저장소 포크(Fork)
 
-[이 링크를 클릭](https://github.com/shap/shap/fork)하여 GitHub의 저장소를 본인의 계정으로 포크(fork)하세요.
-그 후, 제공된 URL을 사용하여 리포지토리를 로컬 환경으로 클론합니다.
+[이 링크](https://github.com/shap/shap/fork)를 클릭하여 GitHub 저장소를 여러분의 계정으로 포크(fork)하세요.
+그 후, 포크한 저장소의 URL을 사용하여 로컬 환경으로 클론(clone)합니다.
 
 ### Python 환경 만들기
 
@@ -131,15 +131,15 @@ ruff check .
 pytest
 ```
 
-## 풀 리퀘스트(PR)
+## 풀 리퀘스트 (Pull Request, PR)
 
 ### PR 작성 에티켓
 
-PR을 작성하기 전에 **이슈를 먼저 열어서** 제안을 설명하고, 중복 작업이 없는지 확인해 주세요. (오타 수정 등 사소한 작업은 제외)
+PR을 보내기 전에, 먼저 **이슈를 생성하여** 제안하고자 하는 내용을 설명하고 중복된 작업이 진행 중인지 확인해 주세요. (오타 수정 등 매우 사소한 변경은 제외)
 
-**변경 범위를 작게 유지하세요.** 기능 추가(또는 버그 수정)와 코드 리팩토링(스타일 개선 등)을 하나의 PR에 섞지 말고 분리하세요. 둘 중 하나만 포함되어야 리뷰하기 훨씬 수월합니다.
+**변경 범위는 가능한 작게 유지해 주세요.** 새로운 기능 추가(또는 버그 수정)와 스타일 개선 등 코드 리팩토링을 하나의 PR에 섞지 말고 분리해야 합니다. 이는 리뷰어가 변경 사항을 명확히 이해하고 빠르게 반영하는 데 큰 도움이 됩니다.
 
-기능이 완전하지 않더라도 **가능한 한 빨리 Draft PR을 여세요.** `fix/lightgbm-warnings` 또는 `doc/contributing`과 같이 설명적인 브랜치 이름을 사용하세요.
+기능이 아직 완성되지 않았더라도, 작업 방향에 대한 피드백을 받기 위해 **Draft PR을 조기에 생성하는 것을 권장합니다.** `fix/lightgbm-warnings` 또는 `doc/contributing`과 같이 명확한 브랜치 이름을 사용해 주세요.
 
 PR 제목 또한 명확해야 합니다:
 - `FIX: Update parameters to remove DeprecationWarning in TreeExplainer`
@@ -155,13 +155,13 @@ PR을 "검토 준비 완료(Ready for review)" 상태로 변경하기 전에 다
 
 ### AI 사용 정책
 
-이 저장소는 LLM이 작성한 PR을 환영합니다. 단, 제출 시 다음 사항을 유의해 주세요:
-- **AI 사용 여부를 공개하세요.** 에이전트가 어떤 작업을 수행했는지, 어디서 자율적으로 작동했는지, 어떤 도움을 받았는지 설명하는 것이 좋습니다.
-- PR의 모든 코드를 **직접 작성한 것처럼 완벽히 이해**하고 책임을 져야 합니다. 
-- 이 저장소는 사람이 꼼꼼하게 관리하므로, AI로 인해 불필요하게 비대해진 코드가 없도록 **깔끔하고 최소화된 방식**으로 작성해 주세요.
-- 향후 코드를 직접 관리할 메인테이너들이 코드를 확신을 가지고 유지보수할 수 있도록 충분한 지원과 설명을 제공하는 것은 코드 기여자의 책임입니다.
-- LLM은 저작권이 있는 코드를 복제할 가능성이 있습니다. 기여자는 제출물이 오픈소스 저작권을 위반하지 않도록 확인할 책임이 있습니다.
-- 위 사항이 충족되지 않으면 PR이 종료될 수 있습니다.
+이 저장소는 LLM(대규모 언어 모델)을 활용하여 작성된 PR을 환영합니다. 다만, 제출 시 다음 사항을 반드시 지켜주세요:
+- **AI 활용 여부를 명시하세요.** AI 에이전트가 어떤 작업을 수행했는지, 어떤 도움을 받았으며 어느 정도까지 자율적으로 작동했는지 상세히 설명해 주세요.
+- PR에 포함된 모든 코드는 **직접 작성한 것처럼 완벽히 이해**하고 책임질 수 있어야 합니다. 
+- 이 저장소는 사람이 꼼꼼하게 관리하므로, AI로 인해 불필요하게 코드가 비대해지지 않도록 **간결하고 최적화된 방식**으로 작성해 주세요.
+- 향후 코드를 관리할 메인테이너들이 확신을 가지고 유지보수할 수 있도록 충분한 설명과 근거를 제공하는 것은 코드 기여자의 책임입니다.
+- AI 모델은 저작권이 있는 코드를 그대로 생성할 위험이 있습니다. 기여자는 제출물이 오픈소스 라이선스 및 저작권을 위반하지 않는지 확인할 책임이 있습니다.
+- 위 조건이 충족되지 않을 경우 해당 PR은 통보 없이 종료될 수 있습니다.
 
 ## 문서 (Documentation)
 
@@ -215,16 +215,20 @@ Pull Request에는 `bug`, `enhancement`, `breaking` 등의 카테고리 라벨�
 모든 PR은 병합되기 전 최소 1명 이상의 리뷰 및 승인을 받아야 하며, 선형적인 깃 히스토리를 위해 가급적 **"Squash and merge"**로 병합합니다.
 
 ### 버전 관리
-SHAP는 PEP 440 및 Semantic Versioning을 부분적으로 따르며 `MAJOR.MINOR.PATCH` 형태를 가집니다. 일반적으로 메이저 변경보다는 `minor` 단위로 하나둘 달에 한 번씩 릴리스되며, 치명적인 버그가 있는 경우 `patch` 릴리스를 수행합니다.
-하위 호환성을 깨뜨리는 주요 변경(Breaking changes)이 있을 경우 충분한 지원 중단(Deprecation) 주기를 가져 사용자들의 피해를 최소화합니다.
+
+SHAP은 PEP 440 및 유의적 버전(Semantic Versioning) 원칙을 부분적으로 따르며, 버전 형식은 `MAJOR.MINOR.PATCH`를 사용합니다. 일반적으로 메이저 업데이트보다는 `minor` 단위의 릴리스가 한두 달에 한 번씩 이루어지며, 치명적인 버그가 발견될 경우 `patch` 릴리스를 진행합니다.
+이전 버전과의 호환성을 중단하는 변경(Breaking changes)이 포함될 경우, 사용자의 혼란을 최소화하기 위해 충분한 지원 중단(Deprecation) 안내 기간을 가집니다.
 
 ### 최소 지원 종속성
-- Python 버전에 대한 지원은 해당 버전이 최초 릴리스된 후 3년이 지나면 중단할 수 있습니다.
-- 핵심 패키지 종속성은 최초 릴리스 후 2년이 지나면 지원을 중단할 수 있습니다.
 
-### 릴리스 만들기
-릴리스는 GitHub Releases를 통해 새로운 태그와 함께 발행됩니다. 패키지가 GitHub에 배포되면 `build_wheels` GitHub Action이 PyPI 휠 버전을 자동으로 빌드하여 배포합니다.
-Conda 패키지의 경우 [conda-forge feedstock](https://github.com/conda-forge/shap-feedstock) 저장소의 봇이 PyPI 업데이트를 감지하여 자동으로 풀 리퀘스트를 생성합니다.
+- Python 버전 지원: 해당 버전이 최초 출시된 후 3년이 지나면 지원을 중단할 수 있습니다.
+- 핵심 패키지 종속성: 해당 패키지가 최초 출시된 후 2년이 지나면 지원을 중단할 수 있습니다.
 
-### PR 레이블을 통한 릴리스 노트
-GitHub의 릴리스 노트 자동 생성 기능을 바탕으로 각 PR에 부착된 라벨(enhancement, bug 등)에 따라 카테고리가 분류되어 문서화됩니다. 따라서 각 PR에는 구체적이고 명확한 라벨링과 설명적인 제목이 필수적입니다.
+### 릴리스 관리
+
+새로운 릴리스는 GitHub Releases를 통해 태그와 함께 발행됩니다. 코드가 메인 저장소에 병합되면 `build_wheels` GitHub Action이 PyPI 배포용 휠(wheel) 버전을 자동으로 빌드합니다.
+Conda 패키지의 경우, [conda-forge feedstock](https://github.com/conda-forge/shap-feedstock) 저장소의 봇이 PyPI 업데이트를 감지하여 자동으로 풀 리퀘스트를 생성합니다.
+
+### 라벨을 통한 릴리스 노트 자동화
+
+GitHub의 릴리스 노트 자동 생성 기능을 활용하며, 각 PR에 부착된 라벨(enhancement, bug 등)에 따라 카테고리가 분류되어 기록됩니다. 따라서 모든 PR에는 명확한 라벨링과 내용을 잘 설명하는 제목이 필수적입니다.
