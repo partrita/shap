@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20&nbsp; 결정 플롯 – shap 문서</title>
+<title>19&nbsp; 결정 플롯 – shap 문서</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../api_examples/plots/decision_plot.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../api_examples/plots/decision_plot.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -152,577 +152,577 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">참조</span></span></a>
+ <span class="menu-text">참고 문헌</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">API 참조 (API Reference)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">API 참조 (API Reference)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">API 사용 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">API 사용 예제</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">성능 벤치마크 (Benchmarks)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">성능 벤치마크 (Benchmarks)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contributing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">기여 지침 (Contributing)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">기여 가이드 (Contributing Guide)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../genomic_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">유전체 데이터 (Genomic) 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">유전체 데이터 (Genomic) 예제</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">이미지 예시</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">이미지 예시</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../overviews.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">주제별 개요 (Overviews)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">주제별 개요 (Overviews)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../release_notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">릴리스 노트</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">릴리스 노트 (Release Notes)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">정형 데이터 (Tabular) 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">정형 데이터 (Tabular) 예제</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">텍스트 데이터 (Text) 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">텍스트 데이터 (Text) 예제</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/explainers/Exact.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>정확한</code> 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>정확한</code> 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/explainers/GPUTree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><code>GPUTree</code> 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>GPUTree</code> 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/explainers/Permutation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><code>순열</code> 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><code>순열</code> 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/maskers/custom.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">커스텀 마스커 사용하기</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">커스텀 마스커 사용하기</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/migrating-to-new-api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">새로운 “설명” API로 마이그레이션</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">새로운 “Explanation” API로 마이그레이션</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/bar.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><code>bar</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><code>bar</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/beeswarm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/decision_plot.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/heatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/image.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><code>이미지</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><code>이미지</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/scatter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><code>scatter</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><code>scatter</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><code>텍스트</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><code>텍스트</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/violin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><code>바이올린</code> 요약 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><code>바이올린</code> 요약 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../api_examples/plots/waterfall.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><code>폭포</code> 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><code>폭포</code> 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks/image/Image Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">이미지 데이터 설명 벤치마킹: 이미지 다중 클래스 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">이미지 데이터 설명 벤치마킹: 이미지 다중 클래스 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks/others/Benchmark Debug Mode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">일반 벤치마킹 디버깅 도구</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">일반 벤치마킹 디버깅 도구</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks/tabular/Benchmark XGBoost explanations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">벤치마크 XGBoost 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">벤치마크 XGBoost 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks/tabular/Tabular Prediction Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">테이블 형식 데이터 설명 벤치마킹: Xgboost 회귀</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">테이블 형식 데이터 설명 벤치마킹: Xgboost 회귀</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks/text/Abstractive Summarization Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 추상적인 요약</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 추상적인 요약</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks/text/Machine Translation Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 기계 번역</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 기계 번역</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../benchmarks/text/Text Emotion Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 감정 다중 클래스 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 감정 다중 클래스 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../genomic_examples/DeepExplainer Genomics Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">DeepExplainer 유전체학 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">DeepExplainer 유전체학 예</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_captioning/Image Captioning using Azure Cognitive Services.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Azure Cognitive Services 및 파티션 설명을 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Azure Cognitive Services 및 파티션 설명을 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_captioning/Image Captioning using Open Source.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">오픈 소스 이미지 캡션 모델과 파티션 설명자를 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">오픈 소스 이미지 캡션 모델과 파티션 설명자를 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Explain MobilenetV2 using the Partition explainer (PyTorch).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 PyTorch MobileNetV2를 설명합니다.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 PyTorch MobileNetV2를 설명합니다.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Explain ResNet50 using the Partition explainer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50을 설명합니다.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50을 설명합니다.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet (PyTorch).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ImageNet(PyTorch)에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ImageNet(PyTorch)에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">ImageNet에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ImageNet에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Front Page DeepExplainer MNIST Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">첫 페이지 DeepExplainer MNIST 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">첫 페이지 DeepExplainer MNIST 예</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Image Multi Class.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50 ImageNet 분류를 설명합니다.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50 ImageNet 분류를 설명합니다.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow)-checkpoint.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/Multi-input Gradient Explainer MNIST Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">다중 입력 그라디언트 설명 MNIST 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">다중 입력 그라디언트 설명 MNIST 예제</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../image_examples/image_classification/PyTorch Deep Explainer MNIST example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">PyTorch 심층 설명 MNIST 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PyTorch 심층 설명 MNIST 예</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../overviews/An introduction to explainable AI with Shapley values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Shapley 가치를 지닌 설명 가능한 AI 소개</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Shapley Value를 활용한 설명 가능한 AI(XAI) 입문</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../overviews/Be careful when interpreting predictive models in search of causal insights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">인과관계 통찰력을 찾기 위해 예측 모델을 해석할 때는 주의하세요.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">인과적 통찰을 위한 예측 모델 해석 시 주의사항</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../overviews/Explaining quantitative measures of fairness.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">공정성의 정량적 척도를 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">공정성의 정량적 측정 지표 해석하기</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/linear_models/Explaining a model that uses standardized features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">표준화된 특성을 사용하는 모델 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">표준화된 특성을 사용하는 모델 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/linear_models/Math behind LinearExplainer with correlation feature perturbation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">상관 특성 섭동을 포함한 LinearExplainer의 수학</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">상관 특성 섭동을 포함한 LinearExplainer의 수학</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/linear_models/Sentiment Analysis with Logistic Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">로지스틱 회귀를 이용한 감성 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">로지스틱 회귀를 이용한 감성 분석</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/model_agnostic/Census income classification with scikit-learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 인구 조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 인구 조사 소득 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/model_agnostic/Diabetes regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">scikit-learn을 이용한 당뇨병 퇴행</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">scikit-learn을 이용한 당뇨병 퇴행</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/model_agnostic/Iris classification with scikit-learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 붓꽃 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 붓꽃 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/model_agnostic/Multioutput Regression SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">다중 출력 회귀 모델의 SHAP 값</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">다중 출력 회귀 모델의 SHAP 값</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/model_agnostic/Simple California Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">심플 캘리포니아 데모 2.0</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">심플 캘리포니아 데모 2.0</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/model_agnostic/Simple Kernel SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">간단한 커널 SHAP</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">간단한 커널 SHAP</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/model_agnostic/Squashing Effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">스쿼싱 함수가 특성 중요도에 어떻게 영향을 미칠 수 있나요?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">스쿼싱 함수가 특성 중요도에 어떻게 영향을 미칠 수 있나요?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/neural_networks/Census income classification with Keras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Keras를 이용한 인구조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">Keras를 이용한 인구조사 소득 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Basic SHAP Interaction Value Example in XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">XGBoost의 기본 SHAP 상호 작용 값 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">XGBoost의 기본 SHAP 상호 작용 값 예</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Catboost tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Catboost 튜토리얼</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Catboost 튜토리얼</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Census income classification with LightGBM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">LightGBM을 이용한 인구조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">LightGBM을 이용한 인구조사 소득 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Census income classification with XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">XGBoost를 이용한 인구 조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">XGBoost를 이용한 인구 조사 소득 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Example of loading a custom tree model into SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">사용자 정의 트리 모델을 SHAP에 로드하는 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">사용자 정의 트리 모델을 SHAP에 로드하는 예</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Explaining a simple OR function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">간단한 OR 함수 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">간단한 OR 함수 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Explaining the Loss of a Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">트리 모델의 손실 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">트리 모델의 손실 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Fitting a Linear Simulation with XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">XGBoost로 선형 시뮬레이션 피팅</span></span></a>
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">XGBoost로 선형 시뮬레이션 피팅</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Force Plot Colors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">강제 플롯 색상</span></span></a>
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">강제 플롯 색상</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Front page example (XGBoost).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">첫 페이지 예시(XGBoost)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">첫 페이지 예시(XGBoost)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/League of Legends Win Prediction with XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">리그 오브 레전드, XGBoost로 승리 예측</span></span></a>
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">리그 오브 레전드, XGBoost로 승리 예측</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/NHANES I Survival Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">NHANES I 생존모델</span></span></a>
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">NHANES I 생존모델</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Perfomance Comparison.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">Shap 값 계산을 위한 그래디언트 부스팅 라이브러리의 속도 비교</span></span></a>
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">Shap 값 계산을 위한 그래디언트 부스팅 라이브러리의 속도 비교</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Python Version of Tree SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">Tree SHAP의 Python 버전</span></span></a>
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">Tree SHAP의 Python 버전</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Scatter Density vs. Violin Plot Comparison.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">분산 밀도 대 바이올린 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">분산 밀도 대 바이올린 플롯</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/Understanding Tree SHAP for Simple Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">단순 모델에 대한 트리 SHAP 이해</span></span></a>
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">단순 모델에 대한 트리 SHAP 이해</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 1 - Simple Inconsistency Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">그림 1 - 단순한 불일치 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">그림 1 - 단순한 불일치 예</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 3 - User Study.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">그림 3 - 사용자 연구</span></span></a>
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">그림 3 - 사용자 연구</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 4 - Supervised Clustering Adult Census Data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">그림 4 - 감독 클러스터링 성인 인구 조사 데이터</span></span></a>
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">그림 4 - 감독 클러스터링 성인 인구 조사 데이터</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 5 - Runtime.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">그림 5 - 런타임</span></span></a>
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">그림 5 - 런타임</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 6 - Supervised Clustering R-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">그림 6 - 감독 클러스터링 R-제곱</span></span></a>
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">그림 6 - 감독 클러스터링 R-제곱</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figure 7 - Airline Tweet Sentiment Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">그림 7 - 항공사 트윗 감정 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">그림 7 - 항공사 트윗 감정 분석</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model-Copy1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Performance comparison copy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">성능 비교 카피</span></span></a>
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">성능 비교 카피</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Performance comparison.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">성능 비교</span></span></a>
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">성능 비교</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../tabular_examples/tree_based_models/tree_shap_paper/Tree SHAP in Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">보스턴 데이터세트 로드</span></span></a>
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">보스턴 데이터세트 로드</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/language_modelling/Language Modeling Explanation Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">Text to Multiclass 설명: 언어 모델링 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">Text to Multiclass 설명: 언어 모델링 예제</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/question_answering/Explaining a Question Answering Transformers Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">질문 답변 트랜스포머 모델 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">질문 답변 트랜스포머 모델 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/sentiment_analysis/Emotion classification multiclass example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">감정 분류 멀티클래스 예시</span></span></a>
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">감정 분류 멀티클래스 예시</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/sentiment_analysis/Keras LSTM for IMDB Sentiment Classification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">IMDB 감정 분류를 위한 Keras LSTM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">IMDB 감정 분류를 위한 Keras LSTM</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/sentiment_analysis/Positive vs. Negative Sentiment Classification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">긍정적인 감정과 부정적인 감정 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">긍정적인 감정과 부정적인 감정 분류</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/sentiment_analysis/Using custom functions and tokenizers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">사용자 정의 함수 및 토크나이저 사용</span></span></a>
+ <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">사용자 정의 함수 및 토크나이저 사용</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/summarization/Abstractive Summarization Explanation Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">텍스트 대 텍스트 설명: 추상적인 요약 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">텍스트 대 텍스트 설명: 추상적인 요약 예</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/text_entailment/Textual Entailment Explanation Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">다중 입력 텍스트 설명: Facebook BART를 사용한 텍스트 포함</span></span></a>
+ <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">다중 입력 텍스트 설명: Facebook BART를 사용한 텍스트 포함</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/text_generation/Open Ended GPT2 Text Generation Explanations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">개방형 GPT2 텍스트 생성 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">개방형 GPT2 텍스트 생성 설명</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../text_examples/translation/Machine Translation Explanations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title">기계번역 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">기계번역 설명</span></span></a>
   </div>
 </li>
     </ul>
@@ -735,26 +735,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#shap-결정-플롯" id="toc-shap-결정-플롯" class="nav-link active" data-scroll-target="#shap-결정-플롯"><span class="header-section-number">20.1</span> SHAP 결정 플롯</a>
+  <li><a href="#shap-결정-플롯" id="toc-shap-결정-플롯" class="nav-link active" data-scroll-target="#shap-결정-플롯"><span class="header-section-number">19.1</span> SHAP 결정 플롯</a>
   <ul class="collapse">
-  <li><a href="#데이터세트-로드-및-모델-학습" id="toc-데이터세트-로드-및-모델-학습" class="nav-link" data-scroll-target="#데이터세트-로드-및-모델-학습"><span class="header-section-number">20.1.1</span> 데이터세트 로드 및 모델 학습</a></li>
-  <li><a href="#shap-값-계산" id="toc-shap-값-계산" class="nav-link" data-scroll-target="#shap-값-계산"><span class="header-section-number">20.1.2</span> SHAP 값 계산</a></li>
+  <li><a href="#데이터세트-로드-및-모델-학습" id="toc-데이터세트-로드-및-모델-학습" class="nav-link" data-scroll-target="#데이터세트-로드-및-모델-학습"><span class="header-section-number">19.1.1</span> 데이터세트 로드 및 모델 학습</a></li>
+  <li><a href="#shap-값-계산" id="toc-shap-값-계산" class="nav-link" data-scroll-target="#shap-값-계산"><span class="header-section-number">19.1.2</span> SHAP 값 계산</a></li>
   </ul></li>
-  <li><a href="#기본-의사결정-플롯-기능" id="toc-기본-의사결정-플롯-기능" class="nav-link" data-scroll-target="#기본-의사결정-플롯-기능"><span class="header-section-number">20.2</span> 기본 의사결정 플롯 기능</a></li>
-  <li><a href="#의사결정-플롯은-언제-도움이-되나요" id="toc-의사결정-플롯은-언제-도움이-되나요" class="nav-link" data-scroll-target="#의사결정-플롯은-언제-도움이-되나요"><span class="header-section-number">20.3</span> 의사결정 플롯은 언제 도움이 되나요?</a>
+  <li><a href="#기본-의사결정-플롯-기능" id="toc-기본-의사결정-플롯-기능" class="nav-link" data-scroll-target="#기본-의사결정-플롯-기능"><span class="header-section-number">19.2</span> 기본 의사결정 플롯 기능</a></li>
+  <li><a href="#의사결정-플롯은-언제-도움이-되나요" id="toc-의사결정-플롯은-언제-도움이-되나요" class="nav-link" data-scroll-target="#의사결정-플롯은-언제-도움이-되나요"><span class="header-section-number">19.3</span> 의사결정 플롯은 언제 도움이 되나요?</a>
   <ul class="collapse">
-  <li><a href="#수많은-기능-효과를-명확하게-보여줍니다." id="toc-수많은-기능-효과를-명확하게-보여줍니다." class="nav-link" data-scroll-target="#수많은-기능-효과를-명확하게-보여줍니다."><span class="header-section-number">20.3.1</span> 수많은 기능 효과를 명확하게 보여줍니다.</a></li>
-  <li><a href="#다중-출력-예측-시각화" id="toc-다중-출력-예측-시각화" class="nav-link" data-scroll-target="#다중-출력-예측-시각화"><span class="header-section-number">20.3.2</span> 다중 출력 예측 시각화</a></li>
-  <li><a href="#상호작용의-누적-효과-표시" id="toc-상호작용의-누적-효과-표시" class="nav-link" data-scroll-target="#상호작용의-누적-효과-표시"><span class="header-section-number">20.3.3</span> 상호작용의 누적 효과 표시</a></li>
-  <li><a href="#다양한-특성-값에-대한-특성-효과-탐색" id="toc-다양한-특성-값에-대한-특성-효과-탐색" class="nav-link" data-scroll-target="#다양한-특성-값에-대한-특성-효과-탐색"><span class="header-section-number">20.3.4</span> 다양한 특성 값에 대한 특성 효과 탐색</a></li>
-  <li><a href="#이상값-식별" id="toc-이상값-식별" class="nav-link" data-scroll-target="#이상값-식별"><span class="header-section-number">20.3.5</span> 이상값 식별</a></li>
-  <li><a href="#일반적인-예측-경로-식별" id="toc-일반적인-예측-경로-식별" class="nav-link" data-scroll-target="#일반적인-예측-경로-식별"><span class="header-section-number">20.3.6</span> 일반적인 예측 경로 식별</a></li>
+  <li><a href="#수많은-기능-효과를-명확하게-보여줍니다." id="toc-수많은-기능-효과를-명확하게-보여줍니다." class="nav-link" data-scroll-target="#수많은-기능-효과를-명확하게-보여줍니다."><span class="header-section-number">19.3.1</span> 수많은 기능 효과를 명확하게 보여줍니다.</a></li>
+  <li><a href="#다중-출력-예측-시각화" id="toc-다중-출력-예측-시각화" class="nav-link" data-scroll-target="#다중-출력-예측-시각화"><span class="header-section-number">19.3.2</span> 다중 출력 예측 시각화</a></li>
+  <li><a href="#상호작용의-누적-효과-표시" id="toc-상호작용의-누적-효과-표시" class="nav-link" data-scroll-target="#상호작용의-누적-효과-표시"><span class="header-section-number">19.3.3</span> 상호작용의 누적 효과 표시</a></li>
+  <li><a href="#다양한-특성-값에-대한-특성-효과-탐색" id="toc-다양한-특성-값에-대한-특성-효과-탐색" class="nav-link" data-scroll-target="#다양한-특성-값에-대한-특성-효과-탐색"><span class="header-section-number">19.3.4</span> 다양한 특성 값에 대한 특성 효과 탐색</a></li>
+  <li><a href="#이상값-식별" id="toc-이상값-식별" class="nav-link" data-scroll-target="#이상값-식별"><span class="header-section-number">19.3.5</span> 이상값 식별</a></li>
+  <li><a href="#일반적인-예측-경로-식별" id="toc-일반적인-예측-경로-식별" class="nav-link" data-scroll-target="#일반적인-예측-경로-식별"><span class="header-section-number">19.3.6</span> 일반적인 예측 경로 식별</a></li>
   </ul></li>
-  <li><a href="#여러-모델에-대한-비교-및-대조-예측" id="toc-여러-모델에-대한-비교-및-대조-예측" class="nav-link" data-scroll-target="#여러-모델에-대한-비교-및-대조-예측"><span class="header-section-number">20.4</span> 여러 모델에 대한 비교 및 대조 예측</a></li>
-  <li><a href="#shap-상호작용-값" id="toc-shap-상호작용-값" class="nav-link" data-scroll-target="#shap-상호작용-값"><span class="header-section-number">20.5</span> SHAP 상호작용 값</a></li>
-  <li><a href="#플롯-간-순서와-규모-유지" id="toc-플롯-간-순서와-규모-유지" class="nav-link" data-scroll-target="#플롯-간-순서와-규모-유지"><span class="header-section-number">20.6</span> 플롯 간 순서와 규모 유지</a></li>
-  <li><a href="#표시할-기능-선택" id="toc-표시할-기능-선택" class="nav-link" data-scroll-target="#표시할-기능-선택"><span class="header-section-number">20.7</span> 표시할 기능 선택</a></li>
-  <li><a href="#shap-기본-값-변경" id="toc-shap-기본-값-변경" class="nav-link" data-scroll-target="#shap-기본-값-변경"><span class="header-section-number">20.8</span> SHAP 기본 값 변경</a></li>
+  <li><a href="#여러-모델에-대한-비교-및-대조-예측" id="toc-여러-모델에-대한-비교-및-대조-예측" class="nav-link" data-scroll-target="#여러-모델에-대한-비교-및-대조-예측"><span class="header-section-number">19.4</span> 여러 모델에 대한 비교 및 대조 예측</a></li>
+  <li><a href="#shap-상호작용-값" id="toc-shap-상호작용-값" class="nav-link" data-scroll-target="#shap-상호작용-값"><span class="header-section-number">19.5</span> SHAP 상호작용 값</a></li>
+  <li><a href="#플롯-간-순서와-규모-유지" id="toc-플롯-간-순서와-규모-유지" class="nav-link" data-scroll-target="#플롯-간-순서와-규모-유지"><span class="header-section-number">19.6</span> 플롯 간 순서와 규모 유지</a></li>
+  <li><a href="#표시할-기능-선택" id="toc-표시할-기능-선택" class="nav-link" data-scroll-target="#표시할-기능-선택"><span class="header-section-number">19.7</span> 표시할 기능 선택</a></li>
+  <li><a href="#shap-기본-값-변경" id="toc-shap-기본-값-변경" class="nav-link" data-scroll-target="#shap-기본-값-변경"><span class="header-section-number">19.8</span> SHAP 기본 값 변경</a></li>
   </ul>
 </nav>
     </div>
@@ -763,7 +763,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></h1>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></h1>
 </div>
 
 
@@ -839,11 +839,11 @@ Table of Contents<span class="tocSkip"></span>
 </li>
 </ul>
 </div>
-<section id="shap-결정-플롯" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="shap-결정-플롯"><span class="header-section-number">20.1</span> SHAP 결정 플롯</h2>
+<section id="shap-결정-플롯" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="shap-결정-플롯"><span class="header-section-number">19.1</span> SHAP 결정 플롯</h2>
 <p>SHAP 결정 플롯은 복잡한 모델이 예측에 도달하는 방식(예: 모델이 결정을 내리는 방법)을 보여줍니다. 이 노트북은 간단한 예를 통해 의사결정 플롯 기능과 사용 사례를 보여줍니다. 더 자세한 설명을 보려면 <a href="https://medium.com/@floidgilbert/introducing-shap-decision-plots-52ed3b4a1cba">여기를 클릭</a>하세요.</p>
-<section id="데이터세트-로드-및-모델-학습" class="level3" data-number="20.1.1">
-<h3 data-number="20.1.1" class="anchored" data-anchor-id="데이터세트-로드-및-모델-학습"><span class="header-section-number">20.1.1</span> 데이터세트 로드 및 모델 학습</h3>
+<section id="데이터세트-로드-및-모델-학습" class="level3" data-number="19.1.1">
+<h3 data-number="19.1.1" class="anchored" data-anchor-id="데이터세트-로드-및-모델-학습"><span class="header-section-number">19.1.1</span> 데이터세트 로드 및 모델 학습</h3>
 <p>대부분의 예에서는 <a href="https://archive.ics.uci.edu/ml/datasets/adult">UCI 성인 소득</a> 데이터 세트에 대해 교육된 <a href="https://github.com/microsoft/LightGBM">LightGBM</a> 모델을 사용합니다. 목표: 개인이 연간 $50,000를 초과하는지 예측합니다.</p>
 <div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;is_executing&quot;:false}}" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
@@ -894,8 +894,8 @@ Early stopping, best iteration is:
 </div>
 </div>
 </section>
-<section id="shap-값-계산" class="level3" data-number="20.1.2">
-<h3 data-number="20.1.2" class="anchored" data-anchor-id="shap-값-계산"><span class="header-section-number">20.1.2</span> SHAP 값 계산</h3>
+<section id="shap-값-계산" class="level3" data-number="19.1.2">
+<h3 data-number="19.1.2" class="anchored" data-anchor-id="shap-값-계산"><span class="header-section-number">19.1.2</span> SHAP 값 계산</h3>
 <p>처음 20개의 테스트 관찰에 대한 SHAP 값과 SHAP 상호 작용 값을 계산합니다.</p>
 <div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;is_executing&quot;:false,&quot;name&quot;:&quot;#%%\n&quot;}}" data-scrolled="true" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>explainer <span class="op">=</span> shap.TreeExplainer(model)</span>
@@ -920,8 +920,8 @@ Early stopping, best iteration is:
 </div>
 </section>
 </section>
-<section id="기본-의사결정-플롯-기능" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="기본-의사결정-플롯-기능"><span class="header-section-number">20.2</span> 기본 의사결정 플롯 기능</h2>
+<section id="기본-의사결정-플롯-기능" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="기본-의사결정-플롯-기능"><span class="header-section-number">19.2</span> 기본 의사결정 플롯 기능</h2>
 <p>아래 20개 테스트 관찰의 결정 플롯을 참조하세요. <em>참고: 이 플롯 자체는 유익하지 않습니다. 기본 개념을 설명하기 위해서만 사용합니다.</em> * x축은 모델의 출력을 나타냅니다. 이 경우 단위는 로그 확률입니다. * 플롯은 <code>explainer.expected_value</code>의 x축 중심에 있습니다. 모든 SHAP 값은 선형 모델의 효과가 절편에 상대적인 것처럼 모델의 예상 값에 상대적입니다. * y축은 모델의 특징을 나열합니다. 기본적으로 기능은 중요도를 내림차순으로 정렬됩니다. 중요도는 표시된 관측값에 대해 계산됩니다. <em>이는 일반적으로 전체 데이터 세트의 중요도 순서와 다릅니다.</em> 특성 중요도 순서 외에도 결정 플롯은 계층적 클러스터 특성 순서 및 사용자 정의 특성 순서도 지원합니다. * 각 관찰의 예측은 컬러 선으로 표시됩니다. 플롯 상단에서 각 선은 해당 관측치의 예측 값에서 x축에 닿습니다. 이 값은 스펙트럼의 선 색상을 결정합니다. * 플롯의 아래쪽에서 위쪽으로 이동하면 각 기능의 SHAP 값이 모델의 기본 값에 추가됩니다. 이는 각 기능이 전체 예측에 어떻게 기여하는지 보여줍니다. * 플롯 하단에서 관측값은 <code>explainer.expected_value</code>에 수렴됩니다.</p>
 <div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;name&quot;:&quot;#%%\n&quot;}}" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, shap_values, features_display)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -993,11 +993,11 @@ Early stopping, best iteration is:
 </div>
 </div>
 </section>
-<section id="의사결정-플롯은-언제-도움이-되나요" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="의사결정-플롯은-언제-도움이-되나요"><span class="header-section-number">20.3</span> 의사결정 플롯은 언제 도움이 되나요?</h2>
+<section id="의사결정-플롯은-언제-도움이-되나요" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="의사결정-플롯은-언제-도움이-되나요"><span class="header-section-number">19.3</span> 의사결정 플롯은 언제 도움이 되나요?</h2>
 <p>의사결정 플롯에는 여러 가지 사용 사례가 있습니다. 여기서는 몇 가지 사례를 제시합니다. 1. 다양한 기능 효과를 명확하게 보여줍니다. 2. 다중 출력 예측을 시각화합니다. 3. 상호작용의 누적 효과를 표시합니다. 4. 다양한 특성 값에 대한 특성 효과를 탐색합니다. 5. 이상치를 식별합니다. 6. 일반적인 예측 경로를 식별합니다. 7. 여러 모델에 대한 예측을 비교하고 대조합니다.</p>
-<section id="수많은-기능-효과를-명확하게-보여줍니다." class="level3" data-number="20.3.1">
-<h3 data-number="20.3.1" class="anchored" data-anchor-id="수많은-기능-효과를-명확하게-보여줍니다."><span class="header-section-number">20.3.1</span> 수많은 기능 효과를 명확하게 보여줍니다.</h3>
+<section id="수많은-기능-효과를-명확하게-보여줍니다." class="level3" data-number="19.3.1">
+<h3 data-number="19.3.1" class="anchored" data-anchor-id="수많은-기능-효과를-명확하게-보여줍니다."><span class="header-section-number">19.3.1</span> 수많은 기능 효과를 명확하게 보여줍니다.</h3>
 <p>힘 플롯과 마찬가지로 결정 플롯은 모델의 출력과 관련된 중요한 기능을 보여줍니다. 그러나 중요한 특징이 많이 포함되어 있는 경우 결정 플롯이 힘 플롯보다 더 유용할 수 있습니다. 이를 입증하기 위해 <a href="https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime+Unnormalized">UCI 커뮤니티 및 범죄</a> 데이터 세트에 대해 훈련된 모델을 사용합니다. 이 모델은 101개의 특징을 사용합니다. 아래 두 플롯은 동일한 예측을 설명합니다. 힘 플롯의 수평 형식으로 인해 모든 중요한 특징이 명확하게 표시되지 않습니다. 이와 대조적으로 결정 플롯의 수직 형식은 다양한 기능의 효과를 표시할 수 있습니다.</p>
 <div id="cell-18" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the prediction from disk to keep the example short.</span></span>
@@ -1023,8 +1023,8 @@ Early stopping, best iteration is:
 </div>
 </div>
 </section>
-<section id="다중-출력-예측-시각화" class="level3" data-number="20.3.2">
-<h3 data-number="20.3.2" class="anchored" data-anchor-id="다중-출력-예측-시각화"><span class="header-section-number">20.3.2</span> 다중 출력 예측 시각화</h3>
+<section id="다중-출력-예측-시각화" class="level3" data-number="19.3.2">
+<h3 data-number="19.3.2" class="anchored" data-anchor-id="다중-출력-예측-시각화"><span class="header-section-number">19.3.2</span> 다중 출력 예측 시각화</h3>
 <p>결정 플롯은 다중 출력 모델이 어떻게 예측에 도달하는지 보여줄 수 있습니다. 이 예에서는 <a href="https://archive.ics.uci.edu/ml/datasets/heart+Disease">UCI 심장병</a> 데이터 세트에 대해 훈련된 Catboost 모델의 SHAP 값을 사용합니다. 질병의 정도를 나타내는 5가지 클래스가 있습니다. 클래스 1은 질병이 없음을 나타냅니다. 클래스 5는 진행된 질병을 나타냅니다.</p>
 <p>예제를 짧게 유지하기 위해 SHAP 값은 디스크에서 로드됩니다. <code>heart_base_values</code> 변수는 각 클래스의 SHAP 예상 값 목록입니다. 마찬가지로 <code>heart_shap_values</code> 변수는 SHAP 행렬 목록입니다. 클래스당 하나의 행렬. 이것은 <code>shap.TreeExplainer</code>가 반환하는 다중 출력 형식입니다.</p>
 <div id="cell-21" class="cell" data-execution_count="10">
@@ -1084,8 +1084,8 @@ Early stopping, best iteration is:
 </div>
 </div>
 </section>
-<section id="상호작용의-누적-효과-표시" class="level3" data-number="20.3.3">
-<h3 data-number="20.3.3" class="anchored" data-anchor-id="상호작용의-누적-효과-표시"><span class="header-section-number">20.3.3</span> 상호작용의 누적 효과 표시</h3>
+<section id="상호작용의-누적-효과-표시" class="level3" data-number="19.3.3">
+<h3 data-number="19.3.3" class="anchored" data-anchor-id="상호작용의-누적-효과-표시"><span class="header-section-number">19.3.3</span> 상호작용의 누적 효과 표시</h3>
 <p>결정 플롯은 SHAP 상호 작용 값, 즉 트리 기반 모델에서 추정된 1차 상호 작용을 지원합니다. SHAP 의존성 도표는 개별 상호작용을 시각화하는 가장 좋은 방법인 반면, 결정 도표는 하나 이상의 관측치에 대한 주효과 및 상호작용의 누적 효과를 표시할 수 있습니다.</p>
 <p>여기의 결정 플롯은 주효과와 상호 작용을 모두 사용하여 <a href="https://archive.ics.uci.edu/ml/datasets/Adult">UCI Adult Income</a> 데이터 세트의 단일 예측을 설명합니다. 가장 중요한 20가지 기능이 표시됩니다. 상호 작용 지원과 관련된 자세한 내용은 “SHAP 상호 작용 값” 섹션을 참조하세요.</p>
 <div id="cell-29" class="cell" data-scrolled="false" data-execution_count="14">
@@ -1104,8 +1104,8 @@ Early stopping, best iteration is:
 </div>
 </div>
 </section>
-<section id="다양한-특성-값에-대한-특성-효과-탐색" class="level3" data-number="20.3.4">
-<h3 data-number="20.3.4" class="anchored" data-anchor-id="다양한-특성-값에-대한-특성-효과-탐색"><span class="header-section-number">20.3.4</span> 다양한 특성 값에 대한 특성 효과 탐색</h3>
+<section id="다양한-특성-값에-대한-특성-효과-탐색" class="level3" data-number="19.3.4">
+<h3 data-number="19.3.4" class="anchored" data-anchor-id="다양한-특성-값에-대한-특성-효과-탐색"><span class="header-section-number">19.3.4</span> 다양한 특성 값에 대한 특성 효과 탐색</h3>
 <p>결정 플롯을 통해 일련의 특성 값에 걸쳐 예측이 어떻게 변경되는지 확인할 수 있습니다. 이 방법은 가상 시나리오를 제시하고 모델 동작을 노출하는 데 유용합니다. 이 예에서는 자본 이득만 다른 가상 관찰을 만듭니다.</p>
 <p><a href="https://archive.ics.uci.edu/ml/datasets/adult">UCI 성인 소득</a> 데이터 세트의 다음 참조 관찰부터 시작하세요.</p>
 <div id="cell-31" class="cell" data-scrolled="true" data-execution_count="15">
@@ -1214,8 +1214,8 @@ Name: 25, dtype: object</code></pre>
 </div>
 </div>
 </section>
-<section id="이상값-식별" class="level3" data-number="20.3.5">
-<h3 data-number="20.3.5" class="anchored" data-anchor-id="이상값-식별"><span class="header-section-number">20.3.5</span> 이상값 식별</h3>
+<section id="이상값-식별" class="level3" data-number="19.3.5">
+<h3 data-number="19.3.5" class="anchored" data-anchor-id="이상값-식별"><span class="header-section-number">19.3.5</span> 이상값 식별</h3>
 <p>의사결정 도표는 이상값을 식별하는 데 도움이 될 수 있습니다. 비슷한 예측 경로를 가진 관측치를 그룹화하려면 <code>feature_order='hclust'</code>를 지정하세요. 이로 인해 이상값을 더 쉽게 발견할 수 있는 경우가 많습니다. 진폭 예측은 시그모이드 함수에 의해 왜곡되므로 이상치를 그릴 때 ‘link=’logit’’을 사용하지 마세요.</p>
 <p>아래 플롯은 확률 범위 [0.03, 0.1]의 모든 예측을 보여줍니다. (0.03보다 작은 예측은 많은 수의 관찰을 나타내기 때문에 이 예에서는 제외됩니다.) 두 가지 예측이 즉시 눈에 띕니다. ‘연령’, ‘자본 손실’, ’자본 이득’의 효과가 가장 두드러집니다.</p>
 <div id="cell-43" class="cell" data-execution_count="21">
@@ -1264,8 +1264,8 @@ Name: 25, dtype: object</code></pre>
 </div>
 </div>
 </section>
-<section id="일반적인-예측-경로-식별" class="level3" data-number="20.3.6">
-<h3 data-number="20.3.6" class="anchored" data-anchor-id="일반적인-예측-경로-식별"><span class="header-section-number">20.3.6</span> 일반적인 예측 경로 식별</h3>
+<section id="일반적인-예측-경로-식별" class="level3" data-number="19.3.6">
+<h3 data-number="19.3.6" class="anchored" data-anchor-id="일반적인-예측-경로-식별"><span class="header-section-number">19.3.6</span> 일반적인 예측 경로 식별</h3>
 <p>결정 플롯은 모델의 일반적인 예측 경로를 노출할 수 있습니다. 여기서는 높은 점수를 받은 예측의 공통점을 확인하기 위해 확률 간격 [0.98, 1.0]의 모든 예측을 플로팅합니다. 유사한 예측 경로를 그룹화하기 위해 `hclust’ 기능 순서를 사용합니다. 플롯은 두 가지 별개의 경로를 보여줍니다. 하나는 ‘자본 이득’에 의해 지배되고 다른 하나는 ’자본 손실’에 의해 지배됩니다. ’관계’, ‘연령’, ’학력’의 효과도 주목할 만합니다.</p>
 <div id="cell-47" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)  <span class="co"># Get predictions on the probability scale.</span></span>
@@ -1284,8 +1284,8 @@ Name: 25, dtype: object</code></pre>
 </div>
 </section>
 </section>
-<section id="여러-모델에-대한-비교-및-대조-예측" class="level2" data-number="20.4">
-<h2 data-number="20.4" class="anchored" data-anchor-id="여러-모델에-대한-비교-및-대조-예측"><span class="header-section-number">20.4</span> 여러 모델에 대한 비교 및 대조 예측</h2>
+<section id="여러-모델에-대한-비교-및-대조-예측" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="여러-모델에-대한-비교-및-대조-예측"><span class="header-section-number">19.4</span> 여러 모델에 대한 비교 및 대조 예측</h2>
 <p>결정 도표는 다양한 모델의 예측을 비교하거나 모델 앙상블의 예측을 해석하는 데 유용합니다. 이 예에서는 <a href="https://archive.ics.uci.edu/ml/datasets/adult">UCI Adult Income</a> 데이터 세트에 대해 훈련된 5개의 LightGBM 모델 앙상블의 예측을 플롯합니다. 이 예에서는 5개 모델의 앙상블을 생성하고 ’shap.multioutput_decision_plot’을 사용하여 모델의 예측을 그립니다.</p>
 <p>5겹 CV를 사용하여 5개의 LightGBM 모델 앙상블을 훈련합니다.</p>
 <div id="cell-49" class="cell" data-execution_count="26">
@@ -1358,8 +1358,8 @@ Best score: 0.2785044277595166</code></pre>
 </div>
 </div>
 </section>
-<section id="shap-상호작용-값" class="level2" data-number="20.5">
-<h2 data-number="20.5" class="anchored" data-anchor-id="shap-상호작용-값"><span class="header-section-number">20.5</span> SHAP 상호작용 값</h2>
+<section id="shap-상호작용-값" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="shap-상호작용-값"><span class="header-section-number">19.5</span> SHAP 상호작용 값</h2>
 <p>결정 플롯은 여기에 표시된 것처럼 SHAP 상호 작용 값을 지원합니다. 플롯 하단의 ’explainer.expected_value’에 선이 완전히 수렴되지는 않습니다. 이는 교호작용과 주효과를 포함하여 N(N + 1)/2 = 12(13)/2 = 78개의 특징이 있지만 결정 플롯에는 기본적으로 가장 중요한 20개의 특징만 표시되기 때문입니다. 더 많은 기능을 표시하는 방법을 알아보려면 “표시할 기능 선택” 섹션을 참조하세요.</p>
 <div id="cell-57" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;pycharm&quot;,&quot;value&quot;:{&quot;name&quot;:&quot;#%%\n&quot;}}" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>shap.decision_plot(expected_value, shap_interaction_values, features, link<span class="op">=</span><span class="st">"logit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1400,8 +1400,8 @@ Best score: 0.2785044277595166</code></pre>
 </div>
 </div>
 </section>
-<section id="플롯-간-순서와-규모-유지" class="level2" data-number="20.6">
-<h2 data-number="20.6" class="anchored" data-anchor-id="플롯-간-순서와-규모-유지"><span class="header-section-number">20.6</span> 플롯 간 순서와 규모 유지</h2>
+<section id="플롯-간-순서와-규모-유지" class="level2" data-number="19.6">
+<h2 data-number="19.6" class="anchored" data-anchor-id="플롯-간-순서와-규모-유지"><span class="header-section-number">19.6</span> 플롯 간 순서와 규모 유지</h2>
 <p>직접 비교를 용이하게 하기 위해 동일한 기능 순서와 x축 배율을 사용하여 여러 결정 플롯을 만드는 것이 도움이 되는 경우가 많습니다. ’return_objects=True’인 경우 결정 플롯은 후속 플롯에서 사용할 수 있는 플롯 구조를 반환합니다.</p>
 <div id="cell-62" class="cell" data-scrolled="false" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the first plot, returning the plot structures.</span></span>
@@ -1433,8 +1433,8 @@ Best score: 0.2785044277595166</code></pre>
 </div>
 </div>
 </section>
-<section id="표시할-기능-선택" class="level2" data-number="20.7">
-<h2 data-number="20.7" class="anchored" data-anchor-id="표시할-기능-선택"><span class="header-section-number">20.7</span> 표시할 기능 선택</h2>
+<section id="표시할-기능-선택" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="표시할-기능-선택"><span class="header-section-number">19.7</span> 표시할 기능 선택</h2>
 <p>결정 플롯에 표시되는 특징은 ‘feature_order’와 ’feature_display_range’라는 두 가지 매개변수로 제어됩니다. <code>feature_order</code> 매개변수는 표시 전에 기능의 순서를 결정합니다. ’feature_display_range’ 매개변수는 정렬된 기능 중 표시할 기능을 결정합니다. ‘slice’ 또는 ‘range’ 개체를 인수로 사용합니다. ‘feature_display_range’ 매개변수는 지형지물이 오름차순으로 표시되는지 내림차순으로 표시되는지 여부도 제어합니다.</p>
 <p>예를 들어, <code>feature_order='importance'</code>(기본값)인 경우 결정 플롯은 표시하기 전에 중요도에 따라 <em>오름차순</em>으로 기능을 정렬합니다. <code>feature_display_range=slice(-1, -21, -1)</code>(기본값)인 경우 플롯에는 마지막(즉, 가장 중요한) 20개의 기능이 내림차순으로 표시됩니다. ‘slice(-1, -21, -1)’ 객체는 “마지막 기능에서 시작하여 끝부터 21번째 기능까지 -1단계로 반복”하는 것으로 해석됩니다. 끝점 -21은 포함되지 않습니다.</p>
 <p><code>feature_display_range</code> 매개변수는 `hclust’ 순서가 적용될 때 특히 중요합니다. 이 경우 중요한 기능 중 상당수가 기능 범위의 시작 부분에 배치됩니다. 그러나 결정 플롯에는 기본적으로 특성 범위의 끝이 표시됩니다.</p>
@@ -1511,8 +1511,8 @@ Best score: 0.2785044277595166</code></pre>
 </div>
 </div>
 </section>
-<section id="shap-기본-값-변경" class="level2" data-number="20.8">
-<h2 data-number="20.8" class="anchored" data-anchor-id="shap-기본-값-변경"><span class="header-section-number">20.8</span> SHAP 기본 값 변경</h2>
+<section id="shap-기본-값-변경" class="level2" data-number="19.8">
+<h2 data-number="19.8" class="anchored" data-anchor-id="shap-기본-값-변경"><span class="header-section-number">19.8</span> SHAP 기본 값 변경</h2>
 <p>SHAP 값은 모두 일부 기본 값에 상대적입니다. 기본적으로 기본 값은 훈련 데이터에 대한 원시 모델 예측의 평균인 <code>explainer.expected_value</code>입니다.</p>
 <div id="cell-73" class="cell" data-scrolled="true" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The model's training mean</span></span>
@@ -1977,12 +1977,12 @@ Best score: 0.2785044277595166</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../../api_examples/plots/beeswarm.html" class="pagination-link" aria-label="`beeswarm` 플롯">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../api_examples/plots/heatmap.html" class="pagination-link" aria-label="`히트맵` 플롯">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
