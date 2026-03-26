@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; 기여 가이드 (Contributing Guide) – shap 문서</title>
+<title>5&nbsp; 기여 가이드 (Contributing Guide) – SHAP 문서</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./genomic_examples.html" rel="next">
-<link href="./benchmarks.html" rel="prev">
+<link href="./release_notes.html" rel="next">
+<link href="./api_examples.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./contributing.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">기여 가이드 (Contributing Guide)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./overviews.html">기초 및 오버뷰</a></li><li class="breadcrumb-item"><a href="./contributing.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">기여 가이드 (Contributing Guide)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">shap 문서</a> 
+      <a href="./">SHAP 문서</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -149,574 +149,610 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">SHAP 공식 문서</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">기초 및 오버뷰</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./overviews.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">주제별 개요 (Overviews)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">API 참조 (API Reference)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">API 참조 (API Reference)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./api_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">API 사용 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">API 사용 예제</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">성능 벤치마크 (Benchmarks)</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./contributing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">기여 가이드 (Contributing Guide)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./genomic_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">유전체 데이터 (Genomic) 예제</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">이미지 예시</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./overviews.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">주제별 개요 (Overviews)</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./release_notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">릴리스 노트 (Release Notes)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">릴리스 노트 (Release Notes)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">정형 데이터 (Tabular)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">정형 데이터 (Tabular) 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">정형 데이터 (Tabular) 예제</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./text_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">텍스트 데이터 (Text) 예제</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/explainers/Exact.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>정확한</code> 설명</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/explainers/GPUTree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>GPUTree</code> 설명</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/explainers/Permutation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><code>순열</code> 설명</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/maskers/custom.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">커스텀 마스커 사용하기</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/migrating-to-new-api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">새로운 “Explanation” API로 마이그레이션</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/bar.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><code>bar</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/beeswarm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/decision_plot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/heatmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/image.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><code>이미지</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/scatter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><code>scatter</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><code>텍스트</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/violin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><code>바이올린</code> 요약 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./api_examples/plots/waterfall.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><code>폭포</code> 플롯</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks/image/Image Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">이미지 데이터 설명 벤치마킹: 이미지 다중 클래스 분류</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks/others/Benchmark Debug Mode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">일반 벤치마킹 디버깅 도구</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks/tabular/Benchmark XGBoost explanations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">벤치마크 XGBoost 설명</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks/tabular/Tabular Prediction Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">테이블 형식 데이터 설명 벤치마킹: Xgboost 회귀</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks/text/Abstractive Summarization Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 추상적인 요약</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks/text/Machine Translation Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 기계 번역</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./benchmarks/text/Text Emotion Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 감정 다중 클래스 분류</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./genomic_examples/DeepExplainer Genomics Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">DeepExplainer 유전체학 예</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_captioning/Image Captioning using Azure Cognitive Services.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Azure Cognitive Services 및 파티션 설명을 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_captioning/Image Captioning using Open Source.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">오픈 소스 이미지 캡션 모델과 파티션 설명자를 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Explain MobilenetV2 using the Partition explainer (PyTorch).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 PyTorch MobileNetV2를 설명합니다.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Explain ResNet50 using the Partition explainer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50을 설명합니다.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet (PyTorch).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">ImageNet(PyTorch)에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">ImageNet에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Front Page DeepExplainer MNIST Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">첫 페이지 DeepExplainer MNIST 예</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Image Multi Class.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50 ImageNet 분류를 설명합니다.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow)-checkpoint.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/Multi-input Gradient Explainer MNIST Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">다중 입력 그라디언트 설명 MNIST 예제</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./image_examples/image_classification/PyTorch Deep Explainer MNIST example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">PyTorch 심층 설명 MNIST 예</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./overviews/An introduction to explainable AI with Shapley values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Shapley Value를 활용한 설명 가능한 AI(XAI) 입문</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./overviews/Be careful when interpreting predictive models in search of causal insights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">인과적 통찰을 위한 예측 모델 해석 시 주의사항</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./overviews/Explaining quantitative measures of fairness.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">공정성의 정량적 측정 지표 해석하기</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/linear_models/Explaining a model that uses standardized features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">표준화된 특성을 사용하는 모델 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">표준화된 특성을 사용하는 모델 설명</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/linear_models/Math behind LinearExplainer with correlation feature perturbation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">상관 특성 섭동을 포함한 LinearExplainer의 수학</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">상관 특성 섭동을 포함한 LinearExplainer의 수학</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/linear_models/Sentiment Analysis with Logistic Regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">로지스틱 회귀를 이용한 감성 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">로지스틱 회귀를 이용한 감성 분석</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/model_agnostic/Census income classification with scikit-learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 인구 조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 인구 조사 소득 분류</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/model_agnostic/Diabetes regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">scikit-learn을 이용한 당뇨병 퇴행</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">scikit-learn을 이용한 당뇨병 퇴행</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/model_agnostic/Iris classification with scikit-learn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 붓꽃 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">scikit-learn을 사용한 붓꽃 분류</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/model_agnostic/Multioutput Regression SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">다중 출력 회귀 모델의 SHAP 값</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">다중 출력 회귀 모델의 SHAP 값</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/model_agnostic/Simple California Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">심플 캘리포니아 데모 2.0</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">심플 캘리포니아 데모 2.0</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/model_agnostic/Simple Kernel SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">간단한 커널 SHAP</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">간단한 커널 SHAP</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/model_agnostic/Squashing Effect.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">스쿼싱 함수가 특성 중요도에 어떻게 영향을 미칠 수 있나요?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">스쿼싱 함수가 특성 중요도에 어떻게 영향을 미칠 수 있나요?</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/neural_networks/Census income classification with Keras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">Keras를 이용한 인구조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Keras를 이용한 인구조사 소득 분류</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Basic SHAP Interaction Value Example in XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">XGBoost의 기본 SHAP 상호 작용 값 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">XGBoost의 기본 SHAP 상호 작용 값 예</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Catboost tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Catboost 튜토리얼</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Catboost 튜토리얼</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Census income classification with LightGBM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">LightGBM을 이용한 인구조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">LightGBM을 이용한 인구조사 소득 분류</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Census income classification with XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">XGBoost를 이용한 인구 조사 소득 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">XGBoost를 이용한 인구 조사 소득 분류</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Example of loading a custom tree model into SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">사용자 정의 트리 모델을 SHAP에 로드하는 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">사용자 정의 트리 모델을 SHAP에 로드하는 예</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Explaining a simple OR function.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">간단한 OR 함수 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">간단한 OR 함수 설명</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Explaining the Loss of a Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">트리 모델의 손실 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">트리 모델의 손실 설명</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Fitting a Linear Simulation with XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">XGBoost로 선형 시뮬레이션 피팅</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">XGBoost로 선형 시뮬레이션 피팅</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Force Plot Colors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">강제 플롯 색상</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">강제 플롯 색상</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Front page example (XGBoost).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">첫 페이지 예시(XGBoost)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">첫 페이지 예시(XGBoost)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/League of Legends Win Prediction with XGBoost.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">리그 오브 레전드, XGBoost로 승리 예측</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">리그 오브 레전드, XGBoost로 승리 예측</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/NHANES I Survival Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">NHANES I 생존모델</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">NHANES I 생존모델</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Perfomance Comparison.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">Shap 값 계산을 위한 그래디언트 부스팅 라이브러리의 속도 비교</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Shap 값 계산을 위한 그래디언트 부스팅 라이브러리의 속도 비교</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Python Version of Tree SHAP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">Tree SHAP의 Python 버전</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Tree SHAP의 Python 버전</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Scatter Density vs. Violin Plot Comparison.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">분산 밀도 대 바이올린 플롯</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">분산 밀도 대 바이올린 플롯</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/Understanding Tree SHAP for Simple Models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">단순 모델에 대한 트리 SHAP 이해</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">단순 모델에 대한 트리 SHAP 이해</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figure 1 - Simple Inconsistency Example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">그림 1 - 단순한 불일치 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">그림 1 - 단순한 불일치 예</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figure 3 - User Study.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title">그림 3 - 사용자 연구</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">그림 3 - 사용자 연구</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figure 4 - Supervised Clustering Adult Census Data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title">그림 4 - 감독 클러스터링 성인 인구 조사 데이터</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">그림 4 - 감독 클러스터링 성인 인구 조사 데이터</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figure 5 - Runtime.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title">그림 5 - 런타임</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">그림 5 - 런타임</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figure 6 - Supervised Clustering R-squared.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">그림 6 - 감독 클러스터링 R-제곱</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">그림 6 - 감독 클러스터링 R-제곱</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figure 7 - Airline Tweet Sentiment Analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">그림 7 - 항공사 트윗 감정 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">그림 7 - 항공사 트윗 감정 분석</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model-Copy1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Figures 8-11 NHANES I Survival Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">그림 8-11 NHANES I 생존모델</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tabular_examples/tree_based_models/tree_shap_paper/Performance comparison copy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title">성능 비교 카피</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Performance comparison.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title">성능 비교</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">성능 비교</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tabular_examples/tree_based_models/tree_shap_paper/Tree SHAP in Python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title">보스턴 데이터세트 로드</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">보스턴 데이터세트 로드</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">이미지 데이터 (Image)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">이미지 예시</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_captioning/Image Captioning using Azure Cognitive Services.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Azure Cognitive Services 및 파티션 설명을 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_captioning/Image Captioning using Open Source.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">오픈 소스 이미지 캡션 모델과 파티션 설명자를 사용하여 이미지 캡션(이미지를 텍스트로) 설명</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Explain MobilenetV2 using the Partition explainer (PyTorch).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 PyTorch MobileNetV2를 설명합니다.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Explain ResNet50 using the Partition explainer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50을 설명합니다.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet (PyTorch).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">ImageNet(PyTorch)에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Explain an Intermediate Layer of VGG16 on ImageNet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">ImageNet에서 VGG16의 중간 계층을 설명합니다.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Front Page DeepExplainer MNIST Example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">첫 페이지 DeepExplainer MNIST 예</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Image Multi Class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title"><code>Partition</code> 설명자를 사용하여 ResNet50 ImageNet 분류를 설명합니다.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Multi-class ResNet50 on ImageNet (TensorFlow).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">ImageNet(TensorFlow)의 다중 클래스 ResNet50</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/Multi-input Gradient Explainer MNIST Example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">다중 입력 그라디언트 설명 MNIST 예제</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./image_examples/image_classification/PyTorch Deep Explainer MNIST example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">PyTorch 심층 설명 MNIST 예</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">텍스트 데이터 (Text)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./text_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">텍스트 데이터 (Text) 예제</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/language_modelling/Language Modeling Explanation Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title">Text to Multiclass 설명: 언어 모델링 예제</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Text to Multiclass 설명: 언어 모델링 예제</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/question_answering/Explaining a Question Answering Transformers Model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title">질문 답변 트랜스포머 모델 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">질문 답변 트랜스포머 모델 설명</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/sentiment_analysis/Emotion classification multiclass example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title">감정 분류 멀티클래스 예시</span></span></a>
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">감정 분류 멀티클래스 예시</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/sentiment_analysis/Keras LSTM for IMDB Sentiment Classification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title">IMDB 감정 분류를 위한 Keras LSTM</span></span></a>
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">IMDB 감정 분류를 위한 Keras LSTM</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/sentiment_analysis/Positive vs. Negative Sentiment Classification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title">긍정적인 감정과 부정적인 감정 분류</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">긍정적인 감정과 부정적인 감정 분류</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/sentiment_analysis/Using custom functions and tokenizers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title">사용자 정의 함수 및 토크나이저 사용</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">사용자 정의 함수 및 토크나이저 사용</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/summarization/Abstractive Summarization Explanation Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title">텍스트 대 텍스트 설명: 추상적인 요약 예</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">텍스트 대 텍스트 설명: 추상적인 요약 예</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/text_entailment/Textual Entailment Explanation Demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title">다중 입력 텍스트 설명: Facebook BART를 사용한 텍스트 포함</span></span></a>
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">다중 입력 텍스트 설명: Facebook BART를 사용한 텍스트 포함</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/text_generation/Open Ended GPT2 Text Generation Explanations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title">개방형 GPT2 텍스트 생성 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">개방형 GPT2 텍스트 생성 설명</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./text_examples/translation/Machine Translation Explanations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title">기계번역 설명</span></span></a>
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title">기계번역 설명</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">기타 예제 및 벤치마크</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genomic_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title">유전체 데이터 (Genomic) 예제</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genomic_examples/DeepExplainer Genomics Example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title">DeepExplainer 유전체학 예</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title">성능 벤치마크 (Benchmarks)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks/image/Image Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title">이미지 데이터 설명 벤치마킹: 이미지 다중 클래스 분류</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks/others/Benchmark Debug Mode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title">일반 벤치마킹 디버깅 도구</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks/tabular/Benchmark XGBoost explanations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title">벤치마크 XGBoost 설명</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks/tabular/Tabular Prediction Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title">테이블 형식 데이터 설명 벤치마킹: Xgboost 회귀</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks/text/Abstractive Summarization Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 추상적인 요약</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks/text/Machine Translation Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 기계 번역</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks/text/Text Emotion Multiclass Classification Benchmark Demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title">텍스트 데이터 설명 벤치마킹: 감정 다중 클래스 분류</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">API 상세 예제</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/explainers/Exact.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title"><code>정확한</code> 설명</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/explainers/GPUTree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title"><code>GPUTree</code> 설명</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/explainers/Permutation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title"><code>순열</code> 설명</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/maskers/custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title">커스텀 마스커 사용하기</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/migrating-to-new-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title">새로운 “Explanation” API로 마이그레이션</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/bar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title"><code>bar</code> 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/beeswarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title"><code>beeswarm</code> 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/decision_plot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title"><code>결정</code> 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/heatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title"><code>히트맵</code> 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/image.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title"><code>이미지</code> 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/scatter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title"><code>scatter</code> 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title"><code>텍스트</code> 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/violin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title"><code>바이올린</code> 요약 플롯</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api_examples/plots/waterfall.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title"><code>폭포</code> 플롯</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">참고 문헌</span></a>
   </div>
 </li>
     </ul>
@@ -772,7 +808,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./overviews.html">기초 및 오버뷰</a></li><li class="breadcrumb-item"><a href="./contributing.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">기여 가이드 (Contributing Guide)</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">기여 가이드 (Contributing Guide)</span></h1>
 </div>
@@ -793,104 +829,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <ul>
 <li><a href="#소개">소개</a></li>
-<li><a href="#writing-helpful-bug-reports">효과적인 버그 리포트 작성 가이드</a></li>
-<li><a href="#installing-the-latest-version">최신 버전 설치하기</a></li>
-<li><a href="#setting-up-a-local-development-environment">로컬 개발 환경 설정</a>
+<li><a href="#효과적인-버그-리포트-작성-가이드">효과적인 버그 리포트 작성 가이드</a></li>
+<li><a href="#최신-버전-설치하기">최신 버전 설치하기</a></li>
+<li><a href="#로컬-개발-환경-설정">로컬 개발 환경 설정</a>
 <ul>
-<li><a href="#fork-the-repository">저장소 포크(Fork)</a></li>
-<li><a href="#creating-a-python-environment">Python 가상 환경 구축</a></li>
-<li><a href="#installing-from-source">소스에서 설치</a></li>
-<li><a href="#code-checks-with-precommit">pre-commit을 통한 코드 검사</a></li>
-<li><a href="#unit-tests-with-pytest">pytest를 사용한 단위 테스트</a></li>
+<li><a href="#저장소-포크fork">저장소 포크(Fork)</a></li>
+<li><a href="#python-환경-만들기">Python 가상 환경 구축</a></li>
+<li><a href="#소스에서-설치">소스에서 설치</a></li>
+<li><a href="#pre-commit을-통한-코드-검사">pre-commit을 통한 코드 검사</a></li>
+<li><a href="#pytest를-사용한-단위-테스트">pytest를 사용한 단위 테스트</a></li>
 </ul></li>
-<li><a href="#pull-requests-prs">풀 리퀘스트 (Pull Request, PR)</a>
+<li><a href="#풀-리퀘스트-pull-request-pr">풀 리퀘스트 (Pull Request, PR)</a>
 <ul>
-<li><a href="#etiquette-for-creating-prs">PR 작성 에티켓</a></li>
-<li><a href="#checklist-for-publishing-prs">PR 게시를 위한 체크리스트</a></li>
-<li><a href="#ai-usage-policy">AI 사용 정책</a></li>
+<li><a href="#pr-작성-에티켓">PR 작성 에티켓</a></li>
+<li><a href="#pr-게시를-위한-체크리스트">PR 게시를 위한 체크리스트</a></li>
+<li><a href="#ai-사용-정책">AI 사용 정책</a></li>
 </ul></li>
-<li><a href="#documentation">문서 (Documentation)</a>
+<li><a href="#문서-documentation">문서 (Documentation)</a>
 <ul>
-<li><a href="#previewing-changes-on-pull-requests">PR에서 변경 사항 미리보기</a></li>
-<li><a href="#building-the-docs-locally">로컬에서 문서 빌드하기</a></li>
+<li><a href="#pr에서-변경-사항-미리보기">PR에서 변경 사항 미리보기</a></li>
+<li><a href="#로컬에서-문서-빌드하기">로컬에서 문서 빌드하기</a></li>
 </ul></li>
-<li><a href="#jupyter-notebook-style-guide">Jupyter Notebook 스타일 가이드</a>
+<li><a href="#jupyter-notebook-스타일-가이드">Jupyter Notebook 스타일 가이드</a>
 <ul>
-<li><a href="#general-jupyter-guidelines">Jupyter 일반 지침</a></li>
-<li><a href="#links-상호-참조">링크 및 상호 참조</a></li>
-<li><a href="#notebook-linting-and-formatting">노트북 린팅 및 포매팅</a></li>
+<li><a href="#jupyter-일반-지침">Jupyter 일반 지침</a></li>
+<li><a href="#링크-및-상호-참조">링크 및 상호 참조</a></li>
+<li><a href="#노트북-린팅-및-포매팅">노트북 린팅 및 포매팅</a></li>
 </ul></li>
-<li><a href="#maintainer-guide">메인테이너 가이드</a>
+<li><a href="#메인테이너-가이드">메인테이너 가이드</a>
 <ul>
-<li><a href="#issue-triage">이슈 분류(Triage)</a></li>
-<li><a href="#pr-triage">PR 분류</a></li>
-<li><a href="#버전-관리">버전 관리</a></li>
-<li><a href="#최소-지원-종속성">최소 지원 종속성</a></li>
-<li><a href="#making-releases">릴리스 만들기</a></li>
-<li><a href="#release-notes-from-pr-labels">PR 레이블을 통한 릴리스 노트</a></li>
+<li><a href="#이슈-분류-triage">이슈 분류(Triage)</a></li>
+<li><a href="#pr-분류">PR 분류</a></li>
+<li><a href="#버전-관리-1">버전 관리</a></li>
+<li><a href="#최소-지원-종속성-1">최소 지원 종속성</a></li>
+<li><a href="#릴리스-관리-1">릴리스 관리</a></li>
+<li><a href="#라벨을-통한-릴리스-노트-자동화">라벨을 통한 릴리스 노트 자동화</a></li>
 </ul></li>
 </ul>
 <section id="소개" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="소개"><span class="header-section-number">5.1</span> 소개</h2>
 <p>SHAP 프로젝트에 참여해 주셔서 감사합니다! SHAP은 오픈 소스 프로젝트이며, 여러분의 소중한 기여를 언제나 환영합니다.</p>
-<p>다음과 같은 다양한 방법으로 프로젝트에 기여하실 수 있습니다: - GitHub <a href="https://github.com/shap/shap/issues">이슈 트래커</a>에서 버그 제보 또는 새로운 기능 제안 - <a href="https://github.com/shap/shap/pulls">Pull Request (PR)</a>를 통한 코드 개선 및 버그 수정 - <a href="https://github.com/shap/shap/discussions">토론 포럼 (Discussions)</a>에서 커뮤니티와 의견 공유</p>
-<p>어디서부터 시작해야 할지 고민되신다면, <a href="https://github.com/shap/shap/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22">good first issue</a> 라벨이 붙은 이슈부터 살펴보시기를 추천합니다.</p>
+<p>다음과 같은 다양한 방법으로 프로젝트에 참여하실 수 있습니다. - GitHub <a href="https://github.com/shap/shap/issues">이슈 트래커</a>에서 버그 제보 또는 새로운 기능 제안 - <a href="https://github.com/shap/shap/pulls">Pull Request (PR)</a>를 통한 코드 개선 및 버그 수정 - <a href="https://github.com/shap/shap/discussions">토론 포럼 (Discussions)</a>에서 커뮤니티와 의견 공유</p>
+<p>어디서부터 시작해야 할지 고민되신다면, <a href="https://github.com/shap/shap/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22">good first issue</a> 라벨이 붙은 이슈부터 살펴보시는 것을 추천합니다.</p>
 </section>
 <section id="효과적인-버그-리포트-작성-가이드" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="효과적인-버그-리포트-작성-가이드"><span class="header-section-number">5.2</span> 효과적인 버그 리포트 작성 가이드</h2>
 <p>이슈 트래커를 통해 버그를 제보할 때, <strong>최소한의 재현 가능한 예제(Minimal Reproducible Example, MRE)</strong>를 함께 제공해 주시면 프로젝트 메인테이너들에게 큰 도움이 됩니다.</p>
-<p>이상적인 MRE는 다음 조건들을 갖추어야 합니다: - <strong>최소성(Minimal)</strong>: 버그 재현에 꼭 필요한 코드만을 포함합니다. - <strong>독립성(Self-contained)</strong>: 추가적인 작업 없이도 즉시 실행될 수 있도록 모든 라이브러리 임포트(import)문과 데이터를 포함합니다. - <strong>재현성(Reproducible)</strong>: 제공된 코드를 그대로 실행했을 때 동일한 문제가 확실히 발생해야 합니다.</p>
-<p>자세한 내용은 <a href="https://matthewrocklin.com/minimal-bug-reports">최소 버그 보고서 작성법</a>을 참조하세요.</p>
+<p>이상적인 MRE는 다음 조건을 갖추어야 합니다. - <strong>최소성(Minimal)</strong>: 버그 재현에 꼭 필요한 코드만을 포함합니다. - <strong>독립성(Self-contained)</strong>: 추가 작업 없이도 즉시 실행될 수 있도록 라이브러리 임포트(import)문과 데이터를 모두 포함합니다. - <strong>재현성(Reproducible)</strong>: 제공된 코드를 실행했을 때 동일한 문제가 확실히 발생해야 합니다.</p>
+<p>자세한 내용은 <a href="https://matthewrocklin.com/minimal-bug-reports">최소 버그 보고서 작성법</a>을 참고하세요.</p>
 </section>
 <section id="최신-버전-설치하기" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="최신-버전-설치하기"><span class="header-section-number">5.3</span> 최신 버전 설치하기</h2>
-<p>최신 상태의 SHAP 기능을 빠르게 사용해 보려면, <code>master</code> 브랜치에서 직접 라이브러리를 설치할 수 있습니다:</p>
+<p>SHAP의 최신 기능을 빠르게 사용해 보려면 <code>master</code> 브랜치에서 직접 라이브러리를 설치할 수 있습니다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/shap/shap.git@master</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>이는 특정 이슈나 버그가 최근의 커밋에서 수정되었는지 확인하려 할 때 매우 유용합니다. 프로젝트 기여를 계획하고 계신다면, 아래 가이드에 따라 저장소를 포크하고 로컬 개발 환경을 구축하는 것을 권장합니다.</p>
+<p>특정 이슈나 버그가 최근 커밋에서 수정되었는지 확인하려 할 때 유용합니다. 프로젝트 기여를 계획하고 계신다면, 아래 가이드에 따라 저장소를 포크하고 로컬 개발 환경을 구축하는 것이 좋습니다.</p>
 </section>
 <section id="로컬-개발-환경-설정" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="로컬-개발-환경-설정"><span class="header-section-number">5.4</span> 로컬 개발 환경 설정</h2>
 <section id="저장소-포크fork" class="level3" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="저장소-포크fork"><span class="header-section-number">5.4.1</span> 저장소 포크(Fork)</h3>
-<p><a href="https://github.com/shap/shap/fork">이 링크</a>를 클릭하여 GitHub 저장소를 여러분의 계정으로 포크(fork)하세요. 그 후, 포크한 저장소의 URL을 사용하여 로컬 환경으로 클론(clone)합니다.</p>
+<p><a href="https://github.com/shap/shap/fork">이 링크</a>를 클릭해 GitHub 저장소를 본인의 계정으로 포크(fork)하세요. 그 후, 포크한 저장소의 URL을 사용하여 로컬 환경으로 클론(clone)합니다.</p>
 </section>
 <section id="python-환경-만들기" class="level3" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="python-환경-만들기"><span class="header-section-number">5.4.2</span> Python 환경 만들기</h3>
-<p>프로젝트를 위해 새롭고 격리된 환경을 만듭니다. <code>conda</code>를 사용하는 경우:</p>
+<p>프로젝트를 위해 독립된 새 환경을 만듭니다. <code>conda</code>를 사용하는 경우 다음과 같이 입력합니다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> shap python=3.11</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate shap</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="소스에서-설치" class="level3" data-number="5.4.3">
 <h3 data-number="5.4.3" class="anchored" data-anchor-id="소스에서-설치"><span class="header-section-number">5.4.3</span> 소스에서 설치</h3>
-<p>소스에서 빌드하려면 C 확장을 빌드할 컴파일러가 필요합니다.</p>
+<p>소스에서 빌드하려면 C 확장을 컴파일할 컴파일러가 필요합니다.</p>
 <ul>
-<li>Linux에서는 다음을 사용하여 gcc를 설치할 수 있습니다:</li>
+<li>Linux에서는 다음 명령으로 gcc를 설치할 수 있습니다.</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install build-essential</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>Windows에서 컴파일러를 얻는 한 가지 방법은 <a href="https://www.mingw-w64.org/downloads/">mingw-w64</a>를 설치하는 것입니다.</li>
+<li>Windows에서는 <a href="https://www.mingw-w64.org/downloads/">mingw-w64</a> 등을 설치하여 컴파일러를 확보할 수 있습니다.</li>
 </ul>
-<p>소스 코드에 대한 모든 변경 사항이 로컬 환경에 즉시 반영되도록 <code>--editable</code> 플래그를 사용하여 프로젝트를 설치합니다:</p>
+<p>소스 코드의 변경 사항이 로컬 환경에 즉시 반영되도록 <code>--editable</code> 플래그를 사용하여 프로젝트를 설치합니다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--editable</span> <span class="st">'.[test,plots,docs]'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>pyproject.toml</code>에 정의된 다양한 의존성 옵션은 다음과 같습니다: - <code>test-core</code>: pytest를 실행하기 위한 최소한의 종속성 - <code>test</code>: 텐서플로우, 파이테스트, xgboost 등을 포함한 전체 테스트 모음 - <code>plots</code>: matplotlib를 포함한 시각화 종속성 - <code>docs</code>: Sphinx 및 Quarto 등 문서 작성을 위한 종속성</p>
+<p><code>pyproject.toml</code>에 정의된 주요 의존성 옵션은 다음과 같습니다. - <code>test-core</code>: pytest 실행을 위한 최소 종속성 - <code>test</code>: TensorFlow, Pytest, XGBoost 등을 포함한 전체 테스트 도구 - <code>plots</code>: matplotlib를 포함한 시각화 종속성 - <code>docs</code>: Sphinx 및 Quarto 등 문서 작성을 위한 종속성</p>
 <blockquote class="blockquote">
-<p><strong>참고</strong>: 소스에서 설치할 때 SHAP은 C 확장 및 CUDA 확장의 빌드를 시도합니다. CUDA를 사용할 수 없는 경우 CUDA 지원 없이 빌드를 자동으로 다시 시도하므로 출력되는 경고 메시지는 무시하셔도 무방합니다.</p>
+<p><strong>참고</strong>: 소스 설치 시 SHAP은 C 및 CUDA 확장의 빌드를 시도합니다. CUDA를 사용할 수 없는 경우 CUDA 지원 없이 자동으로 다시 빌드하므로, 이 과정에서 발생하는 경고 메시지는 무시하셔도 됩니다.</p>
 </blockquote>
 </section>
 <section id="pre-commit을-통한-코드-검사" class="level3" data-number="5.4.4">
 <h3 data-number="5.4.4" class="anchored" data-anchor-id="pre-commit을-통한-코드-검사"><span class="header-section-number">5.4.4</span> pre-commit을 통한 코드 검사</h3>
-<p>코드베이스의 일관성을 위해 <a href="https://pre-commit.com/#install">pre-commit hook</a>을 사용합니다. 로컬 환경에서 활성화하려면:</p>
+<p>코드베이스의 일관성을 유지하기 위해 <a href="https://pre-commit.com/#install">pre-commit hook</a>을 사용합니다. 로컬 환경에서 활성화하려면 다음과 같이 설정하세요.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pre-commit</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pre-commit</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>모든 파일에 대해 수동으로 검사를 실행하려면 다음 명령을 사용합니다:</p>
+<p>모든 파일에 대해 수동으로 검사를 실행하려면 다음 명령을 사용합니다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pre-commit</span> run <span class="at">--all-files</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>코드 린터 및 포매터로는 <a href="https://beta.ruff.rs/docs/">Ruff</a>를 사용하며, 로컬에서도 직접 실행할 수 있습니다:</p>
+<p>코드 린터 및 포매터로는 <a href="https://beta.ruff.rs/docs/">Ruff</a>를 사용하며, 로컬에서도 직접 실행할 수 있습니다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install ruff</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ruff</span> check .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="pytest를-사용한-단위-테스트" class="level3" data-number="5.4.5">
 <h3 data-number="5.4.5" class="anchored" data-anchor-id="pytest를-사용한-단위-테스트"><span class="header-section-number">5.4.5</span> pytest를 사용한 단위 테스트</h3>
-<p>단위 테스트 모음은 다음을 사용하여 로컬로 실행할 수 있습니다:</p>
+<p>다음 명령으로 로컬에서 단위 테스트를 실행할 수 있습니다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
@@ -898,18 +934,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="5.5" class="anchored" data-anchor-id="풀-리퀘스트-pull-request-pr"><span class="header-section-number">5.5</span> 풀 리퀘스트 (Pull Request, PR)</h2>
 <section id="pr-작성-에티켓" class="level3" data-number="5.5.1">
 <h3 data-number="5.5.1" class="anchored" data-anchor-id="pr-작성-에티켓"><span class="header-section-number">5.5.1</span> PR 작성 에티켓</h3>
-<p>PR을 보내기 전에, 먼저 <strong>이슈를 생성하여</strong> 제안하고자 하는 내용을 설명하고 중복된 작업이 진행 중인지 확인해 주세요. (오타 수정 등 매우 사소한 변경은 제외)</p>
-<p><strong>변경 범위는 가능한 작게 유지해 주세요.</strong> 새로운 기능 추가(또는 버그 수정)와 스타일 개선 등 코드 리팩토링을 하나의 PR에 섞지 말고 분리해야 합니다. 이는 리뷰어가 변경 사항을 명확히 이해하고 빠르게 반영하는 데 큰 도움이 됩니다.</p>
-<p>기능이 아직 완성되지 않았더라도, 작업 방향에 대한 피드백을 받기 위해 <strong>Draft PR을 조기에 생성하는 것을 권장합니다.</strong> <code>fix/lightgbm-warnings</code> 또는 <code>doc/contributing</code>과 같이 명확한 브랜치 이름을 사용해 주세요.</p>
-<p>PR 제목 또한 명확해야 합니다: - <code>FIX: Update parameters to remove DeprecationWarning in TreeExplainer</code> - <code>ENH: Add support for Python 3.11</code> - <code>DOCS: Fix docstring formatting in ExactExplainer</code></p>
+<p>PR을 보내기 전, 먼저 <strong>이슈를 생성하여</strong> 제안하려는 내용을 설명하고 중복된 작업이 있는지 확인해 주세요. (오타 수정 등 가벼운 변경은 제외)</p>
+<p><strong>변경 범위는 가능한 작게 유지해 주세요.</strong> 새로운 기능 추가(또는 버그 수정)와 코드 스타일 개선 등 리팩토링 작업을 하나의 PR에 섞지 말고 분리해야 합니다. 그래야 리뷰어가 변경 사항을 명확히 이해하고 빠르게 반영할 수 있습니다.</p>
+<p>기능이 완성되지 않았더라도 작업 방향에 대한 피드백을 받으려면 <strong>Draft PR을 일찍 생성하는 것이 좋습니다.</strong> 브랜치 이름은 <code>fix/lightgbm-warnings</code> 또는 <code>doc/contributing</code>과 같이 명확하게 지어주세요.</p>
+<p>PR 제목 또한 명확해야 합니다. - <code>FIX: Update parameters to remove DeprecationWarning in TreeExplainer</code> - <code>ENH: Add support for Python 3.11</code> - <code>DOCS: Fix docstring formatting in ExactExplainer</code></p>
 </section>
 <section id="pr-게시를-위한-체크리스트" class="level3" data-number="5.5.2">
 <h3 data-number="5.5.2" class="anchored" data-anchor-id="pr-게시를-위한-체크리스트"><span class="header-section-number">5.5.2</span> PR 게시를 위한 체크리스트</h3>
-<p>PR을 “검토 준비 완료(Ready for review)” 상태로 변경하기 전에 다음을 확인하세요: - 기능 브랜치가 <code>master</code> 브랜치의 최신 내용과 동기화되었는지 - 모든 <a href="#code-checks-with-precommit">pre-commit 로컬 검사</a>가 통과되었는지 - 새로운 기능이나 버그 수정에 대응하는 단위 테스트가 추가되었는지</p>
+<p>PR을 “검토 준비 완료(Ready for review)” 상태로 변경하기 전에 다음 사항을 확인하세요. - 기능 브랜치가 <code>master</code> 브랜치의 최신 내용과 동기화되었는지 - 모든 <a href="#pre-commit을-통한-코드-검사">pre-commit 로컬 검사</a>를 통과했는지 - 새로운 기능이나 버그 수정에 대한 단위 테스트가 추가되었는지</p>
 </section>
 <section id="ai-사용-정책" class="level3" data-number="5.5.3">
 <h3 data-number="5.5.3" class="anchored" data-anchor-id="ai-사용-정책"><span class="header-section-number">5.5.3</span> AI 사용 정책</h3>
-<p>이 저장소는 LLM(대규모 언어 모델)을 활용하여 작성된 PR을 환영합니다. 다만, 제출 시 다음 사항을 반드시 지켜주세요: - <strong>AI 활용 여부를 명시하세요.</strong> AI 에이전트가 어떤 작업을 수행했는지, 어떤 도움을 받았으며 어느 정도까지 자율적으로 작동했는지 상세히 설명해 주세요. - PR에 포함된 모든 코드는 <strong>직접 작성한 것처럼 완벽히 이해</strong>하고 책임질 수 있어야 합니다. - 이 저장소는 사람이 꼼꼼하게 관리하므로, AI로 인해 불필요하게 코드가 비대해지지 않도록 <strong>간결하고 최적화된 방식</strong>으로 작성해 주세요. - 향후 코드를 관리할 메인테이너들이 확신을 가지고 유지보수할 수 있도록 충분한 설명과 근거를 제공하는 것은 코드 기여자의 책임입니다. - AI 모델은 저작권이 있는 코드를 그대로 생성할 위험이 있습니다. 기여자는 제출물이 오픈소스 라이선스 및 저작권을 위반하지 않는지 확인할 책임이 있습니다. - 위 조건이 충족되지 않을 경우 해당 PR은 통보 없이 종료될 수 있습니다.</p>
+<p>이 프로젝트는 LLM(대규모 언어 모델)을 활용하여 작성된 PR을 환영합니다. 다만, 제출 시 다음 사항을 반드시 지켜주세요. - <strong>AI 활용 여부를 밝혀주세요.</strong> AI 에이전트가 어떤 작업을 수행했는지, 어떤 도움을 받았으며 어느 정도까지 자율적으로 작동했는지 상세히 설명해야 합니다. - PR에 포함된 모든 코드는 <strong>본인이 직접 작성한 것처럼 완벽히 이해</strong>하고 책임질 수 있어야 합니다. - 이 저장소는 사람이 꼼꼼하게 관리하므로, AI로 인해 불필요하게 코드가 비대해지지 않도록 <strong>간결하고 최적화된 방식</strong>으로 작성해 주세요. - 향후 코드를 관리할 메인테이너들이 확신을 가지고 유지보수할 수 있도록 충분한 설명과 근거를 제공하는 것은 기여자의 책임입니다. - AI 모델은 저작권이 있는 코드를 그대로 생성할 위험이 있습니다. 기여자는 제출물이 오픈소스 라이선스 및 저작권을 위반하지 않는지 확인해야 합니다. - 위 조건이 충족되지 않을 경우 해당 PR은 별도 통보 없이 닫힐 수 있습니다.</p>
 </section>
 </section>
 <section id="문서-documentation" class="level2" data-number="5.6">
@@ -917,31 +953,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>문서는 <a href="https://shap.readthedocs.io/en/latest/">shap.readthedocs.io</a>에 호스팅됩니다. Docstring이나 Notebook 문서를 수정한 경우 변경 사항이 제대로 렌더링되는지 확인해야 합니다.</p>
 <section id="pr에서-변경-사항-미리보기" class="level3" data-number="5.6.1">
 <h3 data-number="5.6.1" class="anchored" data-anchor-id="pr에서-변경-사항-미리보기"><span class="header-section-number">5.6.1</span> PR에서 변경 사항 미리보기</h3>
-<p>문서는 각 PR마다 자동으로 빌드되어 미리보기를 제공합니다: 1. PR 페이지 하단의 “Show all checks”를 클릭합니다. 2. <code>docs/readthedocs.org</code> 검사 항목을 찾습니다. 3. <code>Details</code> 링크를 클릭하여 문서 미리보기 웹사이트를 엽니다.</p>
+<p>문서는 각 PR마다 자동으로 빌드되어 미리보기를 제공합니다. 1. PR 페이지 하단의 “Show all checks”를 클릭합니다. 2. <code>docs/readthedocs.org</code> 검사 항목을 찾습니다. 3. <code>Details</code> 링크를 클릭하여 문서 미리보기 웹사이트를 엽니다.</p>
 </section>
 <section id="로컬에서-문서-빌드하기" class="level3" data-number="5.6.2">
 <h3 data-number="5.6.2" class="anchored" data-anchor-id="로컬에서-문서-빌드하기"><span class="header-section-number">5.6.2</span> 로컬에서 문서 빌드하기</h3>
-<p>로컬에서 문서를 빌드하려면: 1. <code>docs</code> 디렉토리로 이동합니다. 2. <code>make html</code> (또는 Quarto의 경우 <code>pixi run quarto render</code>)를 실행합니다. 3. 브라우저에서 생성된 HTML 파일(<code>_build/html/index.html</code> 또는 <code>_book/index.html</code>)을 엽니다.</p>
+<p>로컬에서 문서를 빌드하려면 다음 절차를 따르세요. 1. <code>docs</code> 디렉토리로 이동합니다. 2. <code>make html</code> (또는 Quarto의 경우 <code>pixi run quarto render</code>)을 실행합니다. 3. 브라우저에서 생성된 HTML 파일(<code>_build/html/index.html</code> 또는 <code>_book/index.html</code>)을 엽니다.</p>
 <p>문서 빌드 의존성은 <code>docs/requirements-docs.txt</code> 등에 고정되어 있습니다.</p>
 </section>
 </section>
 <section id="jupyter-notebook-스타일-가이드" class="level2" data-number="5.7">
 <h2 data-number="5.7" class="anchored" data-anchor-id="jupyter-notebook-스타일-가이드"><span class="header-section-number">5.7</span> Jupyter Notebook 스타일 가이드</h2>
-<p>Jupyter Notebook 파일을 문서에 추가하거나 변경할 때 다음 지침을 준수해 주세요.</p>
+<p>Jupyter Notebook 파일을 새로 추가하거나 수정할 때는 다음 지침을 지켜주세요.</p>
 <section id="jupyter-일반-지침" class="level3" data-number="5.7.1">
 <h3 data-number="5.7.1" class="anchored" data-anchor-id="jupyter-일반-지침"><span class="header-section-number">5.7.1</span> Jupyter 일반 지침</h3>
 <ul>
-<li>커밋하기 전에 반드시 <strong>“Kernel &gt; Restart &amp; Run All”</strong>을 수행하여 모든 셀이 순서대로 정상적으로 실행되며 숨겨진 상태 에러가 없는지 확인하세요.</li>
-<li>출력 결과에 문법 경고나 불필요한 에러 스택이 포함되지 않도록 정리해 주세요. 이는 문서 렌더링 시 로그를 혼잡하게 만듭니다.</li>
+<li>커밋하기 전에 반드시 <strong>“Kernel &gt; Restart &amp; Run All”</strong>을 실행하여 모든 셀이 순서대로 정상 작동하는지, 숨겨진 상태 에러는 없는지 확인하세요.</li>
+<li>출력 결과에 문법 경고나 불필요한 에러 스택이 포함되지 않도록 정리해 주세요. 로그가 지저분해지면 문서 렌더링 결과도 깔끔하지 않습니다.</li>
 </ul>
 </section>
 <section id="링크-및-상호-참조" class="level3" data-number="5.7.2">
 <h3 data-number="5.7.2" class="anchored" data-anchor-id="링크-및-상호-참조"><span class="header-section-number">5.7.2</span> 링크 및 상호 참조</h3>
-<p>문서를 읽는 사람들에게 충분한 배경 맥락을 제공할 수 있도록, 관련된 내용이 있다면 가능한 한 링크를 사용하세요. 절대 경로보다 상대 경로(Relative Path)를 우선적으로 사용하는 것이 좋습니다.</p>
+<p>독자에게 충분한 배경 맥락을 제공할 수 있도록, 관련 내용이 있다면 가급적 링크를 활용하세요. 절대 경로보다는 상대 경로(Relative Path)를 우선 사용하는 것이 좋습니다.</p>
 </section>
 <section id="노트북-린팅-및-포매팅" class="level3" data-number="5.7.3">
 <h3 data-number="5.7.3" class="anchored" data-anchor-id="노트북-린팅-및-포매팅"><span class="header-section-number">5.7.3</span> 노트북 린팅 및 포매팅</h3>
-<p><code>pre-commit</code> 및 <code>Ruff</code>를 이용해 노트북 파일도 자동으로 린팅과 포매팅 검사가 진행됩니다. 특정 노트북만 수동으로 점검하고 싶다면 아래와 같이 실행할 수 있습니다:</p>
+<p><code>pre-commit</code> 및 <code>Ruff</code>를 통해 노트북 파일도 자동으로 린팅과 포매팅 검사가 진행됩니다. 특정 노트북만 수동으로 점검하려면 다음과 같이 실행하세요.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pre-commit</span> run <span class="at">--files</span> notebook1.ipynb notebook2.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
@@ -949,15 +985,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="5.8" class="anchored" data-anchor-id="메인테이너-가이드"><span class="header-section-number">5.8</span> 메인테이너 가이드</h2>
 <section id="이슈-분류-triage" class="level3" data-number="5.8.1">
 <h3 data-number="5.8.1" class="anchored" data-anchor-id="이슈-분류-triage"><span class="header-section-number">5.8.1</span> 이슈 분류 (Triage)</h3>
-<p>버그 보고 및 기능 요청은 GitHub 이슈 트래커에서 관리되며 자동화를 활용해 정리합니다. - 새로운 기여자에게 적합한 이슈에는 <code>good first issue</code> 라벨을 붙입니다. - 추가 정보가 필요한 경우 <code>awaiting feedback</code> 라벨을 부여합니다. - <code>stale</code> 봇이 오랫동안 활동이 없는 이슈 및 PR을 관리합니다. 장기 추적이 필요한 이슈에는 <code>todo</code> 라벨을 붙여 <code>stale</code> 봇을 방지합니다.</p>
+<p>버그 보고 및 기능 요청은 GitHub 이슈 트래커에서 관리하며 자동화를 활용해 정리합니다. - 새로운 기여자에게 적합한 이슈에는 <code>good first issue</code> 라벨을 붙입니다. - 추가 정보가 필요한 경우 <code>awaiting feedback</code> 라벨을 붙입니다. - <code>stale</code> 봇이 오랫동안 활동이 없는 이슈 및 PR을 관리합니다. 장기 추적이 필요한 이슈에는 <code>todo</code> 라벨을 붙여 <code>stale</code> 봇의 동작을 방지합니다.</p>
 </section>
 <section id="pr-분류" class="level3" data-number="5.8.2">
 <h3 data-number="5.8.2" class="anchored" data-anchor-id="pr-분류"><span class="header-section-number">5.8.2</span> PR 분류</h3>
-<p>Pull Request에는 <code>bug</code>, <code>enhancement</code>, <code>breaking</code> 등의 카테고리 라벨이 할당되어야 합니다. 이는 릴리스 노트를 자동으로 분류하는 데 사용됩니다. 모든 PR은 병합되기 전 최소 1명 이상의 리뷰 및 승인을 받아야 하며, 선형적인 깃 히스토리를 위해 가급적 <strong>“Squash and merge”</strong>로 병합합니다.</p>
+<p>Pull Request에는 <code>bug</code>, <code>enhancement</code>, <code>breaking</code> 등 카테고리 라벨을 할당해야 합니다. 이는 릴리스 노트를 자동으로 분류하는 데 사용됩니다. 모든 PR은 병합 전 최소 1명 이상의 리뷰와 승인을 받아야 하며, 깔끔한 커밋 히스토리를 위해 가급적 <strong>“Squash and merge”</strong>로 병합합니다.</p>
 </section>
 <section id="버전-관리" class="level3" data-number="5.8.3">
 <h3 data-number="5.8.3" class="anchored" data-anchor-id="버전-관리"><span class="header-section-number">5.8.3</span> 버전 관리</h3>
-<p>SHAP은 PEP 440 및 유의적 버전(Semantic Versioning) 원칙을 부분적으로 따르며, 버전 형식은 <code>MAJOR.MINOR.PATCH</code>를 사용합니다. 일반적으로 메이저 업데이트보다는 <code>minor</code> 단위의 릴리스가 한두 달에 한 번씩 이루어지며, 치명적인 버그가 발견될 경우 <code>patch</code> 릴리스를 진행합니다. 이전 버전과의 호환성을 중단하는 변경(Breaking changes)이 포함될 경우, 사용자의 혼란을 최소화하기 위해 충분한 지원 중단(Deprecation) 안내 기간을 가집니다.</p>
+<p>SHAP은 PEP 440 및 유의적 버전(Semantic Versioning) 원칙을 부분적으로 따르며, <code>MAJOR.MINOR.PATCH</code> 형식을 사용합니다. 일반적으로 메이저 업데이트보다는 <code>minor</code> 단위의 릴리스가 한두 달에 한 번씩 이루어지며, 치명적인 버그가 발견되면 <code>patch</code> 릴리스를 진행합니다. 이전 버전과의 호환성이 끊어지는 변경(Breaking changes)이 포함될 경우, 사용자의 혼란을 줄이기 위해 충분한 유예(Deprecation) 기간을 가집니다.</p>
 </section>
 <section id="최소-지원-종속성" class="level3" data-number="5.8.4">
 <h3 data-number="5.8.4" class="anchored" data-anchor-id="최소-지원-종속성"><span class="header-section-number">5.8.4</span> 최소 지원 종속성</h3>
@@ -968,11 +1004,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="릴리스-관리" class="level3" data-number="5.8.5">
 <h3 data-number="5.8.5" class="anchored" data-anchor-id="릴리스-관리"><span class="header-section-number">5.8.5</span> 릴리스 관리</h3>
-<p>새로운 릴리스는 GitHub Releases를 통해 태그와 함께 발행됩니다. 코드가 메인 저장소에 병합되면 <code>build_wheels</code> GitHub Action이 PyPI 배포용 휠(wheel) 버전을 자동으로 빌드합니다. Conda 패키지의 경우, <a href="https://github.com/conda-forge/shap-feedstock">conda-forge feedstock</a> 저장소의 봇이 PyPI 업데이트를 감지하여 자동으로 풀 리퀘스트를 생성합니다.</p>
+<p>새 릴리스는 GitHub Releases를 통해 태그와 함께 발행됩니다. 코드가 메인 저장소에 병합되면 <code>build_wheels</code> GitHub Action이 PyPI 배포용 휠(wheel) 버전을 자동으로 빌드합니다. Conda 패키지의 경우 <a href="https://github.com/conda-forge/shap-feedstock">conda-forge feedstock</a> 저장소의 봇이 PyPI 업데이트를 감지하여 자동으로 풀 리퀘스트를 생성합니다.</p>
 </section>
 <section id="라벨을-통한-릴리스-노트-자동화" class="level3" data-number="5.8.6">
 <h3 data-number="5.8.6" class="anchored" data-anchor-id="라벨을-통한-릴리스-노트-자동화"><span class="header-section-number">5.8.6</span> 라벨을 통한 릴리스 노트 자동화</h3>
-<p>GitHub의 릴리스 노트 자동 생성 기능을 활용하며, 각 PR에 부착된 라벨(enhancement, bug 등)에 따라 카테고리가 분류되어 기록됩니다. 따라서 모든 PR에는 명확한 라벨링과 내용을 잘 설명하는 제목이 필수적입니다.</p>
+<p>GitHub의 릴리스 노트 자동 생성 기능을 활용하며, 각 PR에 붙은 라벨(enhancement, bug 등)에 따라 카테고리가 분류됩니다. 따라서 모든 PR에는 명확한 라벨링과 내용을 잘 설명하는 제목이 필수입니다.</p>
 
 
 </section>
@@ -1381,13 +1417,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./benchmarks.html" class="pagination-link" aria-label="성능 벤치마크 (Benchmarks)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">성능 벤치마크 (Benchmarks)</span></span>
+      <a href="./api_examples.html" class="pagination-link" aria-label="API 사용 예제">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">API 사용 예제</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./genomic_examples.html" class="pagination-link" aria-label="유전체 데이터 (Genomic) 예제">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">유전체 데이터 (Genomic) 예제</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./release_notes.html" class="pagination-link" aria-label="릴리스 노트 (Release Notes)">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">릴리스 노트 (Release Notes)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
