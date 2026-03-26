@@ -10,6 +10,9 @@ book:
     - part: "기초 및 오버뷰"
       chapters:
         - overviews.qmd
+        - overviews/An introduction to explainable AI with Shapley values.ipynb
+        - overviews/Be careful when interpreting predictive models in search of causal insights.ipynb
+        - overviews/Explaining quantitative measures of fairness.ipynb
         - api.qmd
         - api_examples.qmd
         - contributing.qmd
