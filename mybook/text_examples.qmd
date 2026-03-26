@@ -24,26 +24,26 @@ listing:
     type: table
 ---
 
-이 섹션에서는 자연어 처리(NLP) 등 텍스트 데이터에 적용되는 머신러닝 모델의 예측 결과를 해석하는 사례를 다룹니다.
-모든 예제 문서는 Jupyter Notebook으로 작성되어 있으며 원본은 [GitHub](https://github.com/shap/shap/tree/master/notebooks/text_examples)에서 확인하실 수 있습니다.
+이 섹션에서는 자연어 처리(NLP) 등 텍스트 데이터에 적용된 머신러닝 모델의 예측 결과를 해석하는 사례를 다룹니다.
+모든 예제는 Jupyter Notebook으로 작성되었으며, 원본은 [GitHub](https://github.com/shap/shap/tree/master/notebooks/text_examples)에서 확인하실 수 있습니다.
 
 ## 감성 분석 (Sentiment Analysis)
 
-감성 분석 모델에 대한 긍정 및 부정 예측 과정을 SHAP로 해석하는 예제입니다.
+감성 분석 모델이 내린 긍정 또는 부정 예측의 근거를 SHAP으로 해석하는 예제입니다.
 
 ::: {#sentiment-analysis}
 :::
 
 ## 기계 번역 (Translation)
 
-기계 번역 모델이 번역 결과를 생성할 때 원문의 어떤 단어에 의존하는지 해석하는 사례입니다.
+기계 번역 모델이 결과를 생성할 때 원문의 어떤 단어에 주로 의존하는지 해석하는 사례입니다.
 
 ::: {#translation}
 :::
 
 ## 텍스트 생성 (Text Generation)
 
-GPT-2 등 개방형 텍스트 생성 모델이 문장을 이어 작성하는 과정을 해석합니다.
+GPT-2와 같은 개방형 텍스트 생성 모델이 문장을 완성해 나가는 과정을 해석합니다.
 
 ::: {#text-generation}
 :::
@@ -57,14 +57,14 @@ GPT-2 등 개방형 텍스트 생성 모델이 문장을 이어 작성하는 과
 
 ## 질의응답 (Question Answering)
 
-질문에 답변을 생성하는 모델의 예측 요인을 SHAP을 통해 상세히 파악해 봅니다.
+질문에 대한 답변을 생성하는 모델의 핵심 예측 요인을 SHAP을 통해 상세히 파악해 봅니다.
 
 ::: {#question-answering}
 :::
 
-## 모델링 및 기타 언어 분석 (Language Modeling)
+## 언어 모델링 (Language Modeling)
 
-전통적인 텍스트 언어 모델링(Language Modeling) 과정에 대한 예측 결과를 설명합니다.
+전통적인 텍스트 언어 모델링(Language Modeling) 과정의 예측 결과를 설명합니다.
 
 ::: {#language-modelling}
 :::

@@ -2,12 +2,12 @@
 
 ![image](./shap_header.png){.align-center width="600px"}
 
-**SHAP (SHapley Additive exPlanations)**는 머신러닝 모델의 예측 결과를 해석하기 위한 게임 이론 기반의 접근 방식입니다. SHAP은 게임 이론의 고전적인 Shapley value(샤플리 값)와 그 확장 개념을 활용합니다. 최적의 기여도 배분(credit allocation) 방식을 통해, 각 특성(feature)이 예측 결과에 미치는 영향을 지역적(locally)으로 상세히 설명해 줍니다.
-자세한 내용은 [관련 논문](https://github.com/shap/shap#citations)을 참고하시기 바랍니다.
+**SHAP (SHapley Additive exPlanations)**는 머신러닝 모델의 예측 결과를 해석하기 위해 게임 이론을 기반으로 고안된 접근 방식입니다. SHAP은 게임 이론의 고전적인 샤플리 값(Shapley value)과 그 확장 개념을 활용합니다. 최적의 기여도 배분(credit allocation) 방식을 통해, 각 특성(feature)이 예측 결과에 미치는 영향을 지역적(locally)으로 상세하게 설명해 줍니다.
+더 자세한 내용은 [관련 논문](https://github.com/shap/shap#citations)을 참고해 주시기 바랍니다.
 
 ## 설치 방법
 
-SHAP는 [PyPI](https://pypi.org/project/shap) 또는 [conda-forge](https://anaconda.org/conda-forge/shap)를 통해 설치할 수 있습니다:
+SHAP는 [PyPI](https://pypi.org/project/shap) 또는 [conda-forge](https://anaconda.org/conda-forge/shap)를 통해 설치할 수 있습니다.
 
 ```bash
 pip install shap

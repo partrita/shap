@@ -15,12 +15,12 @@ listing:
     type: table
 ---
 
-이 섹션에서는 다양한 데이터 유형과 모델 구조에 따른 SHAP 설명자(Explainer)들의 계산 속도 및 성능을 비교한 벤치마크 결과를 다룹니다.
-모든 예제 문서는 Jupyter Notebook으로 작성되었으며, 원본은 [GitHub 저장소](https://github.com/shap/shap/tree/master/notebooks/benchmarks)에서 확인하실 수 있습니다.
+이 섹션에서는 데이터 유형과 모델 구조에 따른 SHAP 설명자(Explainer)들의 계산 속도 및 성능 비교 벤치마크 결과를 다룹니다.
+모든 예제는 Jupyter Notebook으로 작성되었으며, 원본은 [GitHub 저장소](https://github.com/shap/shap/tree/master/notebooks/benchmarks)에서 확인하실 수 있습니다.
 
 ## 이미지 데이터 벤치마크 (Image)
 
-이미지 관찰 데이터셋에서 여러 설명 모델의 성능을 비교 평가합니다.
+이미지 데이터셋에서 여러 설명 모델의 성능을 비교 평가합니다.
 
 ::: {#image-benchmarks}
 :::

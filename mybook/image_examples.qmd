@@ -10,7 +10,7 @@ listing:
 ---
 
 이 섹션에서는 이미지 데이터에 적용된 머신러닝 모델의 예측 결과를 해석하는 사례를 다룹니다.
-모든 예제 문서는 Jupyter Notebook으로 작성되었으며, 원본은 [GitHub](https://github.com/shap/shap/tree/master/notebooks/image_examples)에서 확인하실 수 있습니다.
+모든 예제는 Jupyter Notebook으로 작성되었으며, 원본은 [GitHub](https://github.com/shap/shap/tree/master/notebooks/image_examples)에서 확인하실 수 있습니다.
 
 ## 이미지 분류 (Image Classification)
 
